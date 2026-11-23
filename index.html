@@ -147,7 +147,8 @@ header.site.scrolled{border-color:var(--line)}
 .ceo .letter span{display:block}
 .ceo .sign{margin-top:36px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .ceo .sign strong{font-size:17px}
-.ceo .sign img{height:44px;width:auto;mix-blend-mode:multiply;border-radius:6px}
+.ceo .sign img{height:44px;width:auto}
+@media (prefers-color-scheme:dark){.ceo .sign img{filter:invert(1)}}
 .ceo-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:579/645;max-width:100%;background:#c9ced6;margin:0}
 .ceo-photo img{width:100%;height:115%;object-fit:cover;display:block}
 @media (max-width:860px){.ceo-grid{grid-template-columns:1fr}.ceo-photo{max-width:440px}}
@@ -466,7 +467,7 @@ a.row:hover{background:var(--paper-2);padding-left:12px}
         <span>우리가 보유한 기술력이 미래를 앞당긴다는 자부심을 가지고,</span>
         <span>부단한 노력을 멈추지 않겠습니다. 감사합니다.</span>
       </div>
-      <div class="sign"><strong>경원상사 대표이사 박중근</strong><img src="images/sign.jpg" alt="J.K Park 서명"></div>
+      <div class="sign"><strong>경원상사 대표이사 박중근</strong><img src="images/sign.png" alt="J.K Park 서명"></div>
     </div>
     <figure class="ceo-photo"><img id="ceoimg" src="images/ceo.jpg" alt="경원상사 대표이사 박중근"></figure>
   </div></div>
