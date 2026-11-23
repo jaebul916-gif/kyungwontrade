@@ -16,7 +16,11 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font
 header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:28px;flex-wrap:wrap}
 header img{height:34px;display:block}
 header .t{display:flex;align-items:center;gap:14px}
+header .t a{display:flex;align-items:center;padding:2px;border-radius:8px;text-decoration:none;transition:opacity .18s}
+header .t a:hover{opacity:.72}
+header .t a:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
 header h1{font-size:18px;margin:0}
+a.btn{text-decoration:none}
 .muted{color:var(--soft);font-size:13px}
 .mono{font-family:var(--mono)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
@@ -54,8 +58,8 @@ input:focus,textarea:focus{outline:2px solid var(--indigo);outline-offset:1px}
 <body>
 <div class="wrap">
   <header>
-    <div class="t"><img src="../images/logo.png" alt="KYUNG WON"><h1>뉴스 관리</h1></div>
-    <div class="row"><span class="muted" id="ipinfo"></span><button class="btn ghost" id="logout" hidden>로그아웃</button></div>
+    <div class="t"><a href="../" title="경원상사 홈페이지로 이동" aria-label="경원상사 홈페이지로 이동"><img src="../images/logo.png" alt="KYUNG WON"></a><h1>뉴스 관리</h1></div>
+    <div class="row"><span class="muted" id="ipinfo"></span><a class="btn ghost" href="../">홈페이지</a><button class="btn ghost" id="logout" hidden>로그아웃</button></div>
   </header>
 
   <!-- 1. IP 확인 -->
