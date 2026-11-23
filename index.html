@@ -364,6 +364,21 @@ a.row:hover .thumb img{transform:scale(1.05)}
 .contact-card .bcard a,.contact-card .bcard span.v{display:block;margin-top:8px;font-size:18px;font-family:var(--f-display);font-weight:700;text-decoration:none;word-break:break-all}
 .people{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
 .people .bcard b{color:var(--indigo)}
+
+/* 뉴스 상세 보기 */
+.news button.row{width:100%;background:none;border:0;font:inherit;text-align:left;cursor:pointer}
+.news-dlg{border:0;padding:0;border-radius:24px;width:min(760px,calc(100vw - 32px));max-height:calc(100dvh - 48px);background:var(--paper);color:var(--ink);box-shadow:0 40px 80px -30px rgba(0,0,0,.5);overflow:auto}
+.news-dlg::backdrop{background:rgba(10,12,20,.6);backdrop-filter:blur(4px)}
+.news-dlg[open]{animation:ndIn .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes ndIn{from{opacity:0;transform:translateY(24px) scale(.98)}}
+.nd-close{position:sticky;top:12px;float:right;margin:12px 12px 0 0;width:40px;height:40px;border-radius:50%;border:0;background:var(--ink);color:var(--paper);font-size:22px;line-height:1;cursor:pointer;z-index:1}
+.nd-img{margin:0}
+.nd-img img{width:100%;max-height:420px;object-fit:cover;display:block}
+.nd-txt{padding:28px clamp(20px,4vw,40px) 36px}
+.nd-txt time{font-family:var(--f-mono);font-size:13px;color:var(--ink-soft)}
+.nd-txt h3{margin-top:8px;font-size:clamp(22px,3vw,30px);line-height:1.3}
+.nd-body{margin-top:18px;font-size:16px;line-height:1.85;color:var(--ink-soft);white-space:pre-wrap;word-break:keep-all}
+.nd-link{display:inline-block;margin-top:22px;padding:10px 18px;border-radius:999px;background:var(--ink);color:var(--paper);text-decoration:none;font-size:14px;font-weight:600}
 @media (max-width:980px){.cards-3,.cards-4,.resp,.people{grid-template-columns:1fr 1fr}.qc,.steps{grid-template-columns:1fr 1fr}.buyers{grid-template-columns:repeat(3,1fr)}.photo-pair,.patent{grid-template-columns:1fr}.news .row{grid-template-columns:132px 1fr 18px;gap:18px;padding:20px 0}.news b{font-size:16px}.news p{font-size:14px}.contact-card{grid-template-columns:1fr}.duo{grid-template-columns:1fr}}
 @media (max-width:560px){.steps,.qc,.cards-3,.cards-4,.resp,.people{grid-template-columns:1fr}.buyers{grid-template-columns:1fr 1fr}.photo-row{grid-template-columns:1fr}.news .row{grid-template-columns:96px 1fr 14px;gap:14px}.news b{font-size:15.5px}.news p{font-size:13.5px}}
 </style>
@@ -800,6 +815,8 @@ a.row:hover .thumb img{transform:scale(1.05)}
 </section>
 </main>
 
+<script src="js/supabase-config.js"></script>
+<script src="js/news.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
