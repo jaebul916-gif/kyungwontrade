@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Kyungwon Corporation — OEM and ODM manufacturer of socks, leggings, tights and stockings since 1995">
+<title>Kyungwon Corporation KYUNG WON</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans+KR:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: 쪽빛(인디고)과 실의 결을 모티프로, 큰 타이포 + 스크롤에 맞춰 짜여 나가는 니트 그래픽 */
+:root{
+  --paper:#f3f4f6; --paper-2:#e6e8ee; --ink:#12141b; --ink-soft:#4a4f5e;
+  --indigo:#2b3a96; --indigo-deep:#141c4f; --sky:#1f7fd1;
+  --line:rgba(18,20,27,.12); --on-indigo:#eef0ff;
+  --f-display:"Bricolage Grotesque","IBM Plex Sans KR",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gut:max(16px,env(safe-area-inset-left,0px)); --gut-r:max(16px,env(safe-area-inset-right,0px));
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0d0f17;--paper-2:#161a26;--ink:#eceef4;--ink-soft:#a3a8b8;--indigo:#7d8cff;--indigo-deep:#1a2366;--sky:#5fb0f5;--line:rgba(236,238,244,.12);--on-indigo:#eef0ff;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0d0f17;--paper-2:#161a26;--ink:#eceef4;--ink-soft:#a3a8b8;--indigo:#7d8cff;--indigo-deep:#1a2366;--sky:#5fb0f5;--line:rgba(236,238,244,.12);--on-indigo:#eef0ff;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--indigo);outline-offset:3px;border-radius:4px}
+.wrap{padding-left:var(--gut);padding-right:var(--gut-r);max-width:1440px;margin:0 auto}
+.wrap-inner{padding-inline:clamp(0px,3vw,48px)}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:flex;gap:10px;align-items:center;margin:0}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(34px,6vw,84px);line-height:1.04;font-weight:800;margin-top:16px}
+h3{font-size:clamp(20px,2vw,26px);font-weight:600;line-height:1.25}
+p{margin:0;max-width:62ch}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--ink-soft)}
+section{position:relative;scroll-margin-top:120px}
+.wait{display:inline-block;font-family:var(--f-mono);font-size:12px;color:var(--ink-soft);border:1px dashed var(--line);border-radius:8px;padding:6px 12px}
+
+/* ---------- 헤더 ---------- */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;border-bottom:1px solid transparent;transition:border-color .4s}
+header.site::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .4s;background:color-mix(in srgb,var(--paper) 80%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+header.site.scrolled::before{opacity:1}
+header.site.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700}
+.logo svg{width:34px;height:34px}
+.logo b{font-family:var(--f-display);font-size:19px;font-weight:800;letter-spacing:.01em}
+.menu{display:flex;gap:2px;list-style:none;margin:0;padding:0;align-items:center}
+.menu a{display:block;padding:8px 14px;border-radius:999px;text-decoration:none;font-family:var(--f-display);font-size:15px;font-weight:600;letter-spacing:.02em;transition:background .25s,color .25s}
+.menu a:hover,.menu a.on{background:var(--ink);color:var(--paper)}
+.menu .lang a{border:1px solid var(--line);font-family:var(--f-mono);font-size:12px;margin-left:8px}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:999px;width:44px;height:44px;color:var(--ink);cursor:pointer}
+@media (max-width:900px){
+  .menu{position:fixed;left:0;right:0;top:calc(68px + env(safe-area-inset-top,0px));height:calc(100dvh - 68px);flex-direction:column;align-items:stretch;background:var(--paper);padding:24px var(--gut-r) 24px var(--gut);gap:0;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .5s cubic-bezier(.7,0,.2,1),visibility 0s .5s;overflow-y:auto}
+  .menu.open{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .5s cubic-bezier(.7,0,.2,1)}
+  .menu a{font-size:34px;font-weight:800;border-radius:0;padding:14px 0;border-bottom:1px solid var(--line)}
+  .menu a:hover,.menu a.on{background:none;color:var(--indigo)}
+  .menu .lang a{font-size:14px;border:0;margin:0}
+  .burger{display:grid;place-items:center}
+}
+.subnav{position:sticky;top:calc(68px + env(safe-area-inset-top,0px));z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
+.subnav ul{display:flex;gap:4px;list-style:none;margin:0;padding:10px 0;overflow-x:auto;scrollbar-width:none}
+.subnav ul::-webkit-scrollbar{display:none}
+.subnav a{display:block;white-space:nowrap;padding:6px 14px;border-radius:999px;text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-soft);transition:background .25s,color .25s}
+.subnav a:hover{color:var(--ink)}
+.subnav a.on{background:var(--indigo);color:#fff}
+.subnav{transition:transform .4s cubic-bezier(.7,0,.2,1)}
+.subnav.away{transform:translateY(-120%);pointer-events:none;opacity:0}
+.subnav{transition:transform .4s cubic-bezier(.7,0,.2,1),opacity .3s}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden;padding-block:clamp(56px,9vw,130px) clamp(48px,7vw,96px)}
+#knit{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:clamp(44px,9.5vw,150px);line-height:.95;font-weight:800;letter-spacing:-.045em;margin-top:22px}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln span{display:inline-block}
+.hero h1 em{font-style:normal;color:var(--indigo)}
+.cta{display:inline-flex;align-items:center;gap:12px;margin-top:36px;padding:14px 22px;border-radius:999px;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:600;transition:transform .3s,background .3s}
+.cta:hover{background:var(--indigo);transform:translateY(-2px)}
+.cta svg{width:16px;height:16px}
+.scroll-hint{font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;color:var(--ink-soft);margin-top:48px;display:flex;align-items:center;gap:12px}
+.scroll-hint i{display:block;width:1px;height:38px;background:var(--line);position:relative;overflow:hidden}
+.scroll-hint i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--ink);animation:drip 1.8s infinite}
+@keyframes drip{to{top:100%}}
+
+/* ---------- 마퀴 ---------- */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding-block:18px}
+.marquee-track{display:flex;gap:48px;width:max-content;animation:mq 34s linear infinite;font-family:var(--f-display);font-size:clamp(22px,3vw,40px);font-weight:600;white-space:nowrap}
+.marquee-track span{display:flex;align-items:center;gap:48px}
+.marquee-track span::after{content:"";width:12px;height:12px;border:2px solid var(--indigo);border-radius:50%}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- 기업개요 ---------- */
+.intro{padding-block:clamp(80px,11vw,160px) clamp(40px,6vw,80px)}
+.intro-grid{display:grid;grid-template-columns:260px 1fr;gap:clamp(24px,5vw,80px)}
+.intro-grid > *{min-width:0}
+.reveal-text{font-family:var(--f-display);font-size:clamp(26px,3.4vw,50px);line-height:1.3;font-weight:600;letter-spacing:-.02em;max-width:none}
+.reveal-text .w{opacity:.18;transition:opacity .2s}
+.reveal-text .w.lit{opacity:1}
+.intro .lead{margin-top:32px}
+@media (max-width:760px){.intro-grid{grid-template-columns:1fr}}
+.prods{padding-block:clamp(40px,6vw,80px)}
+.prod-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:40px}
+.prod{background:var(--paper-2);border-radius:24px;padding:24px 20px;display:flex;flex-direction:column;align-items:center;gap:14px;transition:transform .5s cubic-bezier(.2,.8,.2,1),background .4s,color .4s;min-width:0}
+.prod:hover{transform:translateY(-8px);background:var(--indigo);color:#fff}
+.prod svg{width:100%;height:auto;aspect-ratio:1/1;max-width:100%}
+.prod svg .ic{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transform-origin:50% 50%;transform-box:fill-box}
+.prod:hover svg .ic{animation:wig .8s ease}
+@keyframes wig{30%{transform:rotate(-4deg)}60%{transform:rotate(3deg)}}
+.prod h3{font-size:20px}
+@media (max-width:900px){.prod-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
+.org{padding-block:clamp(60px,8vw,120px) clamp(80px,10vw,140px)}
+.org-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:center;margin-top:48px}
+.org-wrap > *{min-width:0}
+.org-ring{position:relative;aspect-ratio:1/1;max-width:520px;width:100%;margin-inline:auto}
+.org-ring svg{width:100%;height:100%;overflow:visible}
+.org-ring .seg{cursor:pointer;transition:transform .5s cubic-bezier(.2,.8,.2,1);transform-origin:260px 260px}
+.org-ring .seg:hover,.org-ring .seg.on{transform:scale(1.04)}
+.org-ring .center{position:absolute;inset:32%;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--paper);border:6px solid var(--paper-2)}
+.org-ring .center b{display:block;font-size:clamp(16px,1.8vw,22px)}
+.org-ring .center span{font-family:var(--f-display);font-weight:800;font-size:clamp(14px,1.8vw,24px)}
+.org-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.dept{border-bottom:1px solid var(--line);padding-block:20px;display:grid;grid-template-columns:56px 1fr;gap:16px;transition:opacity .3s}
+.dept .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:#fff}
+.dept .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dept h3{font-size:22px}
+.dept ul{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 8px}
+.dept li{font-size:14px;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:3px 12px}
+.org-list.focus .dept{opacity:.35}
+.org-list.focus .dept.on{opacity:1}
+@media (max-width:860px){.org-wrap{grid-template-columns:1fr}}
+
+/* ---------- CEO ---------- */
+.ceo{background:var(--paper-2);padding-block:clamp(80px,10vw,150px);overflow:hidden}
+.ceo-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,80px);align-items:end}
+.ceo-grid > *{min-width:0}
+.ceo blockquote{margin:28px 0 0;font-family:var(--f-display);font-size:clamp(28px,3.6vw,54px);line-height:1.2;font-weight:700;letter-spacing:-.03em}
+.ceo blockquote em{font-style:normal;color:var(--indigo)}
+.ceo .letter{margin-top:36px;font-size:16px;color:var(--ink-soft);line-height:2}
+.ceo .letter span{display:block}
+.ceo .sign{margin-top:36px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ceo .sign strong{font-size:17px}
+.ceo .sign img{height:44px;width:auto;mix-blend-mode:multiply;border-radius:6px}
+.ceo-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:579/645;max-width:100%;background:#c9ced6;margin:0}
+.ceo-photo img{width:100%;height:115%;object-fit:cover;display:block}
+@media (max-width:860px){.ceo-grid{grid-template-columns:1fr}.ceo-photo{max-width:440px}}
+
+/* ---------- 비전 ---------- */
+.vision{padding-block:clamp(80px,10vw,150px)}
+.vision .lead{margin-top:24px}
+.tri{position:relative;margin-top:56px;max-width:1100px;margin-inline:auto}
+.tri svg.lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.tri svg.lines path{fill:none;stroke:var(--indigo);stroke-width:1.5;stroke-dasharray:6 6;opacity:.6}
+.tri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.vm{display:flex;flex-direction:column;align-items:flex-start;gap:18px;min-width:0}
+.vm:nth-child(2){margin-top:120px}
+.vm:nth-child(3){margin-top:40px}
+.orb{width:clamp(120px,13vw,170px);aspect-ratio:1/1;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(from var(--a,0deg),var(--indigo-deep),var(--indigo),var(--sky),var(--indigo-deep));animation:spin 8s linear infinite;flex:none}
+.orb::before{content:"";position:absolute;inset:12px;border-radius:50%;background:var(--paper);box-shadow:inset 0 -6px 18px rgba(0,0,0,.08)}
+.orb b{position:relative;font-family:var(--f-display);font-style:italic;font-weight:800;font-size:clamp(16px,1.6vw,22px);letter-spacing:.02em}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.vm p{font-size:17px;line-height:1.7}
+.vision-band{margin-top:clamp(60px,8vw,100px);border-radius:28px;overflow:hidden;position:relative;aspect-ratio:21/8;max-width:100%;background:#1c2431}
+.vision-band canvas{position:absolute;inset:0;width:100%;height:100%}
+@media (max-width:760px){.tri-grid{grid-template-columns:1fr}.vm:nth-child(n){margin-top:0}.tri svg.lines{display:none}.vm{flex-direction:row;align-items:center}.orb{width:110px}.vision-band{aspect-ratio:4/3}}
+
+/* ---------- 연혁 ---------- */
+.history{background:var(--indigo-deep);color:var(--on-indigo);padding-block:clamp(80px,10vw,140px) 0;overflow:hidden}
+.history .eyebrow{color:color-mix(in srgb,var(--on-indigo) 70%,transparent)}
+.history .lead{color:color-mix(in srgb,var(--on-indigo) 78%,transparent);max-width:56ch}
+.h-pin{overflow:hidden;margin-top:56px}
+.h-track{display:flex;gap:clamp(20px,3vw,40px);padding-left:var(--gut);padding-right:var(--gut-r);padding-bottom:clamp(60px,8vw,120px);width:max-content;align-items:flex-start}
+.era{width:min(82vw,420px);flex:none}
+.era-head{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/10;max-width:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.era-head canvas{position:absolute;inset:0;width:100%;height:100%}
+.era-head .yr{position:relative;font-family:var(--f-display);font-style:italic;font-weight:800;font-size:clamp(48px,5vw,72px);line-height:1;letter-spacing:-.03em}
+.era-head .tt{position:relative;font-size:16px;margin-top:8px;opacity:.9}
+.events{list-style:none;margin:20px 0 0;padding:0}
+.events li{display:grid;grid-template-columns:86px 1fr;gap:12px;padding-block:14px;border-bottom:1px dashed rgba(238,240,255,.22);min-width:0}
+.events time{font-family:var(--f-mono);font-size:15px;color:#a9b3ff;font-variant-numeric:tabular-nums}
+.events span{font-size:15px;line-height:1.55}
+@media (max-width:760px){.h-track{width:auto;flex-direction:column}.era{width:100%}}
+
+/* ---------- 인증 및 수상실적 ---------- */
+.cert{padding-block:clamp(80px,10vw,140px)}
+.cert .lead{margin-top:24px}
+.wrap-feature{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,64px);margin-top:56px;padding-top:40px;border-top:1px solid var(--ink);align-items:start}
+.wrap-feature > *{min-width:0}
+.doc{margin:0;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(18,20,27,.45);background:#fff;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.doc img{display:block;width:100%;height:auto}
+.wrap-feature h3{font-size:clamp(24px,2.4vw,32px)}
+.wrap-feature p{margin-top:14px;color:var(--ink-soft);font-size:17px}
+.wrap-logo{margin-top:28px;width:170px;border-radius:12px;background:#fff;padding:6px}
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,40px);margin-top:56px;padding-block:40px;border-block:1px solid var(--line)}
+.docs .doc{perspective:800px}
+.docs figcaption{padding:12px 4px 0;font-size:14px;color:var(--ink-soft);background:var(--paper)}
+.docs figure{margin:0;min-width:0}
+@media (max-width:860px){.wrap-feature{grid-template-columns:1fr}.docs{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.docs{grid-template-columns:1fr}}
+
+
+/* ---------- FACTORY 국내공장 ---------- */
+.factory{padding-block:clamp(80px,10vw,150px);background:var(--paper)}
+.factory .subnav-f{display:flex;gap:6px;margin-top:4px}
+.factory .subnav-f a,.factory .subnav-f span{padding:6px 14px;border-radius:999px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid var(--line)}
+.factory .subnav-f .on{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.factory .lead{margin-top:24px}
+.gallery{position:relative;margin-top:48px}
+.g-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:28px}
+.g-track::-webkit-scrollbar{display:none}
+.g-slide{flex:0 0 100%;scroll-snap-align:center;margin:0;border-radius:28px;overflow:hidden;aspect-ratio:16/9;max-width:100%;background:var(--paper-2)}
+.g-slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08);transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.g-slide.in img{transform:scale(1)}
+.g-ui{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:16px}
+.g-count{font-family:var(--f-mono);font-size:13px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.g-btns{display:flex;gap:8px}
+.g-btns button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer;font-size:18px;transition:background .25s,color .25s}
+.g-btns button:hover{background:var(--ink);color:var(--paper)}
+.g-btns button:disabled{opacity:.3;cursor:default;background:none;color:var(--ink)}
+.cap{margin-top:clamp(56px,7vw,96px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,80px);align-items:start}
+.cap > *{min-width:0}
+.cap-total .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}
+.cap-total .v{font-family:var(--f-display);font-size:clamp(44px,6vw,92px);font-weight:800;letter-spacing:-.04em;line-height:1;margin-top:10px;font-variant-numeric:tabular-nums}
+.cap-total .v small{font-size:.3em;color:var(--indigo);margin-left:6px;letter-spacing:0}
+.cap-total .m{margin-top:14px;font-size:17px;color:var(--ink-soft)}
+.cap-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.cap-wrap{overflow-x:auto}
+.cap-table th{font-size:13px;font-weight:500;color:var(--ink-soft);text-align:left;padding:12px 10px;border-bottom:2px solid var(--ink)}
+.cap-table th:not(:first-child),.cap-table td:not(:first-child){text-align:right}
+.cap-table td{padding:14px 10px;border-bottom:1px solid var(--line);font-size:16px;position:relative;white-space:nowrap}
+.cap-table td:first-child{font-weight:600}
+.cap-table tbody tr{transition:background .25s}
+.cap-table tbody tr:hover{background:var(--paper-2)}
+.cap-table .bar{display:block;height:4px;border-radius:4px;background:var(--indigo);margin-top:6px;margin-left:auto;transform-origin:right;width:var(--w)}
+.cap-table tfoot td{font-weight:700;border-bottom:2px solid var(--ink);font-size:18px}
+@media (max-width:860px){.cap{grid-template-columns:1fr}}
+
+/* ---------- 미수집 메뉴 ---------- */
+.more{padding-block:clamp(60px,8vw,110px);border-top:1px solid var(--line)}
+.more-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.more-card{background:var(--paper-2);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0;scroll-margin-top:120px}
+.more-card b{font-family:var(--f-display);font-size:28px;font-weight:800}
+@media (max-width:900px){.more-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- 찾아오시는 길 ---------- */
+.contact{background:var(--ink);color:var(--paper);padding-block:clamp(80px,10vw,150px) 40px;overflow:hidden}
+.contact .eyebrow{color:color-mix(in srgb,var(--paper) 60%,transparent)}
+.contact h2{font-size:clamp(44px,8vw,130px);letter-spacing:-.045em;line-height:.95}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px);margin-top:56px}
+.loc{min-width:0}
+.mapbox{border-radius:24px;overflow:hidden;position:relative;aspect-ratio:4/3;max-width:100%;background:#1b1e29}
+.mapbox canvas{width:100%;height:100%;display:block}
+.maplinks{position:absolute;right:12px;bottom:12px;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.maplinks a{background:var(--paper);color:var(--ink);text-decoration:none;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600}
+.loc h3{margin-top:24px;font-size:26px;padding-bottom:14px;border-bottom:1px solid color-mix(in srgb,var(--paper) 20%,transparent)}
+.loc dl{display:grid;grid-template-columns:84px 1fr;margin:0}
+.loc dt,.loc dd{margin:0;padding-block:12px;border-bottom:1px solid color-mix(in srgb,var(--paper) 10%,transparent)}
+.loc dt{font-size:14px;color:color-mix(in srgb,var(--paper) 55%,transparent)}
+.loc dd{font-size:17px;font-variant-numeric:tabular-nums;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.copy{background:none;border:1px solid color-mix(in srgb,var(--paper) 30%,transparent);color:var(--paper);border-radius:999px;padding:4px 12px;font:inherit;font-size:12px;cursor:pointer}
+.copy:hover{background:var(--paper);color:var(--ink)}
+footer.site{margin-top:90px;display:flex;gap:32px;flex-wrap:wrap;font-size:13px;line-height:1.9;color:color-mix(in srgb,var(--paper) 55%,transparent);border-top:1px solid color-mix(in srgb,var(--paper) 16%,transparent);padding-top:28px}
+footer.site p{max-width:none}
+footer.site strong{color:var(--paper);font-family:var(--f-display);font-size:20px;letter-spacing:.02em}
+@media (max-width:860px){.loc-grid{grid-template-columns:1fr}}
+
+.cursor{position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--indigo);pointer-events:none;z-index:100;transition:width .3s,height .3s,opacity .3s;opacity:0}
+.cursor.big{width:64px;height:64px;opacity:.25!important}
+@media (hover:none){.cursor{display:none}}
+.progress{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:2px;background:var(--indigo);width:100%;transform-origin:left;transform:scaleX(0);z-index:70}
+@media (prefers-reduced-motion:reduce){.marquee-track,.scroll-hint i::after,.orb{animation:none}.reveal-text .w{opacity:1}*{transition:none!important}}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<style>
+/* ---------- BUSINESS / R&D / PRESS ---------- */
+.sec{padding-block:clamp(80px,10vw,150px)}
+.sec > .wrap > .wrap-inner > .lead{margin-top:24px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:32px}
+.chips a{padding:7px 15px;border-radius:999px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid var(--line);color:inherit;transition:background .25s,color .25s,border-color .25s}
+.chips a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.blk{margin-top:clamp(56px,7vw,96px);scroll-margin-top:120px}
+.blk-h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.blk-h .no{font-family:var(--f-mono);font-size:12px;color:var(--indigo)}
+.blk-h h3{font-size:clamp(26px,3vw,40px)}
+.blk-h .en{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;color:var(--ink-soft);text-transform:uppercase;margin-left:auto;padding-bottom:4px}
+.blk > .lead{margin-top:24px}
+.blk-p{margin-top:24px;color:var(--ink-soft);font-size:17px}
+.cards-3,.cards-4{display:grid;gap:14px;margin-top:28px}
+.cards-3{grid-template-columns:repeat(3,1fr)}
+.cards-4{grid-template-columns:repeat(4,1fr)}
+.bcard{background:var(--paper-2);border-radius:20px;padding:24px;min-width:0}
+.bcard b{display:block;font-family:var(--f-display);font-size:19px;font-weight:700;line-height:1.25}
+.bcard p{margin-top:10px;font-size:15px;line-height:1.65;color:var(--ink-soft)}
+.bcard .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo);display:block;margin-bottom:8px}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;list-style:none;margin:28px 0 0;padding:0;counter-reset:s}
+.steps li{border:1px solid var(--line);border-radius:16px;padding:18px 16px 20px;min-width:0;position:relative;overflow:hidden}
+.steps li::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--indigo);opacity:.85}
+.steps .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--indigo)}
+.steps b{display:block;margin-top:8px;font-size:19px;font-family:var(--f-display);font-weight:700}
+.steps em{font-style:normal;font-family:var(--f-mono);font-size:11px;color:var(--ink-soft);letter-spacing:.06em}
+.qc{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;list-style:none;margin:28px 0 0;padding:0}
+.qc li{border-top:2px solid var(--ink);padding-top:14px;min-width:0}
+.qc .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;color:var(--indigo);display:block;margin-bottom:6px}
+.qc b{font-size:15px;font-family:var(--f-display);font-weight:600}
+.qc p{margin-top:8px;font-size:13.5px;line-height:1.6;color:var(--ink-soft)}
+.qms{margin-top:40px;border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,36px);background:var(--paper-2)}
+.qms h4{margin:0;font-family:var(--f-display);font-size:22px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.qms h4 span{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft)}
+.qms > p{margin-top:14px;font-size:15px;line-height:1.75;color:var(--ink-soft)}
+.qms .cards-3{margin-top:22px}
+.qms .bcard{background:var(--paper);border:1px solid var(--line)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.duo .bcard b{font-size:15px;color:var(--indigo);font-family:var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+.duo .bcard span{display:block;margin-top:10px;font-size:18px;font-family:var(--f-display);font-weight:700;line-height:1.35}
+.resp{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.resp .bcard{padding:20px}
+.resp .bcard b{font-size:16px}
+.resp .bcard p{font-size:13.5px}
+.acts{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:9px}
+.acts li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:15px;color:var(--ink-soft);line-height:1.6}
+.acts li::before{content:"—";color:var(--indigo)}
+.buyers{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0;padding:0;list-style:none}
+.buyer{background:#fff;border:1px solid var(--line);border-radius:16px;aspect-ratio:4/3;display:grid;place-items:center;padding:16px;margin:0}
+.buyer img{max-width:100%;max-height:52px;width:auto;height:auto;object-fit:contain;filter:grayscale(1);opacity:.82;transition:filter .3s,opacity .3s,transform .3s}
+.buyer:hover img{filter:none;opacity:1;transform:scale(1.05)}
+.photo-pair{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-top:32px}
+.photo-pair figure{margin:0;border-radius:22px;overflow:hidden;background:var(--paper-2);aspect-ratio:16/9}
+.photo-pair img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+.photo-row figure{margin:0;border-radius:18px;overflow:hidden;aspect-ratio:16/5.2;background:var(--paper-2)}
+.photo-row img{width:100%;height:100%;object-fit:cover;display:block}
+.chipset{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0;list-style:none}
+.chipset li{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.patent{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(20px,4vw,56px);margin-top:44px;align-items:center;padding-top:36px;border-top:1px solid var(--line)}
+.patent figure{margin:0;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 24px 50px -30px rgba(18,20,27,.45)}
+.patent img{display:block;width:100%;height:auto}
+.patent h4{margin:0 0 8px;font-family:var(--f-display);font-size:22px}
+.patent .pn{font-family:var(--f-mono);font-size:13px;color:var(--indigo)}
+.patent p{margin-top:14px;font-size:16px;line-height:1.75;color:var(--ink-soft)}
+.news{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--ink)}
+.news li{border-bottom:1px solid var(--line)}
+.news .row{display:grid;grid-template-columns:104px 1fr 22px;gap:16px;padding:20px 0;text-decoration:none;align-items:start;color:inherit;transition:background .25s,padding-left .25s}
+a.row:hover{background:var(--paper-2);padding-left:12px}
+.news time{font-family:var(--f-mono);font-size:13px;color:var(--ink-soft);font-variant-numeric:tabular-nums;padding-top:3px}
+.news b{display:block;font-size:17px;font-family:var(--f-display);font-weight:600;line-height:1.4}
+.news p{margin-top:6px;font-size:14.5px;line-height:1.65;color:var(--ink-soft)}
+.news .arw{color:var(--indigo);font-size:15px;text-align:right;padding-top:2px}
+.contact-card{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.contact-card .bcard b{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.contact-card .bcard a,.contact-card .bcard span.v{display:block;margin-top:8px;font-size:18px;font-family:var(--f-display);font-weight:700;text-decoration:none;word-break:break-all}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.people .bcard b{color:var(--indigo)}
+@media (max-width:980px){.cards-3,.cards-4,.resp,.people{grid-template-columns:1fr 1fr}.qc,.steps{grid-template-columns:1fr 1fr}.buyers{grid-template-columns:repeat(3,1fr)}.photo-pair,.patent{grid-template-columns:1fr}.news .row{grid-template-columns:1fr}.news time{order:-1}.contact-card{grid-template-columns:1fr}.duo{grid-template-columns:1fr}}
+@media (max-width:560px){.steps,.qc,.cards-3,.cards-4,.resp,.people{grid-template-columns:1fr}.buyers{grid-template-columns:1fr 1fr}.photo-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="cursor" id="cursor"></div>
+
+<header class="site" id="hdr">
+  <div class="wrap"><nav class="nav wrap-inner" aria-label="Main menu">
+    <a class="logo" href="#top" aria-label="Kyungwon home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="var(--indigo)"/><path d="M10 11v18M10 20l8-9M13 17l7 12" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M20 12l3 16 3.5-11 3.5 11 3-16" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <b>KYUNG WON</b>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#company" data-sec="company">COMPANY</a></li>
+      <li><a href="#business" data-sec="business">BUSINESS</a></li>
+      <li><a href="#rnd" data-sec="rnd">R&amp;D</a></li>
+      <li><a href="#factory" data-sec="factory">FACTORY</a></li>
+      <li><a href="#press" data-sec="press">PRESS</a></li>
+      <li class="lang"><a href="index.html" hreflang="ko">한국어</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu">
+      <svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 1h18M0 11h18" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+  </nav></div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="hero-t">
+  <canvas id="knit" aria-hidden="true"></canvas>
+  <div class="wrap"><div class="wrap-inner">
+    <p class="eyebrow">Kyung Won Trading Corporation</p>
+    <h1 id="hero-t">
+      <span class="ln"><span>Since 1995,</span></span>
+      <span class="ln"><span>we <em>build the trust</em></span></span>
+    </h1>
+    <p class="lead" style="margin-top:28px;max-width:52ch">We offer integrated services — sampling, knitting, linking, finishing, QC and packaging — to promote a better and more comfortable lifestyle.</p>
+    <a class="cta" href="#overview">Company overview <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></a>
+    <div class="scroll-hint"><i></i>SCROLL</div>
+  </div></div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track">
+  <span>Socks</span><span>Leggings</span><span>Stockings</span><span>Underwear</span><span>etc.</span>
+  <span>Socks</span><span>Leggings</span><span>Stockings</span><span>Underwear</span><span>etc.</span>
+</div></div>
+
+<div id="company"></div>
+<nav class="subnav" aria-label="COMPANY sub menu"><div class="wrap"><ul class="wrap-inner" id="subnav">
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#ceo">CEO message</a></li>
+  <li><a href="#vision">Vision</a></li>
+  <li><a href="#history">History</a></li>
+  <li><a href="#cert">Certification</a></li>
+  <li><a href="#location">Location</a></li>
+</ul></div></nav>
+
+<!-- Overview -->
+<section class="intro" id="overview" aria-labelledby="ov-t">
+  <div class="wrap"><div class="wrap-inner intro-grid">
+    <div><p class="eyebrow">Introduction</p><h2 id="ov-t" style="font-size:clamp(28px,3vw,40px)">Overview</h2></div>
+    <div>
+      <p class="reveal-text" id="reveal">Kyungwon Corporation is a global leader in knitted products ranging from socks to leggings and tights.</p>
+      <p class="lead">We have been endeavouring to become a competitive partner for global brands by providing quality products and services that satisfy customers and improve the quality of their lives. We do not stop here: we keep widening our categories through challenge and innovation to cover the whole of our customers’ lifestyle.</p>
+    </div>
+  </div></div>
+</section>
+
+<section class="prods" aria-labelledby="pd-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="pd-t">Products</h2>
+    <div class="prod-grid" id="prodgrid"></div>
+  </div></div>
+</section>
+
+<section class="org" aria-labelledby="org-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="org-t">Organization</h2>
+    <div class="org-wrap">
+      <div class="org-ring" id="orgring">
+        <svg viewBox="0 0 520 520" id="orgsvg" aria-hidden="true"></svg>
+        <div class="center"><div><b>Organization</b><span>TEAMS</span></div></div>
+      </div>
+      <div class="org-list" id="orglist"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- CEO -->
+<section class="ceo" id="ceo" aria-labelledby="ceo-t">
+  <div class="wrap"><div class="wrap-inner ceo-grid">
+    <div>
+      <p class="eyebrow">CEO Message</p>
+      <h2 id="ceo-t" style="font-size:clamp(28px,3vw,40px)">CEO message</h2>
+      <blockquote>“We always think of customers first,<br>and pursue <em>changes and innovation</em>.”</blockquote>
+      <div class="letter">
+        <span>Hello, I am J.K. Park, CEO of Kyungwon Corporation.</span>
+        <span>Thank you for visiting our company.</span>
+        <span>What sets us apart from our competitors is the question we keep asking about essence.</span>
+        <span>We always think about essence.</span>
+        <span>We hope the products we make deliver value beyond their physical form,</span>
+        <span>and that our care for essence reaches our customers.</span>
+        <span>Meeting and communicating with the world through socks and other textile products,</span>
+        <span>the fundamental goal we pursue</span>
+        <span>is the creation of a better, more comfortable lifestyle for people.</span>
+        <span>With differentiated service built on insight into people, we promise to deliver products —</span>
+        <span>and value beyond them — to our customers.</span>
+        <span>With the pride that our technology brings the future closer,</span>
+        <span>we will not stop making ceaseless efforts. Thank you.</span>
+      </div>
+      <div class="sign"><strong>J.K. Park, CEO</strong><img src="images/sign.jpg" alt="J.K Park signature"></div>
+    </div>
+    <figure class="ceo-photo"><img id="ceoimg" src="images/ceo.jpg" alt="J.K. Park, CEO of Kyungwon Corporation"></figure>
+  </div></div>
+</section>
+
+<!-- Vision -->
+<section class="vision" id="vision" aria-labelledby="vi-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="vi-t">Vision</h2>
+    <p class="lead">We pursue new changes based on unchanging values, and do our best to make the customers who wear our socks happy and to improve their quality of life.</p>
+    <div class="tri" id="tri">
+      <svg class="lines" aria-hidden="true"><path id="triPath"/></svg>
+      <div class="tri-grid">
+        <div class="vm"><div class="orb"><b>VISION</b></div><p>A company that creates new value in our customers’ lives,<br>growing into a total lifestyle business<br>that covers the whole of their lifestyle</p></div>
+        <div class="vm"><div class="orb"><b>STRATEGY</b></div><p>Our rich trading experience<br>and the technology gained through it,<br>systematically analysed into the KY mastering process</p></div>
+        <div class="vm"><div class="orb"><b>MISSION</b></div><p>The happiness of our customers<br>and the improvement of their quality of life<br>through the products we make</p></div>
+      </div>
+    </div>
+    <div class="vision-band"><canvas id="sunset" aria-hidden="true"></canvas></div>
+  </div></div>
+</section>
+
+<!-- History -->
+<section class="history" id="history" aria-labelledby="hi-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="hi-t">History</h2>
+    <p class="lead" style="margin-top:20px">Since its foundation in 1995, Kyungwon Corporation has established itself as a textile company covering the world, built on the technology of its own factories and a spirit of challenge that does not fear change.</p>
+  </div></div>
+  <div class="h-pin" id="hpin"><div class="h-track" id="htrack"></div></div>
+</section>
+
+<!-- Certification -->
+<section class="cert" id="cert" aria-labelledby="ce-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="ce-t">Certification</h2>
+    <p class="lead">To return our customers’ trust with excellent products and services,<br>we hold certifications from accredited institutions.</p>
+    <div class="wrap-feature">
+      <figure class="doc tilt"><img src="images/cert-wrap.jpg" alt="WRAP Gold Certificate of Compliance - Kyungwon Trading Corporation"></figure>
+      <div>
+        <h3>WRAP certification</h3>
+        <p>WRAP (Worldwide Responsible Accredited Production) is a non-profit organisation that promotes safe, lawful, humane and ethical manufacturing around the world through certification and education.<br>Kyungwon Corporation holds WRAP certification.</p>
+        <img class="wrap-logo" src="images/wrap-logo.jpg" alt="WRAP Certified Facility logo">
+      </div>
+    </div>
+    <div class="docs">
+      <figure><div class="doc tilt"><img src="images/cert-rnd.jpg" alt="R&amp;D department certification"></div><figcaption>R&amp;D department certification</figcaption></figure>
+      <figure><div class="doc tilt"><img src="images/cert-innobiz.jpg" alt="INNO-BIZ certificate"></div><figcaption>INNO-BIZ certificate</figcaption></figure>
+      <figure><div class="doc tilt"><img src="images/cert-patent.jpg" alt="Patent certificate"></div><figcaption>Patent certificate</figcaption></figure>
+    </div>
+  </div></div>
+</section>
+
+<!-- FACTORY · Main factory -->
+<section class="factory" id="factory" aria-labelledby="fa-t">
+  <div class="wrap"><div class="wrap-inner">
+    <nav class="subnav-f" aria-label="FACTORY sub menu"><a class="on" href="#factory">Main factory</a><a href="#factory-ov">Overseas factory</a></nav>
+    <h2 id="fa-t">Main factory</h2>
+    <p class="lead">In our WRAP-certified factory in Iksan, the five processes of knitting, linking, finishing, packaging and inspection all take place under one roof.<br>This efficient process gives us high productivity and maximises customer satisfaction.</p>
+    <div class="gallery" data-photos="images/factory-kr-01.jpg,images/factory-kr-02.jpg,images/factory-kr-03.jpg,images/factory-kr-04.jpg,images/factory-kr-05.jpg,images/factory-kr-06.jpg,images/factory-kr-07.jpg,images/factory-kr-08.jpg,images/factory-kr-09.jpg,images/factory-kr-10.jpg,images/factory-kr-11.jpg,images/factory-kr-12.jpg,images/factory-kr-13.jpg,images/factory-kr-14.jpg,images/factory-kr-15.jpg,images/factory-kr-16.jpg,images/factory-kr-17.jpg,images/factory-kr-18.jpg,images/factory-kr-19.jpg,images/factory-kr-20.jpg,images/factory-kr-21.jpg,images/factory-kr-22.jpg" data-alt="Kyungwon main factory photo">
+      <div class="g-track"></div>
+      <div class="g-ui"><span class="g-count"></span><div class="g-btns"><button class="g-prev" aria-label="Previous photo">←</button><button class="g-next" aria-label="Next photo">→</button></div></div>
+    </div>
+    <div class="cap">
+      <div class="cap-total"><div class="k">TOTAL · capacity</div><div class="v"><span id="captotal">5,000,000</span><small>PRS</small></div><div class="m">804 machines</div></div>
+      <div class="cap-wrap"><table class="cap-table" id="captable"><thead><tr><th>Gauge</th><th>Machines</th><th>Capacity</th></tr></thead><tbody></tbody>
+        <tfoot><tr><td>TOTAL</td><td>804</td><td>5,000,000 PRS</td></tr></tfoot></table></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- FACTORY · Overseas -->
+<section class="factory" id="factory-ov" aria-labelledby="fo-t" style="padding-top:0">
+  <div class="wrap"><div class="wrap-inner">
+    <nav class="subnav-f" aria-label="FACTORY sub menu"><a href="#factory">Main factory</a><a class="on" href="#factory-ov">Overseas factory</a></nav>
+    <h2 id="fo-t">Overseas factory</h2>
+    <p class="lead">Linked with our Hanoi factory in Vietnam, we supply global brands stably and quickly.</p>
+    <div class="gallery" data-photos="images/factory-ov-01.jpg,images/factory-ov-02.jpg,images/factory-ov-03.jpg,images/factory-ov-04.jpg,images/factory-ov-05.jpg,images/factory-ov-06.jpg,images/factory-ov-07.jpg,images/factory-ov-08.jpg" data-alt="Kyungwon overseas factory photo">
+      <div class="g-track"></div>
+      <div class="g-ui"><span class="g-count"></span><div class="g-btns"><button class="g-prev" aria-label="Previous photo">←</button><button class="g-next" aria-label="Next photo">→</button></div></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- BUSINESS -->
+<section class="sec biz" id="business" aria-labelledby="bz-t">
+  <div class="wrap"><div class="wrap-inner">
+    <p class="eyebrow">Business</p>
+    <h2 id="bz-t">BUSINESS</h2>
+    <nav class="chips" aria-label="BUSINESS sub menu">
+      <a href="#biz-make">Manufacture</a><a href="#biz-sales">Management</a><a href="#biz-qc">Quality control</a><a href="#biz-csr">Compliance</a><a href="#biz-buyer">Our customer</a>
+    </nav>
+
+    <article class="blk" id="biz-make">
+      <header class="blk-h"><span class="no">01</span><h3>Manufacture</h3><span class="en">Integrated process</span></header>
+      <p class="lead">Kyungwon owns the largest in-house sock factory in Korea, in Iksan, Jeollabuk-do, and supplies global brands stably and quickly in connection with our Hanoi factory in Vietnam.</p>
+      <div class="cards-3">
+        <div class="bcard"><span class="k">01</span><b>Integrated<br>Process</b><p>From planning and sampling through knitting, linking, finishing and packaging to inspection — one vertically integrated system under a single roof.</p></div>
+        <div class="bcard"><span class="k">02</span><b>Customer<br>-Oriented</b><p>Buyers’ requirements are reflected directly in production conditions, with small-batch and mass production running on the same lines.</p></div>
+        <div class="bcard"><span class="k">03</span><b>Innovation<br>System</b><p>Production data and our own research lab drive continuous process improvement and the development of new materials and structures.</p></div>
+      </div>
+      <p class="blk-p">We also organised production into five vertically connected stages, and as a result we deliver differentiated products with excellent quality and strict lead times.</p>
+      <ol class="steps">
+        <li><span class="k">STEP 01</span><b>Knitting</b><em>Knitting</em></li>
+        <li><span class="k">STEP 02</span><b>Linking</b><em>Linking</em></li>
+        <li><span class="k">STEP 03</span><b>Finishing</b><em>Finishing</em></li>
+        <li><span class="k">STEP 04</span><b>Packing</b><em>Packing</em></li>
+        <li><span class="k">STEP 05</span><b>Inspection</b><em>Inspection</em></li>
+      </ol>
+    </article>
+
+    <article class="blk" id="biz-sales">
+      <header class="blk-h"><span class="no">02</span><h3>Management</h3><span class="en">Total solution</span></header>
+      <p class="lead">Kyungwon provides an organic total solution from product planning through production to delivery. Based on accumulated know-how we run buyer-specific management, supported by systematic inspection, accounting and management systems.</p>
+      <div class="cards-4">
+        <div class="bcard"><b>20 years of know-how</b><p>Experience built with global brands since 1995 lets us offer the most efficient custom solution.</p></div>
+        <div class="bcard"><b>Systematic management</b><p>Specialised, systematised processes guarantee quality and strict lead times, with both small-batch and mass production.</p></div>
+        <div class="bcard"><b>Competitive sourcing partners</b><p>Collaboration with domestic and overseas sourcing partners secures cost competitiveness for our customers.</p></div>
+        <div class="bcard"><b>Original planning</b><p>Continuous trend research and sample development with our R&amp;D team create products that lead the global market.</p></div>
+      </div>
+    </article>
+
+    <article class="blk" id="biz-qc">
+      <header class="blk-h"><span class="no">03</span><h3>Quality control</h3><span class="en">Global standard</span></header>
+      <p class="lead">Kyungwon has built a system that meets strict global standards and manages quality and lead time thoroughly. Step-by-step inspection lets us solve problems quickly and meet our customers’ quality requirements.</p>
+      <ol class="qc">
+        <li><span class="k">STEP 01</span><b>Yarn check</b><p>Incoming yarn is compared and matched against the list, and stacked according to the production procedure.</p></li>
+        <li><span class="k">STEP 02</span><b>Yarn quality inspection</b><p>Incoming yarn is inspected and recorded; yarn with defects is kept separately with the reason noted.</p></li>
+        <li><span class="k">STEP 03</span><b>PP sample check</b><p>For the sample confirmed by the buyer, design, colour and size are examined in detail.</p></li>
+        <li><span class="k">STEP 04</span><b>Confirmation before production</b><p>The person in charge and the QC team review potential issues and key points for the style before production starts.</p></li>
+        <li><span class="k">STEP 05</span><b>Initial product inspection</b><p>Initial products are checked in a set quantity during production to confirm the line is running without problems.</p></li>
+      </ol>
+      <div class="qms">
+        <h4>KYUNGWON QMS <span>Quality Management System</span></h4>
+        <p>Kyungwon practises a QMS quality policy. Each unit sets measurable quality objectives and puts them into practice and review. Through continuous implementation and improvement we work to produce products anyone can trust and choose.</p>
+        <div class="cards-3">
+          <div class="bcard"><b>Knitting QC</b><p>Checks colour and design against the P.P sample confirmed by the buyer, along with overall appearance, defects, loose yarn and size.</p></div>
+          <div class="bcard"><b>Linking QC</b><p>Checks both outside and inside for cutting, joining, linking and thread finishing.</p></div>
+          <div class="bcard"><b>Finishing QC</b><p>Checks bottom, ankle, rib and body size, overall packing condition, labels and stickers, and C/T box marking and quantities.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="blk" id="biz-csr">
+      <header class="blk-h"><span class="no">04</span><h3>Compliance</h3><span class="en">Sustainable management</span></header>
+      <p class="lead">Based on the mission of “a happy life and a better world for humanity”, Kyungwon practises its role as a company and keeps evolving that role with the times, fulfilling its social responsibilities and obligations.</p>
+      <div class="duo">
+        <div class="bcard"><b>Economic Value</b><span>Maximising profit through the creation of economic value</span></div>
+        <div class="bcard"><b>Social Value</b><span>Social contribution for a sustainable future</span></div>
+      </div>
+      <div class="resp">
+        <div class="bcard"><b>Economic</b><p>Creating profit and revenue through the goods and services society needs, and maintaining the continuity of the company.</p></div>
+        <div class="bcard"><b>Legal</b><p>Conducting sound economic activity within the rule of law and the rules society has set.</p></div>
+        <div class="bcard"><b>Ethical</b><p>Avoiding unethical behaviour such as environmental destruction and human rights violations, and managing to social norms.</p></div>
+        <div class="bcard"><b>Charitable</b><p>Cultural activity, donation and volunteering for a better society, and responsibility for social issues.</p></div>
+      </div>
+      <ul class="acts">
+        <li>As chairman of the Iksan Factory Development Council, working for fair trade order and local economic development</li>
+        <li>Supporting local culture and arts as a member of the Mireuksa Temple Site restoration committee</li>
+        <li>Taking part in scholarship work as a steering committee member of the youth scholarship foundation</li>
+        <li>Practising volunteering and helping neighbours in need as president of a volunteer group</li>
+        <li>Working for traffic order and crime prevention as a guidance member of the Iksan Police Station</li>
+        <li>Strictly prohibiting underage employment and forced labour, and complying with related regulations</li>
+        <li>Running work and measurement environment tests every year</li>
+        <li>Paying a monthly contribution to an environmental facility foundation, managing wastewater and waste thoroughly, and measuring the environment</li>
+      </ul>
+    </article>
+
+    <article class="blk" id="biz-buyer">
+      <header class="blk-h"><span class="no">05</span><h3>Our customer</h3><span class="en">Global partners</span></header>
+      <p class="lead">Kyungwon is a strategic partner to leading global companies and supplies them with the best products. You can find Kyungwon products in more than 40 countries around the world.</p>
+      <ul class="buyers">
+        <li class="buyer"><img src="images/buyer-01-jcrew.png" alt="J.Crew"></li>
+        <li class="buyer"><img src="images/buyer-02-madewell.png" alt="Madewell"></li>
+        <li class="buyer"><img src="images/buyer-03-express.png" alt="Express"></li>
+        <li class="buyer"><img src="images/buyer-04-talbots.png" alt="Talbots"></li>
+        <li class="buyer"><img src="images/buyer-05-pnf.png" alt="P&amp;F"></li>
+        <li class="buyer"><img src="images/buyer-06-oldnavy.png" alt="Old Navy"></li>
+        <li class="buyer"><img src="images/buyer-07-nyco.png" alt="New York &amp; Company"></li>
+        <li class="buyer"><img src="images/buyer-08-gap.png" alt="GAP"></li>
+        <li class="buyer"><img src="images/buyer-09-crewcuts.png" alt="crewcuts"></li>
+        <li class="buyer"><img src="images/buyer-10-cirque.png" alt="Cirque du Soleil"></li>
+        <li class="buyer"><img src="images/buyer-11-banana.png" alt="Banana Republic"></li>
+        <li class="buyer"><img src="images/buyer-12-alexmill.png" alt="Alex Mill"></li>
+        <li class="buyer"><img src="images/buyer-13-radley.png" alt="Radley London"></li>
+        <li class="buyer"><img src="images/buyer-14-66girls.png" alt="66girls"></li>
+        <li class="buyer"><img src="images/buyer-15-lacoste.png" alt="Lacoste"></li>
+      </ul>
+    </article>
+  </div></div>
+</section>
+
+<!-- R&D -->
+<section class="sec rnd" id="rnd" aria-labelledby="rd-t">
+  <div class="wrap"><div class="wrap-inner">
+    <p class="eyebrow">Research &amp; Development</p>
+    <h2 id="rd-t">R&amp;D</h2>
+    <nav class="chips" aria-label="R&amp;D sub menu"><a href="#rnd-lab">KW Lab</a><a href="#rnd-design">Design</a></nav>
+
+    <article class="blk" id="rnd-lab">
+      <header class="blk-h"><span class="no">01</span><h3>KW Lab</h3><span class="en">Better socks</span></header>
+      <div class="photo-pair">
+        <figure><img src="images/rnd-lab.jpg" alt="Socks made by the KW Lab" loading="lazy"></figure>
+        <figure><img src="images/rnd-sample.jpg" alt="Sample room sewing machine" loading="lazy"></figure>
+      </div>
+      <p class="lead">A department of Kyungwon researching differentiated socks with the goal of “socks that make you dream”. We invest 10% of annual revenue in R&amp;D for new products and functional patents, and hold the R&amp;D department certification of the Korea Industrial Technology Association and the INNO-BIZ certification of the Small and Medium Business Administration.</p>
+      <div class="cards-3" style="margin-top:32px">
+        <div class="bcard"><span class="k">Research area</span><b>What we research</b>
+          <ul class="chipset"><li>Deodorising</li><li>Antibacterial</li><li>Moisture wicking</li><li>Heat generating</li><li>Fragrance</li></ul>
+        </div>
+        <div class="bcard"><span class="k">Goal</span><b>Research goals</b>
+          <ul class="acts" style="margin-top:14px"><li>Harmony of comfort and aesthetics</li><li>New materials and technologies</li><li>Leading global market trends</li></ul>
+        </div>
+        <div class="bcard"><span class="k">Facility</span><b>In-house sample room</b><p>Samples are knitted immediately to a buyer’s request, so new designs develop quickly. Developers with deep understanding of socks work with KW Lab on new materials, patterns and structures.</p></div>
+      </div>
+      <div class="patent">
+        <figure class="tilt"><img src="images/cert-patent.jpg" alt="Patent for Hanji socks and their manufacturing method" loading="lazy"></figure>
+        <div>
+          <span class="pn">Patent No. 10-1752712</span>
+          <h4>Hanji socks and their manufacturing method</h4>
+          <p>Socks made by twisting spandex with Hanji yarn from the bark of the paper mulberry. Hanji’s natural antibacterial and deodorising properties reduce odour, it absorbs moisture well and dries fast. Far-infrared emission and good air flow help keep feet healthy, and the socks are cool in summer and warm in winter.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="blk" id="rnd-design">
+      <header class="blk-h"><span class="no">02</span><h3>Design</h3><span class="en">Design identity</span></header>
+      <div class="photo-row">
+        <figure><img src="images/design-01.jpg" alt="Yarn colour samples" loading="lazy"></figure>
+        <figure><img src="images/design-02.jpg" alt="Sketching a knit structure" loading="lazy"></figure>
+        <figure><img src="images/design-03.jpg" alt="Design team meeting" loading="lazy"></figure>
+        <figure><img src="images/design-04.jpg" alt="Trend analysis screen" loading="lazy"></figure>
+      </div>
+      <div class="cards-3" style="margin-top:32px">
+        <div class="bcard"><span class="k">Identity 01</span><b>We focus on essence</b><p>We think of people, not products. We design with the belief that we are creating a happy, enjoyable lifestyle for the customer who wears the product.</p></div>
+        <div class="bcard"><span class="k">Identity 02</span><b>We focus on detail</b><p>Detail is what separates good design. We care about the parts no one else notices, and that is where we differentiate.</p></div>
+        <div class="bcard"><span class="k">Identity 03</span><b>We focus on the brand</b><p>We design on the identity, philosophy and story of the buyer’s brand, built on a concept set through enough communication.</p></div>
+      </div>
+    </article>
+  </div></div>
+</section>
+
+<!-- PRESS -->
+<section class="sec press" id="press" aria-labelledby="pr-t">
+  <div class="wrap"><div class="wrap-inner">
+    <p class="eyebrow">Press</p>
+    <h2 id="pr-t">PRESS</h2>
+    <nav class="chips" aria-label="PRESS sub menu"><a href="#press-news">News</a><a href="#press-recruit">Recruit</a><a href="#press-contact">Contact us</a></nav>
+
+    <article class="blk" id="press-news">
+      <header class="blk-h"><span class="no">01</span><h3>News</h3><span class="en">What we announced</span></header>
+      <ol class="news">
+        <li><div class="row"><time>2019.12.02</time><div><b>KLAVA, our own brand, goes on sale</b><p>Kyungwon’s own brand KLAVA launches on the crowdfunding platform Wadiz on 11 December 2019.</p></div><span></span></div></li>
+        <li><div class="row"><time>2019.04.18</time><div><b>WRAP certification for ethical manufacturing</b><p>Kyungwon was recognised for lawful and ethical manufacturing by WRAP (Worldwide Responsible Accredited Production).</p></div><span></span></div></li>
+        <li><div class="row"><time>2018.07.20</time><div><b>Seoul office moved</b><p>The Seoul office moved from Bangbae-dong, Seocho-gu to Jungsan Building in Seocho-dong as of 20 July 2018.</p></div><span></span></div></li>
+        <li><a class="row" href="http://www.jeollailbo.com/news/articleView.html?idxno=526168" target="_blank" rel="noopener"><time>2017.11.13</time><div><b>Donation for low-income neighbours</b><p>Kyungwon donated 6,000 pairs of socks and 3 million won to the Iksan Happiness Sharing Market Bank.</p></div><span class="arw">↗</span></a></li>
+        <li><a class="row" href="http://www.joongdo.co.kr/main/view.php?key=20171017010004482" target="_blank" rel="noopener"><time>2017.10.16</time><div><b>Jeollabuk-do promising small business certificate</b><p>Selected among the province’s SMEs with high growth potential and strong technology.</p></div><span class="arw">↗</span></a></li>
+        <li><div class="row"><time>2017.06.26</time><div><b>Patent for Hanji socks and their manufacturing method</b><p>Recognised for the function and invention of socks made with Hanji yarn from paper mulberry bark — Patent No. 10-1752712.</p></div><span></span></div></li>
+        <li><div class="row"><time>2016.11.07</time><div><b>INNO-BIZ certificate</b><p>Certified as a technology-innovative SME by the Small and Medium Business Administration.</p></div><span></span></div></li>
+        <li><a class="row" href="http://www.newsmaker.or.kr/news/articleView.html?idxno=32503" target="_blank" rel="noopener"><time>2016.09.28</time><div><b>Iksan excellent local company certificate</b><p>Recognised for management, technology and quality, growth potential and contribution to the local community.</p></div><span class="arw">↗</span></a></li>
+        <li><a class="row" href="http://weeklytrade.co.kr/news/view.html?section=1&amp;category=3&amp;item=&amp;no=12971" target="_blank" rel="noopener"><time>2015.12.07</time><div><b>$5 million export tower on the 52nd Trade Day</b><p>Kyungwon received the export tower for reaching $5 million in exports.</p></div><span class="arw">↗</span></a></li>
+        <li><div class="row"><time>2015.09.01</time><div><b>2015 Korea Management Innovation Award</b><p>Awarded for securing competitiveness through management innovation and contributing to national industry and society.</p></div><span></span></div></li>
+        <li><a class="row" href="http://www.gukjenews.com/news/articleView.html?idxno=182163" target="_blank" rel="noopener"><time>2014.12.25</time><div><b>Sharing with neighbours in need</b><p>Kyungwon donated 5,000 pairs of socks and 3 million won through Iksan City Hall.</p></div><span class="arw">↗</span></a></li>
+        <li><a class="row" href="http://www.itnk.co.kr/news/articleView.html?idxno=44225" target="_blank" rel="noopener"><time>2014.11.11</time><div><b>Prime Minister’s Award on the 28th Textile Day</b><p>CEO J.K. Park received the Prime Minister’s Award for new product development and overseas sales that raised the global standing of Korean textiles.</p></div><span class="arw">↗</span></a></li>
+      </ol>
+    </article>
+
+    <article class="blk" id="press-recruit">
+      <header class="blk-h"><span class="no">02</span><h3>Recruit</h3><span class="en">Kyungwon people</span></header>
+      <p class="lead">We come together to make the world better. Kyungwon is waiting for people who can share the company’s and their own vision and grow together with us.</p>
+      <div class="people">
+        <div class="bcard"><b>Cooperation</b><p>People with sound values and a warm heart</p></div>
+        <div class="bcard"><b>Sincerity</b><p>People who pursue excellence with pride and responsibility</p></div>
+        <div class="bcard"><b>Innovation</b><p>People who create difference by thinking about essence</p></div>
+      </div>
+      <div class="cards-3" style="margin-top:14px">
+        <div class="bcard"><span class="k">Job</span><b>Open roles</b><ul class="chipset"><li>Overseas sales</li><li>Domestic sales</li><li>Sales support</li><li>Design</li><li>Finance / admin</li></ul></div>
+        <div class="bcard"><span class="k">Evaluation</span><b>Competency review</b><ul class="acts" style="margin-top:14px"><li>Individual review</li><li>Group review</li></ul></div>
+        <div class="bcard"><span class="k">Award</span><b>Performance · reward</b><ul class="acts" style="margin-top:14px"><li>Organisation review</li><li>Salary negotiation and incentives based on the results</li></ul></div>
+      </div>
+    </article>
+
+    <article class="blk" id="press-contact">
+      <header class="blk-h"><span class="no">03</span><h3>Contact us</h3><span class="en">Say hello</span></header>
+      <p class="lead">For product enquiries and sample requests, contact us below and our team will get back to you.</p>
+      <div class="contact-card">
+        <div class="bcard"><b>E-mail</b><a href="mailto:kyungwon@kyungwontrade.com">kyungwon@kyungwontrade.com</a></div>
+        <div class="bcard"><b>Seoul office</b><a href="tel:+8225326311">+82 2 532 6311</a></div>
+        <div class="bcard"><b>Factory</b><a href="tel:+82638353111">+82 63 835 3111</a></div>
+      </div>
+    </article>
+  </div></div>
+</section>
+
+<!-- Location -->
+<section class="contact" id="location" aria-labelledby="lo-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="lo-t">Location</h2>
+    <div class="loc-grid">
+      <article class="loc">
+        <div class="mapbox"><canvas class="map" data-kind="seoul" aria-hidden="true"></canvas>
+          <div class="maplinks"><a href="https://map.kakao.com/?q=%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EC%84%9C%EC%B4%88%EA%B5%AC%20%EC%84%9C%EC%B4%88%EC%A4%91%EC%95%99%EB%A1%9C8%EA%B8%B8%20106" target="_blank" rel="noopener">Kakao map ↗</a></div></div>
+        <h3>Seoul office</h3>
+        <dl>
+          <dt>Address</dt><dd><span>5F Jungsan Bldg., 106 Seochojungang-ro 8-gil, Seocho-gu, Seoul</span><button class="copy" data-copy="5F Jungsan Bldg., 106 Seochojungang-ro 8-gil, Seocho-gu, Seoul">Copy</button></dd>
+          <dt>Tel</dt><dd><span>+82 2 532 6311</span><button class="copy" data-copy="+82 2 532 6311">Copy</button></dd>
+          <dt>Fax</dt><dd><span>+82 2 587 3055</span></dd>
+        </dl>
+      </article>
+      <article class="loc">
+        <div class="mapbox"><canvas class="map" data-kind="iksan" aria-hidden="true"></canvas>
+          <div class="maplinks"><a href="https://map.kakao.com/?q=%EC%A0%84%EB%9D%BC%EB%B6%81%EB%8F%84%20%EC%9D%B5%EC%82%B0%EC%8B%9C%20%EC%84%9D%EC%95%94%EB%A1%9C%2017%EA%B8%B8%20147" target="_blank" rel="noopener">Kakao map ↗</a></div></div>
+        <h3>Factory</h3>
+        <dl>
+          <dt>Address</dt><dd><span>147 Seogam-ro 17-gil, Iksan-si, Jeollabuk-do</span><button class="copy" data-copy="147 Seogam-ro 17-gil, Iksan-si, Jeollabuk-do">Copy</button></dd>
+          <dt>Tel</dt><dd><span>+82 63 835 3111</span><button class="copy" data-copy="+82 63 835 3111">Copy</button></dd>
+          <dt>Fax</dt><dd><span>+82 63 835 4079</span></dd>
+        </dl>
+      </article>
+    </div>
+    <footer class="site">
+      <div><strong>KYUNG WON</strong><br><span style="font-size:11px;letter-spacing:.14em">Trading corporation</span></div>
+      <p>KYUNGWON Co., Ltd. / CEO J.K. Park<br>
+      5F Jungsan Bldg., 106 Seochojungang-ro 8-gil, Seocho-gu, Seoul / Tel +82 2 532 6311 / Fax +82 2 587 3055<br>
+      147 Seogam-ro 17-gil, Iksan-si, Jeollabuk-do / Tel +82 63 835 3111~2 / Fax +82 63 835 4079</p>
+    </footer>
+  </div></div>
+</section>
+</main>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(()=>{
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const hasGsap=typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined';
+const $=s=>document.querySelector(s);
+
+/* 생산제품 (원본: 양말, 레깅스, 스타킹, 언더웨어, etc. 기타) */
+const prods=[
+ ['Socks','<path class="ic" d="M22 16h16v30c0 4 2 6 5 8l8 6c5 4 4 12-3 13-4 1-8-1-11-3L22 58c-3-2-4-5-4-8V16z"/><path class="ic" d="M50 26h16v30c0 4 2 6 5 8l6 4c5 4 4 12-3 13-4 1-8-1-11-3L50 68c-3-2-4-5-4-8"/>'],
+ ['Leggings','<path class="ic" d="M30 14h40v8l-4 64H54l-4-50-4 50H34l-4-64z"/><path class="ic" d="M30 22h40"/>'],
+ ['Stockings','<path class="ic" d="M26 14l14-2 10 26 26 30c4 5 0 12-6 10L46 62 20 26z"/><path class="ic" d="M24 22l14-3"/>'],
+ ['Underwear','<path class="ic" d="M32 12v16M68 12v16"/><path class="ic" d="M24 40c0-10 8-14 14-12 6 2 8 8 12 12 4-4 6-10 12-12 6-2 14 2 14 12-8 6-18 6-26 0-8 6-18 6-26 0z"/><path class="ic" d="M26 64h48l-6 8c-6 8-12 12-18 14-6-2-12-6-18-14z"/>'],
+ ['etc.','<text x="50" y="60" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="28" fill="currentColor">etc.</text>'],
+];
+$('#prodgrid').innerHTML=prods.map(p=>`<article class="prod"><svg viewBox="0 0 100 100" aria-hidden="true">${p[1]}</svg><h3>${p[0]}</h3></article>`).join('');
+
+/* 주요 부서 (원본 문구 그대로) */
+const depts=[
+ {n:'R&D Center',c:'#0e1433',i:'<path d="M9 18a6 6 0 1 1 6 0v3H9z"/><path d="M10 21h4M12 3v2M5 6l1.5 1.5M19 6l-1.5 1.5"/>',l:['Market research','Trend analysis and concepts','2D and 3D CAD design','Functional yarn research','New knit structure development']},
+ {n:'Sales',c:'#1b2a6b',i:'<rect x="3" y="4" width="18" height="12" rx="1"/><path d="M6 13l4-4 3 3 5-5M9 20h6M12 16v4"/>',l:['New buyer development','Existing buyer management','Order taking and management','Export and customs documents','Shipping schedule']},
+ {n:'Production',c:'#174ea6',i:'<path d="M4 20V9l5 3V9l5 3V5h6v15z"/><path d="M8 16h2M13 16h2"/>',l:['Production scheduling','Yarn and material orders','Sampling and shipping','Partner factory management','Lab test']},
+ {n:'Quality Control',c:'#1f7fd1',i:'<rect x="5" y="3" width="14" height="18" rx="1"/><path d="M8 8l1.5 1.5L12 7M8 13l1.5 1.5L12 12M14 8h2M14 13h2M8 18h8"/>',l:['Factory management','Quality inspection','Quality management system','Defect reduction through pre-inspection','Quality management by product']},
+];
+const orgList=$('#orglist');
+orgList.innerHTML=depts.map((d,i)=>`<div class="dept" data-i="${i}"><span class="ic" style="background:${d.c}"><svg viewBox="0 0 24 24">${d.i}</svg></span><div><h3>${d.n}</h3><ul>${d.l.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`).join('');
+const svg=$('#orgsvg');const C=260,R1=250,R0=150;
+function arc(a0,a1){const p=(r,a)=>[C+r*Math.cos(a),C+r*Math.sin(a)];const [x0,y0]=p(R1,a0),[x1,y1]=p(R1,a1),[x2,y2]=p(R0,a1),[x3,y3]=p(R0,a0);return`M${x0} ${y0}A${R1} ${R1} 0 0 1 ${x1} ${y1}L${x2} ${y2}A${R0} ${R0} 0 0 0 ${x3} ${y3}Z`}
+svg.innerHTML=depts.map((d,i)=>{const a0=Math.PI*(.75+i*.5)+.03,a1=Math.PI*(1.25+i*.5)-.03,am=(a0+a1)/2,tx=C+200*Math.cos(am),ty=C+200*Math.sin(am);
+ return`<g class="seg" data-i="${i}"><path d="${arc(a0,a1)}" fill="${d.c}"/><g transform="translate(${tx-14} ${ty-26}) scale(1.15)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${d.i}</g><text x="${tx}" y="${ty+22}" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" font-family="IBM Plex Sans KR, sans-serif">${d.n}</text></g>`}).join('');
+function focus(i){orgList.classList.toggle('focus',i!=null);document.querySelectorAll('.dept,.seg').forEach(el=>el.classList.toggle('on',+el.dataset.i===i))}
+document.querySelectorAll('.seg,.dept').forEach(el=>{el.addEventListener('pointerenter',()=>focus(+el.dataset.i));el.addEventListener('pointerleave',()=>focus(null))});
+
+/* 연혁 (원본 그대로) */
+const eras=[
+ {y:"1990`s",t:'Founding and foundation',h:[205,40],e:[['1995.07','Kyungwon Trading Company founded'],['1999.08','Moved to Iksan 2nd Industrial Complex'],['1999.11','$1 million export tower']]},
+ {y:"2000`s",t:'Challenge and innovation',h:[215,60],e:[['2000.04','Incorporated as Kyungwon Corporation'],['2003.11','$3 million export tower'],['2004.11','ISO 9001 quality management system'],['2005.01','ISO 14001 environmental management system']]},
+ {y:"2010`s",t:'Steady growth',h:[228,45],e:[['2010.03','Clean workplace certification'],['2010.09','R&D department certification'],['2010.12','INNO-BIZ certification'],['2011.07','Environmental mark certification'],['2015.12','$5 million export tower'],['2017.10','Selected as a strong small business']]},
+ {y:"2020`s",t:'A new step',h:[30,55],e:[['2020.01','New factory investment in Vietnam'],['2020.01','Own brand (K.LAVA) launched'],['2020.03','Domestic expansion and new buyers']]},
+];
+const track=$('#htrack');
+track.innerHTML=eras.map((r,i)=>`<article class="era"><div class="era-head"><canvas data-h="${r.h[0]}" data-s="${r.h[1]}" data-i="${i}" aria-hidden="true"></canvas><div class="yr">${r.y}</div><div class="tt">${r.t}</div></div><ol class="events">${r.e.map(e=>`<li><time>${e[0]}</time><span>${e[1]}</span></li>`).join('')}</ol></article>`).join('');
+function drawEra(cv){const r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);cv.width=r.width*d;cv.height=r.height*d;const x=cv.getContext('2d');x.scale(d,d);
+ const w=r.width,h=r.height,H=+cv.dataset.h,S=+cv.dataset.s,I=+cv.dataset.i,n=26+I*8;
+ const g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,`hsl(${H} ${S}% 22%)`);g.addColorStop(1,`hsl(${(H+30)%360} ${S}% 40%)`);x.fillStyle=g;x.fillRect(0,0,w,h);
+ x.lineWidth=1.2;for(let k=0;k<n;k++){x.strokeStyle=`hsla(${(H+k*3)%360} 80% 80% / ${.08+.012*k})`;x.beginPath();for(let t=0;t<=w;t+=8){const y=h*.15+k*(h*.7/n)+Math.sin(t*.02+k*.4+I)*10*(1+I*.3);t?x.lineTo(t,y):x.moveTo(t,y)}x.stroke()}
+ x.fillStyle='rgba(0,0,0,.25)';x.fillRect(0,h*.55,w,h*.45);}
+
+
+/* FACTORY 국내공장: 사진 슬라이드 + 설비 표 (원본 그대로) */
+document.querySelectorAll('.gallery').forEach(g=>{
+ const photos=g.dataset.photos.split(','),alt=g.dataset.alt,track=g.querySelector('.g-track'),count=g.querySelector('.g-count'),prev=g.querySelector('.g-prev'),next=g.querySelector('.g-next');
+ track.innerHTML=photos.map((f,i)=>`<figure class="g-slide${i?'':' in'}"><img src="${f.trim()}" alt="${alt} ${i+1}" loading="${i?'lazy':'eager'}"></figure>`).join('');
+ const slides=[...track.children];let gi=0;
+ const upd=()=>{count.textContent=String(gi+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');prev.disabled=gi===0;next.disabled=gi===slides.length-1;slides.forEach((s,i)=>s.classList.toggle('in',i===gi))};
+ const go=i=>{gi=Math.max(0,Math.min(slides.length-1,i));track.scrollTo({left:slides[gi].offsetLeft-track.offsetLeft,behavior:reduce?'auto':'smooth'});upd()};
+ prev.addEventListener('click',()=>go(gi-1));next.addEventListener('click',()=>go(gi+1));
+ track.addEventListener('scroll',()=>{const i=Math.round(track.scrollLeft/track.clientWidth);if(i!==gi){gi=i;upd()}},{passive:true});
+ upd();
+});
+const capRows=[['200N S/C',246,1500000],['132N S/C, TERRY M/C',120,750000],['168N S/C',110,700000],['120N S/C',40,250000],['144N S/C',40,250000],['200N D/C',70,450000],['168N D/C',114,700000],['84N D/C (72N D/C, 96N D/C)',64,400000]];
+$('#captable tbody').innerHTML=capRows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2].toLocaleString('en-US')} PRS<span class="bar" style="--w:${(r[2]/1500000*100).toFixed(1)}%"></span></td></tr>`).join('');
+
+/* 헤더/메뉴/복사 */
+const hdr=$('#hdr'),menu=$('#menu'),burger=$('#burger');
+burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded',false)}));
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+ const t=b.dataset.copy,o=b.textContent,done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent=o,1400)};
+ const sel=()=>{const v=b.previousElementSibling;const r=document.createRange();r.selectNodeContents(v);const s=getSelection();s.removeAllRanges();s.addRange(r)};
+ if(navigator.clipboard)navigator.clipboard.writeText(t).then(done).catch(sel);else sel();
+}));
+
+/* 커서 */
+const cur=$('#cursor');let cx=0,cy=0,tx=0,ty=0;
+addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;cur.style.opacity=1});
+document.querySelectorAll('a,button,.prod,.seg,.doc').forEach(el=>{el.addEventListener('pointerenter',()=>cur.classList.add('big'));el.addEventListener('pointerleave',()=>cur.classList.remove('big'))});
+(function loop(){cx+=(tx-cx)*.18;cy+=(ty-cy)*.18;cur.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
+
+/* 인증서 3D 틸트 */
+document.querySelectorAll('.tilt').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();const px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${px*10}deg) rotateX(${-py*10}deg) scale(1.02)`});el.addEventListener('pointerleave',()=>el.style.transform='')});
+
+/* 캔버스 */
+function fit(c){const r=c.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);c.width=r.width*d;c.height=r.height*d;const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:r.height}}
+const knit=$('#knit');let K,mx=-999,my=-999;
+knit.parentElement.addEventListener('pointermove',e=>{const r=knit.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+knit.parentElement.addEventListener('pointerleave',()=>{mx=my=-999});
+function drawKnit(t){const{x,w,h}=K;x.clearRect(0,0,w,h);const s=w<700?18:24,ink=css('--ink'),ind=css('--indigo');
+ const cols=Math.ceil(w/s)+2,rows=Math.ceil(h/(s*.8))+2,off=(scrollY*.15)%(s*.8);
+ for(let r=0;r<rows;r++){const y=r*s*.8-off;for(let c=0;c<cols;c++){const X=c*s-(r%2?s/2:0);const base=Math.max(0,(X/w-.35))*1.25;const d=Math.hypot(X-mx,y-my),hov=Math.max(0,1-d/160);const wave=Math.sin(t*.0012+c*.35+r*.22)*.5+.5;const a=Math.min(.75,base*(.28+.25*wave)+hov*.7);if(a<.02)continue;const lift=hov*6;
+  x.strokeStyle=hov>.05?ind:ink;x.globalAlpha=a;x.lineWidth=1.4;x.lineCap='round';x.beginPath();x.moveTo(X-s*.32,y-s*.3-lift);x.quadraticCurveTo(X-s*.1,y+s*.15,X,y+s*.32-lift*.5);x.quadraticCurveTo(X+s*.1,y+s*.15,X+s*.32,y-s*.3-lift);x.stroke()}}x.globalAlpha=1}
+const sunset=$('#sunset');let SS;
+const parts=Array.from({length:90},()=>({x:Math.random(),y:Math.random()*.6,r:Math.random()*1.8+.4,s:Math.random()*.4+.1}));
+function drawSunset(t){const{x,w,h}=SS;const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,'#2e4a6b');g.addColorStop(.5,'#b9774a');g.addColorStop(.62,'#f2b36b');g.addColorStop(.63,'#1c2431');g.addColorStop(1,'#0c1017');x.fillStyle=g;x.fillRect(0,0,w,h);
+ const sx=w*.55,sy=h*.62;const rg=x.createRadialGradient(sx,sy,0,sx,sy,h*.5);rg.addColorStop(0,'rgba(255,236,190,.95)');rg.addColorStop(.15,'rgba(255,200,130,.5)');rg.addColorStop(1,'rgba(255,180,120,0)');x.fillStyle=rg;x.fillRect(0,0,w,h);
+ for(let i=0;i<18;i++){const y=sy+4+i*i*.9;x.strokeStyle=`rgba(255,210,150,${.35-i*.018})`;x.lineWidth=1;x.beginPath();const ww=(60+i*14)*(1+Math.sin(t*.002+i)*.1);x.moveTo(sx-ww,y);x.lineTo(sx+ww,y);x.stroke()}
+ parts.forEach(p=>{const yy=(p.y*h*.62-(t*.01*p.s)%(h*.62)+h*.62)%(h*.62);x.fillStyle=`rgba(255,240,210,${.25+p.r*.2})`;x.beginPath();x.arc(p.x*w+Math.sin(t*.001+p.y*10)*6,yy,p.r,0,7);x.fill()})}
+const maps=[...document.querySelectorAll('canvas.map')];let MP=[];
+function drawMap(m,t){const{x,w,h}=m.F;const seoul=m.c.dataset.kind==='seoul';x.fillStyle='#1b1e29';x.fillRect(0,0,w,h);
+ x.strokeStyle='rgba(243,244,246,.06)';x.lineWidth=1;const step=seoul?18:30;for(let i=0;i<w;i+=step){x.beginPath();x.moveTo(i,0);x.lineTo(i,h);x.stroke()}for(let j=0;j<h;j+=step){x.beginPath();x.moveTo(0,j);x.lineTo(w,j);x.stroke()}
+ x.lineCap='round';
+ if(seoul){x.strokeStyle='rgba(243,244,246,.22)';x.lineWidth=10;x.beginPath();x.moveTo(0,h*.72);x.lineTo(w,h*.38);x.stroke();x.strokeStyle='rgba(231,160,80,.45)';x.lineWidth=14;x.beginPath();x.moveTo(w*.78,0);x.lineTo(w*.95,h);x.stroke();x.strokeStyle='rgba(243,244,246,.14)';x.lineWidth=3;for(let k=0;k<6;k++){x.beginPath();x.moveTo(w*(.05+k*.12),0);x.lineTo(w*(.12+k*.1),h);x.stroke()}}
+ else{x.strokeStyle='rgba(243,244,246,.22)';x.lineWidth=12;x.beginPath();x.moveTo(0,h*.6);x.bezierCurveTo(w*.3,h*.35,w*.6,h*.2,w,h*.1);x.stroke();x.lineWidth=6;x.beginPath();x.moveTo(w*.5,h*.28);x.lineTo(w,h*.95);x.stroke();x.fillStyle='rgba(90,160,110,.18)';x.beginPath();x.ellipse(w*.28,h*.72,w*.18,h*.2,0,0,7);x.fill()}
+ const px=w*(seoul?.42:.55),py=h*(seoul?.52:.38),pulse=(t*.001)%1;
+ x.strokeStyle=`rgba(125,140,255,${1-pulse})`;x.lineWidth=2;x.beginPath();x.arc(px,py,8+pulse*44,0,7);x.stroke();
+ x.fillStyle='#7d8cff';x.beginPath();x.arc(px,py,8,0,7);x.fill();
+ x.fillStyle='#f3f4f6';x.font='600 15px "IBM Plex Sans KR",sans-serif';x.fillText(seoul?'서울 사무실':'국내 공장',px+16,py+5);}
+const eraCvs=[...document.querySelectorAll('.era-head canvas')];
+function drawTri(){const tri=$('#tri'),p=$('#triPath');const tr=tri.getBoundingClientRect();const o=[...tri.querySelectorAll('.orb')].map(o=>{const r=o.getBoundingClientRect();return[r.left-tr.left+r.width/2,r.top-tr.top+r.height/2]});p.setAttribute('d',`M${o[0]} L${o[1]} L${o[2]} Z`)}
+function sizeAll(){K=fit(knit);SS=fit(sunset);MP=maps.map(c=>({c,F:fit(c)}));eraCvs.forEach(drawEra);drawTri()}
+const vis=new Map(),io=new IntersectionObserver(es=>es.forEach(e=>vis.set(e.target,e.isIntersecting)));
+[knit,sunset,...maps].forEach(c=>{vis.set(c,true);io.observe(c)});
+function frame(t){if(vis.get(knit))drawKnit(t);if(vis.get(sunset))drawSunset(t);MP.forEach(m=>{if(vis.get(m.c))drawMap(m,t)});if(!reduce)requestAnimationFrame(frame)}
+sizeAll();requestAnimationFrame(frame);
+addEventListener('resize',()=>{sizeAll();if(reduce)frame(0)});
+if(document.fonts)document.fonts.ready.then(()=>{sizeAll();if(reduce)frame(0)});
+
+/* 단어 리빌 */
+const rv=$('#reveal');rv.innerHTML=rv.textContent.trim().split(/\s+/).map(w=>`<span class="w">${w}</span>`).join(' ');
+const words=[...rv.querySelectorAll('.w')];
+
+/* 스크롤 상태 */
+const prog=$('#progress'),subLinks=[...document.querySelectorAll('#subnav a')];
+const subIds=['overview','ceo','vision','history','cert','location'];
+function onScroll(){const y=scrollY;hdr.classList.toggle('scrolled',y>10);
+ prog.style.transform=`scaleX(${y/Math.max(1,document.documentElement.scrollHeight-innerHeight)})`;
+ if(!hasGsap||reduce){const r=rv.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(r.height+innerHeight*.3)));words.forEach((w,i)=>w.classList.toggle('lit',reduce||i/words.length<p))}
+ let on=null;subIds.forEach(id=>{if(document.getElementById(id).getBoundingClientRect().top<innerHeight*.4)on=id});
+ const fTop=$('#factory').getBoundingClientRect().top,lTop=$('#location').getBoundingClientRect().top,outside=fTop<innerHeight*.4&&lTop>innerHeight*.4;
+ $('.subnav').classList.toggle('away',outside);if(outside)on=null;
+ let onMain=on&&on!=='location'?'company':null;['business','rnd','factory','factory-ov','press'].forEach(id=>{const r=document.getElementById(id).getBoundingClientRect();if(r.top<innerHeight*.6&&r.bottom>innerHeight*.2)onMain=id==='factory-ov'?'factory':id});
+ subLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+on));
+ menu.querySelectorAll('a[data-sec]').forEach(a=>a.classList.toggle('on',a.dataset.sec===onMain));}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+let lenis=null;
+if(!reduce&&typeof Lenis!=='undefined'){lenis=new Lenis({lerp:.1,smoothWheel:true});
+ if(hasGsap){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}else{(function r(t){lenis.raf(t);requestAnimationFrame(r)})(0)}}
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');
+ const el=id==='#top'?document.body:document.querySelector(id==='#company'?'#overview':id);if(!el)return;e.preventDefault();
+ if(lenis)lenis.scrollTo(el,{offset:id==='#top'?0:-118,duration:1.4});else el.scrollIntoView({behavior:reduce?'auto':'smooth'});}));
+
+if(hasGsap&&!reduce){
+ gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.hero h1 .ln span',{yPercent:110,duration:1.2,ease:'expo.out',stagger:.12,delay:.1});
+ gsap.from('.hero .cta',{y:30,autoAlpha:0,duration:1,ease:'power3.out',delay:.5});
+ gsap.to('.hero h1',{yPercent:-18,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ ScrollTrigger.create({trigger:rv,start:'top 80%',end:'bottom 45%',scrub:true,onUpdate:s=>{const n=Math.round(s.progress*words.length);words.forEach((w,i)=>w.classList.toggle('lit',i<n))}});
+ gsap.from('.prod',{y:80,rotate:()=>gsap.utils.random(-6,6),autoAlpha:.2,duration:1.1,ease:'expo.out',stagger:.08,scrollTrigger:{trigger:'#prodgrid',start:'top 85%'}});
+ gsap.from('.seg',{scale:.6,autoAlpha:0,rotate:-30,transformOrigin:'260px 260px',duration:1.2,ease:'expo.out',stagger:.12,scrollTrigger:{trigger:'#orgring',start:'top 80%'}});
+ gsap.from('.dept',{x:40,autoAlpha:.2,duration:.9,ease:'power3.out',stagger:.08,scrollTrigger:{trigger:'#orglist',start:'top 80%'}});
+ gsap.fromTo('#ceoimg',{yPercent:-8},{yPercent:0,ease:'none',scrollTrigger:{trigger:'.ceo',start:'top bottom',end:'bottom top',scrub:true}});
+ gsap.from('.ceo .letter span',{y:24,autoAlpha:.1,duration:.8,ease:'power2.out',stagger:.06,scrollTrigger:{trigger:'.ceo .letter',start:'top 80%'}});
+ gsap.from('.ceo .sign img',{clipPath:'inset(0 100% 0 0)',duration:1.8,ease:'power2.inOut',scrollTrigger:{trigger:'.ceo .sign',start:'top 92%'}});
+ gsap.from('.vm',{y:60,autoAlpha:.2,duration:1,ease:'expo.out',stagger:.15,scrollTrigger:{trigger:'#tri',start:'top 80%'}});
+ gsap.fromTo('#triPath',{strokeDashoffset:1200},{strokeDashoffset:0,ease:'none',scrollTrigger:{trigger:'#tri',start:'top 80%',end:'bottom 50%',scrub:true}});
+ gsap.fromTo('.vision-band',{clipPath:'inset(12% 8% 12% 8% round 28px)'},{clipPath:'inset(0% 0% 0% 0% round 28px)',ease:'none',scrollTrigger:{trigger:'.vision-band',start:'top bottom',end:'center center',scrub:true}});
+ ScrollTrigger.matchMedia({'(min-width: 761px)':()=>{const dist=()=>track.scrollWidth-innerWidth;
+  gsap.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#hpin',start:'top 18%',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true}});}});
+ gsap.from('.wrap-feature .doc',{rotateY:-25,x:-60,autoAlpha:.2,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:'.wrap-feature',start:'top 80%'}});
+ gsap.from('.docs figure',{y:90,rotate:i=>[-5,2,6][i],autoAlpha:.2,duration:1.2,ease:'expo.out',stagger:.12,scrollTrigger:{trigger:'.docs',start:'top 85%'}});
+ gsap.utils.toArray('.g-track').forEach(t=>gsap.from(t,{clipPath:'inset(10% 6% 10% 6% round 28px)',duration:1.4,ease:'expo.out',scrollTrigger:{trigger:t,start:'top 85%'}}));
+ gsap.from('.cap-table .bar',{scaleX:0,duration:1.2,ease:'expo.out',stagger:.06,scrollTrigger:{trigger:'#captable',start:'top 85%'}});
+ gsap.from('.cap-table tbody tr',{x:30,autoAlpha:.2,duration:.8,ease:'power3.out',stagger:.05,scrollTrigger:{trigger:'#captable',start:'top 85%'}});
+ {const el=$('#captotal'),o={v:0};ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:()=>gsap.to(o,{v:5000000,duration:1.8,ease:'power2.out',onUpdate:()=>el.textContent=Math.round(o.v).toLocaleString('en-US')})})}
+ gsap.utils.toArray('section h2').forEach(h=>gsap.from(h,{y:60,autoAlpha:.15,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:h,start:'top 88%'}}));
+ gsap.fromTo('#lo-t',{scale:.86,transformOrigin:'left bottom'},{scale:1,ease:'none',scrollTrigger:{trigger:'#location',start:'top bottom',end:'top 30%',scrub:true}});
+ if(document.fonts)document.fonts.ready.then(()=>ScrollTrigger.refresh());
+}
+})();
+</script>
+</body>
+</html>
