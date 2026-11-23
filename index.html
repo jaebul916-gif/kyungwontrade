@@ -48,7 +48,7 @@ header.site::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;tr
 header.site.scrolled::before{opacity:1}
 header.site.scrolled{border-color:var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
-.logo{display:flex;align-items:center;text-decoration:none;background:#fff;border-radius:12px;padding:4px 10px;box-shadow:0 0 0 1px var(--line)}
+.logo{display:flex;align-items:center;text-decoration:none}
 .logo img{height:40px;width:auto;display:block}
 .menu{display:flex;gap:2px;list-style:none;margin:0;padding:0;align-items:center}
 .menu a{display:block;padding:8px 14px;border-radius:999px;text-decoration:none;font-family:var(--f-display);font-size:15px;font-weight:600;letter-spacing:.02em;transition:background .25s,color .25s}
@@ -269,7 +269,7 @@ header.site.scrolled{border-color:var(--line)}
 .copy:hover{background:var(--paper);color:var(--ink)}
 footer.site{margin-top:90px;display:flex;gap:32px;flex-wrap:wrap;font-size:13px;line-height:1.9;color:color-mix(in srgb,var(--paper) 55%,transparent);border-top:1px solid color-mix(in srgb,var(--paper) 16%,transparent);padding-top:28px}
 footer.site p{max-width:none}
-.f-logo{background:#fff;border-radius:12px;padding:6px 12px;align-self:flex-start}
+.f-logo{align-self:flex-start}
 .f-logo img{height:44px;width:auto;display:block}
 @media (max-width:860px){.loc-grid{grid-template-columns:1fr}}
 
@@ -369,7 +369,7 @@ a.row:hover{background:var(--paper-2);padding-left:12px}
 
 <header class="site" id="hdr">
   <div class="wrap"><nav class="nav wrap-inner" aria-label="주 메뉴">
-    <a class="logo" href="#top" aria-label="경원상사 홈"><img src="images/logo.png" alt="KYUNG WON" width="135" height="58"></a>
+    <a class="logo" href="#top" aria-label="경원상사 홈"><picture><source srcset="images/logo-white.png" media="(prefers-color-scheme: dark)"><img src="images/logo.png" alt="KYUNG WON" width="135" height="58"></picture></a>
     <ul class="menu" id="menu">
       <li><a href="#company" data-sec="company">COMPANY</a></li>
       <li><a href="#business" data-sec="business">BUSINESS</a></li>
@@ -786,7 +786,7 @@ a.row:hover{background:var(--paper-2);padding-left:12px}
       </article>
     </div>
     <footer class="site">
-      <div class="f-logo"><img src="images/logo.png" alt="KYUNG WON" width="135" height="58"></div>
+      <div class="f-logo"><picture><source srcset="images/logo.png" media="(prefers-color-scheme: dark)"><img src="images/logo-white.png" alt="KYUNG WON" width="135" height="58"></picture></div>
       <p>(주)경원상사 / 대표이사 박중근<br>
       서울특별시 서초구 서초중앙로8길 106 중산빌딩 5층 / 대표전화 02-532-6311 / 팩스 02-587-3055<br>
       전라북도 익산시 석암로 17길 147 / 대표전화 063-835-3111~2 / 팩스 063-835-4079</p>
