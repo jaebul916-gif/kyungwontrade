@@ -270,6 +270,12 @@ header.site.scrolled{border-color:var(--line)}
 .copy:hover{background:var(--paper);color:var(--ink)}
 footer.site{margin-top:90px;display:flex;gap:32px;flex-wrap:wrap;font-size:13px;line-height:1.9;color:color-mix(in srgb,var(--paper) 55%,transparent);border-top:1px solid color-mix(in srgb,var(--paper) 16%,transparent);padding-top:28px}
 footer.site p{max-width:none}
+/* 허용 IP에서만 보이는 관리자 버튼 (js/admin-link.js) */
+.admin-link{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:3px 11px;text-decoration:none;opacity:.5;white-space:nowrap;transition:opacity .25s}
+.admin-link:hover{opacity:1}
+.admin-link[hidden]{display:none}
+footer.site .admin-link{margin-left:auto;align-self:flex-start;padding:4px 12px}
+.blk-h .admin-link{align-self:center;margin-bottom:6px;font-size:10px;padding:3px 10px}
 .f-logo{align-self:flex-start}
 .f-logo img{height:44px;width:auto;display:block}
 @media (max-width:860px){.loc-grid{grid-template-columns:1fr}}
@@ -735,7 +741,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
     <nav class="chips" aria-label="PRESS 하위 메뉴"><a href="#press-news">뉴스</a><a href="#press-recruit">인재채용</a><a href="#press-contact">문의하기</a></nav>
 
     <article class="blk" id="press-news">
-      <header class="blk-h"><span class="no">01</span><h3>뉴스</h3><span class="en">News</span></header>
+      <header class="blk-h"><span class="no">01</span><h3>뉴스</h3><span class="en">News</span><a class="admin-link" href="admin/" data-admin-link hidden>관리자</a></header>
       <ol class="news">
         <li><div class="row"><figure class="thumb"><img src="images/press-01.jpg" alt="경원의 자체 브랜드 KLAVA 판매 시작" width="720" height="658" loading="lazy" decoding="async"></figure><div class="txt"><time>2019.12.02</time><b>경원의 자체 브랜드 KLAVA 판매 시작</b><p>경원의 자체 브랜드 KLAVA가 크라우드 펀딩 플랫폼 와디즈를 통해 2019년 12월 11일 본격 런칭한다.</p></div><span class="arw" aria-hidden="true"></span></div></li>
         <li><div class="row"><figure class="thumb"><img src="images/press-02.jpg" alt="윤리적인 제조에 대한 WRAP 인증 취득" width="720" height="658" loading="lazy" decoding="async"></figure><div class="txt"><time>2019.04.18</time><b>윤리적인 제조에 대한 WRAP 인증 취득</b><p>경원상사가 세계적인 공신력을 가진 WRAP(Worldwide Responsible Accredited Production)으로부터 합법적이고 윤리적인 제조를 인정받아 인증서를 취득했다고 밝혔다.</p></div><span class="arw" aria-hidden="true"></span></div></li>
@@ -810,6 +816,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
       <p>(주)경원상사 / 대표이사 박중근<br>
       서울특별시 서초구 서초중앙로8길 106 중산빌딩 5층 / 대표전화 02-532-6311 / 팩스 02-587-3055<br>
       전라북도 익산시 석암로 17길 147 / 대표전화 063-835-3111~2 / 팩스 063-835-4079</p>
+      <a class="admin-link" href="admin/" data-admin-link hidden>관리자</a>
     </footer>
   </div></div>
 </section>
@@ -817,6 +824,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
 
 <script src="js/supabase-config.js"></script>
 <script src="js/news.js"></script>
+<script src="js/admin-link.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>

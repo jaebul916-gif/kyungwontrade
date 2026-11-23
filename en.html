@@ -270,6 +270,12 @@ header.site.scrolled{border-color:var(--line)}
 .copy:hover{background:var(--paper);color:var(--ink)}
 footer.site{margin-top:90px;display:flex;gap:32px;flex-wrap:wrap;font-size:13px;line-height:1.9;color:color-mix(in srgb,var(--paper) 55%,transparent);border-top:1px solid color-mix(in srgb,var(--paper) 16%,transparent);padding-top:28px}
 footer.site p{max-width:none}
+/* Admin button shown only to allowed IPs (js/admin-link.js) */
+.admin-link{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:3px 11px;text-decoration:none;opacity:.5;white-space:nowrap;transition:opacity .25s}
+.admin-link:hover{opacity:1}
+.admin-link[hidden]{display:none}
+footer.site .admin-link{margin-left:auto;align-self:flex-start;padding:4px 12px}
+.blk-h .admin-link{align-self:center;margin-bottom:6px;font-size:10px;padding:3px 10px}
 .f-logo{align-self:flex-start}
 .f-logo img{height:44px;width:auto;display:block}
 @media (max-width:860px){.loc-grid{grid-template-columns:1fr}}
@@ -737,7 +743,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
     <nav class="chips" aria-label="PRESS sub menu"><a href="#press-news">News</a><a href="#press-recruit">Recruit</a><a href="#press-contact">Contact us</a></nav>
 
     <article class="blk" id="press-news">
-      <header class="blk-h"><span class="no">01</span><h3>News</h3><span class="en">What we announced</span></header>
+      <header class="blk-h"><span class="no">01</span><h3>News</h3><span class="en">What we announced</span><a class="admin-link" href="admin/" data-admin-link hidden>Admin</a></header>
       <ol class="news">
         <li><div class="row"><figure class="thumb"><img src="images/press-01.jpg" alt="KLAVA, our own brand, goes on sale" width="720" height="658" loading="lazy" decoding="async"></figure><div class="txt"><time>2019.12.02</time><b>KLAVA, our own brand, goes on sale</b><p>Kyungwon’s own brand KLAVA launches on the crowdfunding platform Wadiz on 11 December 2019.</p></div><span class="arw" aria-hidden="true"></span></div></li>
         <li><div class="row"><figure class="thumb"><img src="images/press-02.jpg" alt="WRAP certification for ethical manufacturing" width="720" height="658" loading="lazy" decoding="async"></figure><div class="txt"><time>2019.04.18</time><b>WRAP certification for ethical manufacturing</b><p>Kyungwon was recognised for lawful and ethical manufacturing by WRAP (Worldwide Responsible Accredited Production).</p></div><span class="arw" aria-hidden="true"></span></div></li>
@@ -812,6 +818,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
       <p>KYUNGWON Co., Ltd. / CEO J.K. Park<br>
       5F Jungsan Bldg., 106 Seochojungang-ro 8-gil, Seocho-gu, Seoul / Tel +82 2 532 6311 / Fax +82 2 587 3055<br>
       147 Seogam-ro 17-gil, Iksan-si, Jeollabuk-do / Tel +82 63 835 3111~2 / Fax +82 63 835 4079</p>
+      <a class="admin-link" href="admin/" data-admin-link hidden>Admin</a>
     </footer>
   </div></div>
 </section>
@@ -820,6 +827,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
 
 <script src="js/supabase-config.js"></script>
 <script src="js/news.js"></script>
+<script src="js/admin-link.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
