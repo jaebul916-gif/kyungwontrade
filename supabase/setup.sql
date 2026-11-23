@@ -11,9 +11,15 @@ create table if not exists public.news (
   body       text not null default '',                        -- 내용
   image      text,                                            -- 대표이미지 주소
   link       text,                                            -- 원문 기사 링크 (선택)
+  title_en   text,                                            -- 영문 제목 (선택, 영문 페이지용)
+  body_en    text,                                            -- 영문 내용 (선택, 영문 페이지용)
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+-- 예전에 이 파일을 실행했던 경우를 위해 영문 칸 추가
+alter table public.news add column if not exists title_en text;
+alter table public.news add column if not exists body_en text;
+
 create index if not exists news_date_idx on public.news (date desc, id desc);
 
 create or replace function public.touch_updated_at() returns trigger language plpgsql as $$
@@ -26,7 +32,10 @@ create table if not exists public.admin_ips (
   ip   inet primary key,
   memo text
 );
-insert into public.admin_ips (ip, memo) values ('61.73.77.236', '관리자 PC') on conflict do nothing;
+insert into public.admin_ips (ip, memo) values
+  ('61.73.77.236', '관리자 PC 1'),
+  ('1.217.102.90', '관리자 PC 2')
+on conflict do nothing;
 
 -- 3) 관리자 계정 목록 (Authentication 에서 만든 사용자 중 관리자만 등록)
 create table if not exists public.admins (
@@ -106,6 +115,20 @@ select v.date::date, v.title, v.body, v.image, v.link from (values
   ('2019-12-02', '경원의 자체 브랜드 KLAVA 판매 시작', '경원의 자체 브랜드 KLAVA가 크라우드 펀딩 플랫폼 와디즈를 통해 2019년 12월 11일 본격 런칭한다.', 'images/press-01.jpg', null)
 ) as v(date, title, body, image, link)
 where not exists (select 1 from public.news);
+
+-- 기존 뉴스 12건의 영문 제목·내용 (기존 영문 페이지 문구)
+update public.news set title_en = 'KLAVA, our own brand, goes on sale', body_en = 'Kyungwon’s own brand KLAVA launches on the crowdfunding platform Wadiz on 11 December 2019.' where image = 'images/press-01.jpg' and title_en is null;
+update public.news set title_en = 'WRAP certification for ethical manufacturing', body_en = 'Kyungwon was recognised for lawful and ethical manufacturing by WRAP (Worldwide Responsible Accredited Production).' where image = 'images/press-02.jpg' and title_en is null;
+update public.news set title_en = 'Seoul office moved', body_en = 'The Seoul office moved from Bangbae-dong, Seocho-gu to Jungsan Building in Seocho-dong as of 20 July 2018.' where image = 'images/press-03.jpg' and title_en is null;
+update public.news set title_en = 'Donation for low-income neighbours', body_en = 'Kyungwon donated 6,000 pairs of socks and 3 million won to the Iksan Happiness Sharing Market Bank.' where image = 'images/press-04.jpg' and title_en is null;
+update public.news set title_en = 'Jeollabuk-do promising small business certificate', body_en = 'Selected among the province’s SMEs with high growth potential and strong technology.' where image = 'images/press-05.jpg' and title_en is null;
+update public.news set title_en = 'Patent for Hanji socks and their manufacturing method', body_en = 'Recognised for the function and invention of socks made with Hanji yarn from paper mulberry bark — Patent No. 10-1752712.' where image = 'images/press-06.jpg' and title_en is null;
+update public.news set title_en = 'INNO-BIZ certificate', body_en = 'Certified as a technology-innovative SME by the Small and Medium Business Administration.' where image = 'images/press-07.jpg' and title_en is null;
+update public.news set title_en = 'Iksan excellent local company certificate', body_en = 'Recognised for management, technology and quality, growth potential and contribution to the local community.' where image = 'images/press-08.jpg' and title_en is null;
+update public.news set title_en = '$5 million export tower on the 52nd Trade Day', body_en = 'Kyungwon received the export tower for reaching $5 million in exports.' where image = 'images/press-09.jpg' and title_en is null;
+update public.news set title_en = '2015 Korea Management Innovation Award', body_en = 'Awarded for securing competitiveness through management innovation and contributing to national industry and society.' where image = 'images/press-10.jpg' and title_en is null;
+update public.news set title_en = 'Sharing with neighbours in need', body_en = 'Kyungwon donated 5,000 pairs of socks and 3 million won through Iksan City Hall.' where image = 'images/press-11.jpg' and title_en is null;
+update public.news set title_en = 'Prime Minister’s Award on the 28th Textile Day', body_en = 'CEO J.K. Park received the Prime Minister’s Award for new product development and overseas sales that raised the global standing of Korean textiles.' where image = 'images/press-12.jpg' and title_en is null;
 
 -- =====================================================================
 -- 8) 관리자 등록 (위를 실행한 뒤, 따로 한 번 실행)
