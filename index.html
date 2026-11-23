@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="(주)경원상사 - 1995년 창사 이래 양말, 레깅스, 타이즈, 스타킹 등 섬유제품을 생산하는 OEM, ODM 전문 기업">
+<title>경원상사 KYUNG WON</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans+KR:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: 쪽빛(인디고)과 실의 결을 모티프로, 큰 타이포 + 스크롤에 맞춰 짜여 나가는 니트 그래픽 */
+:root{
+  --paper:#f3f4f6; --paper-2:#e6e8ee; --ink:#12141b; --ink-soft:#4a4f5e;
+  --indigo:#2b3a96; --indigo-deep:#141c4f; --sky:#1f7fd1;
+  --line:rgba(18,20,27,.12); --on-indigo:#eef0ff;
+  --f-display:"Bricolage Grotesque","IBM Plex Sans KR",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gut:max(16px,env(safe-area-inset-left,0px)); --gut-r:max(16px,env(safe-area-inset-right,0px));
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0d0f17;--paper-2:#161a26;--ink:#eceef4;--ink-soft:#a3a8b8;--indigo:#7d8cff;--indigo-deep:#1a2366;--sky:#5fb0f5;--line:rgba(236,238,244,.12);--on-indigo:#eef0ff;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0d0f17;--paper-2:#161a26;--ink:#eceef4;--ink-soft:#a3a8b8;--indigo:#7d8cff;--indigo-deep:#1a2366;--sky:#5fb0f5;--line:rgba(236,238,244,.12);--on-indigo:#eef0ff;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--indigo);outline-offset:3px;border-radius:4px}
+.wrap{padding-left:var(--gut);padding-right:var(--gut-r);max-width:1440px;margin:0 auto}
+.wrap-inner{padding-inline:clamp(0px,3vw,48px)}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:flex;gap:10px;align-items:center;margin:0}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(34px,6vw,84px);line-height:1.04;font-weight:800;margin-top:16px}
+h3{font-size:clamp(20px,2vw,26px);font-weight:600;line-height:1.25}
+p{margin:0;max-width:62ch}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--ink-soft)}
+section{position:relative;scroll-margin-top:120px}
+.wait{display:inline-block;font-family:var(--f-mono);font-size:12px;color:var(--ink-soft);border:1px dashed var(--line);border-radius:8px;padding:6px 12px}
+
+/* ---------- 헤더 ---------- */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;border-bottom:1px solid transparent;transition:border-color .4s}
+header.site::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .4s;background:color-mix(in srgb,var(--paper) 80%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+header.site.scrolled::before{opacity:1}
+header.site.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700}
+.logo svg{width:34px;height:34px}
+.logo b{font-family:var(--f-display);font-size:19px;font-weight:800;letter-spacing:.01em}
+.menu{display:flex;gap:2px;list-style:none;margin:0;padding:0;align-items:center}
+.menu a{display:block;padding:8px 14px;border-radius:999px;text-decoration:none;font-family:var(--f-display);font-size:15px;font-weight:600;letter-spacing:.02em;transition:background .25s,color .25s}
+.menu a:hover,.menu a.on{background:var(--ink);color:var(--paper)}
+.menu .lang a{border:1px solid var(--line);font-family:var(--f-mono);font-size:12px;margin-left:8px}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:999px;width:44px;height:44px;color:var(--ink);cursor:pointer}
+@media (max-width:900px){
+  .menu{position:fixed;left:0;right:0;top:calc(68px + env(safe-area-inset-top,0px));height:calc(100dvh - 68px);flex-direction:column;align-items:stretch;background:var(--paper);padding:24px var(--gut-r) 24px var(--gut);gap:0;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .5s cubic-bezier(.7,0,.2,1),visibility 0s .5s;overflow-y:auto}
+  .menu.open{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .5s cubic-bezier(.7,0,.2,1)}
+  .menu a{font-size:34px;font-weight:800;border-radius:0;padding:14px 0;border-bottom:1px solid var(--line)}
+  .menu a:hover,.menu a.on{background:none;color:var(--indigo)}
+  .menu .lang a{font-size:14px;border:0;margin:0}
+  .burger{display:grid;place-items:center}
+}
+.subnav{position:sticky;top:calc(68px + env(safe-area-inset-top,0px));z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
+.subnav ul{display:flex;gap:4px;list-style:none;margin:0;padding:10px 0;overflow-x:auto;scrollbar-width:none}
+.subnav ul::-webkit-scrollbar{display:none}
+.subnav a{display:block;white-space:nowrap;padding:6px 14px;border-radius:999px;text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-soft);transition:background .25s,color .25s}
+.subnav a:hover{color:var(--ink)}
+.subnav a.on{background:var(--indigo);color:#fff}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden;padding-block:clamp(56px,9vw,130px) clamp(48px,7vw,96px)}
+#knit{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:clamp(44px,9.5vw,150px);line-height:.95;font-weight:800;letter-spacing:-.045em;margin-top:22px}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln span{display:inline-block}
+.hero h1 em{font-style:normal;color:var(--indigo)}
+.cta{display:inline-flex;align-items:center;gap:12px;margin-top:36px;padding:14px 22px;border-radius:999px;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:600;transition:transform .3s,background .3s}
+.cta:hover{background:var(--indigo);transform:translateY(-2px)}
+.cta svg{width:16px;height:16px}
+.scroll-hint{font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;color:var(--ink-soft);margin-top:48px;display:flex;align-items:center;gap:12px}
+.scroll-hint i{display:block;width:1px;height:38px;background:var(--line);position:relative;overflow:hidden}
+.scroll-hint i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--ink);animation:drip 1.8s infinite}
+@keyframes drip{to{top:100%}}
+
+/* ---------- 마퀴 ---------- */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding-block:18px}
+.marquee-track{display:flex;gap:48px;width:max-content;animation:mq 34s linear infinite;font-family:var(--f-display);font-size:clamp(22px,3vw,40px);font-weight:600;white-space:nowrap}
+.marquee-track span{display:flex;align-items:center;gap:48px}
+.marquee-track span::after{content:"";width:12px;height:12px;border:2px solid var(--indigo);border-radius:50%}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- 기업개요 ---------- */
+.intro{padding-block:clamp(80px,11vw,160px) clamp(40px,6vw,80px)}
+.intro-grid{display:grid;grid-template-columns:260px 1fr;gap:clamp(24px,5vw,80px)}
+.intro-grid > *{min-width:0}
+.reveal-text{font-family:var(--f-display);font-size:clamp(26px,3.4vw,50px);line-height:1.3;font-weight:600;letter-spacing:-.02em;max-width:none}
+.reveal-text .w{opacity:.18;transition:opacity .2s}
+.reveal-text .w.lit{opacity:1}
+.intro .lead{margin-top:32px}
+@media (max-width:760px){.intro-grid{grid-template-columns:1fr}}
+.prods{padding-block:clamp(40px,6vw,80px)}
+.prod-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:40px}
+.prod{background:var(--paper-2);border-radius:24px;padding:24px 20px;display:flex;flex-direction:column;align-items:center;gap:14px;transition:transform .5s cubic-bezier(.2,.8,.2,1),background .4s,color .4s;min-width:0}
+.prod:hover{transform:translateY(-8px);background:var(--indigo);color:#fff}
+.prod svg{width:100%;height:auto;aspect-ratio:1/1;max-width:100%}
+.prod svg .ic{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transform-origin:50% 50%;transform-box:fill-box}
+.prod:hover svg .ic{animation:wig .8s ease}
+@keyframes wig{30%{transform:rotate(-4deg)}60%{transform:rotate(3deg)}}
+.prod h3{font-size:20px}
+@media (max-width:900px){.prod-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
+.org{padding-block:clamp(60px,8vw,120px) clamp(80px,10vw,140px)}
+.org-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:center;margin-top:48px}
+.org-wrap > *{min-width:0}
+.org-ring{position:relative;aspect-ratio:1/1;max-width:520px;width:100%;margin-inline:auto}
+.org-ring svg{width:100%;height:100%;overflow:visible}
+.org-ring .seg{cursor:pointer;transition:transform .5s cubic-bezier(.2,.8,.2,1);transform-origin:260px 260px}
+.org-ring .seg:hover,.org-ring .seg.on{transform:scale(1.04)}
+.org-ring .center{position:absolute;inset:32%;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--paper);border:6px solid var(--paper-2)}
+.org-ring .center b{display:block;font-size:clamp(16px,1.8vw,22px)}
+.org-ring .center span{font-family:var(--f-display);font-weight:800;font-size:clamp(14px,1.8vw,24px)}
+.org-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.dept{border-bottom:1px solid var(--line);padding-block:20px;display:grid;grid-template-columns:56px 1fr;gap:16px;transition:opacity .3s}
+.dept .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:#fff}
+.dept .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dept h3{font-size:22px}
+.dept ul{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 8px}
+.dept li{font-size:14px;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:3px 12px}
+.org-list.focus .dept{opacity:.35}
+.org-list.focus .dept.on{opacity:1}
+@media (max-width:860px){.org-wrap{grid-template-columns:1fr}}
+
+/* ---------- CEO ---------- */
+.ceo{background:var(--paper-2);padding-block:clamp(80px,10vw,150px);overflow:hidden}
+.ceo-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,80px);align-items:end}
+.ceo-grid > *{min-width:0}
+.ceo blockquote{margin:28px 0 0;font-family:var(--f-display);font-size:clamp(28px,3.6vw,54px);line-height:1.2;font-weight:700;letter-spacing:-.03em}
+.ceo blockquote em{font-style:normal;color:var(--indigo)}
+.ceo .letter{margin-top:36px;font-size:16px;color:var(--ink-soft);line-height:2}
+.ceo .letter span{display:block}
+.ceo .sign{margin-top:36px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ceo .sign strong{font-size:17px}
+.ceo .sign img{height:44px;width:auto;mix-blend-mode:multiply;border-radius:6px}
+.ceo-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:579/645;max-width:100%;background:#c9ced6;margin:0}
+.ceo-photo img{width:100%;height:115%;object-fit:cover;display:block}
+@media (max-width:860px){.ceo-grid{grid-template-columns:1fr}.ceo-photo{max-width:440px}}
+
+/* ---------- 비전 ---------- */
+.vision{padding-block:clamp(80px,10vw,150px)}
+.vision .lead{margin-top:24px}
+.tri{position:relative;margin-top:56px;max-width:1100px;margin-inline:auto}
+.tri svg.lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.tri svg.lines path{fill:none;stroke:var(--indigo);stroke-width:1.5;stroke-dasharray:6 6;opacity:.6}
+.tri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.vm{display:flex;flex-direction:column;align-items:flex-start;gap:18px;min-width:0}
+.vm:nth-child(2){margin-top:120px}
+.vm:nth-child(3){margin-top:40px}
+.orb{width:clamp(120px,13vw,170px);aspect-ratio:1/1;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(from var(--a,0deg),var(--indigo-deep),var(--indigo),var(--sky),var(--indigo-deep));animation:spin 8s linear infinite;flex:none}
+.orb::before{content:"";position:absolute;inset:12px;border-radius:50%;background:var(--paper);box-shadow:inset 0 -6px 18px rgba(0,0,0,.08)}
+.orb b{position:relative;font-family:var(--f-display);font-style:italic;font-weight:800;font-size:clamp(16px,1.6vw,22px);letter-spacing:.02em}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.vm p{font-size:17px;line-height:1.7}
+.vision-band{margin-top:clamp(60px,8vw,100px);border-radius:28px;overflow:hidden;position:relative;aspect-ratio:21/8;max-width:100%;background:#1c2431}
+.vision-band canvas{position:absolute;inset:0;width:100%;height:100%}
+@media (max-width:760px){.tri-grid{grid-template-columns:1fr}.vm:nth-child(n){margin-top:0}.tri svg.lines{display:none}.vm{flex-direction:row;align-items:center}.orb{width:110px}.vision-band{aspect-ratio:4/3}}
+
+/* ---------- 연혁 ---------- */
+.history{background:var(--indigo-deep);color:var(--on-indigo);padding-block:clamp(80px,10vw,140px) 0;overflow:hidden}
+.history .eyebrow{color:color-mix(in srgb,var(--on-indigo) 70%,transparent)}
+.history .lead{color:color-mix(in srgb,var(--on-indigo) 78%,transparent);max-width:56ch}
+.h-pin{overflow:hidden;margin-top:56px}
+.h-track{display:flex;gap:clamp(20px,3vw,40px);padding-left:var(--gut);padding-right:var(--gut-r);padding-bottom:clamp(60px,8vw,120px);width:max-content;align-items:flex-start}
+.era{width:min(82vw,420px);flex:none}
+.era-head{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/10;max-width:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.era-head canvas{position:absolute;inset:0;width:100%;height:100%}
+.era-head .yr{position:relative;font-family:var(--f-display);font-style:italic;font-weight:800;font-size:clamp(48px,5vw,72px);line-height:1;letter-spacing:-.03em}
+.era-head .tt{position:relative;font-size:16px;margin-top:8px;opacity:.9}
+.events{list-style:none;margin:20px 0 0;padding:0}
+.events li{display:grid;grid-template-columns:86px 1fr;gap:12px;padding-block:14px;border-bottom:1px dashed rgba(238,240,255,.22);min-width:0}
+.events time{font-family:var(--f-mono);font-size:15px;color:#a9b3ff;font-variant-numeric:tabular-nums}
+.events span{font-size:15px;line-height:1.55}
+@media (max-width:760px){.h-track{width:auto;flex-direction:column}.era{width:100%}}
+
+/* ---------- 인증 및 수상실적 ---------- */
+.cert{padding-block:clamp(80px,10vw,140px)}
+.cert .lead{margin-top:24px}
+.wrap-feature{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,64px);margin-top:56px;padding-top:40px;border-top:1px solid var(--ink);align-items:start}
+.wrap-feature > *{min-width:0}
+.doc{margin:0;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(18,20,27,.45);background:#fff;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.doc img{display:block;width:100%;height:auto}
+.wrap-feature h3{font-size:clamp(24px,2.4vw,32px)}
+.wrap-feature p{margin-top:14px;color:var(--ink-soft);font-size:17px}
+.wrap-logo{margin-top:28px;width:170px;border-radius:12px;background:#fff;padding:6px}
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,40px);margin-top:56px;padding-block:40px;border-block:1px solid var(--line)}
+.docs .doc{perspective:800px}
+.docs figcaption{padding:12px 4px 0;font-size:14px;color:var(--ink-soft);background:var(--paper)}
+.docs figure{margin:0;min-width:0}
+@media (max-width:860px){.wrap-feature{grid-template-columns:1fr}.docs{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.docs{grid-template-columns:1fr}}
+
+/* ---------- 미수집 메뉴 ---------- */
+.more{padding-block:clamp(60px,8vw,110px);border-top:1px solid var(--line)}
+.more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.more-card{background:var(--paper-2);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0;scroll-margin-top:120px}
+.more-card b{font-family:var(--f-display);font-size:28px;font-weight:800}
+@media (max-width:900px){.more-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- 찾아오시는 길 ---------- */
+.contact{background:var(--ink);color:var(--paper);padding-block:clamp(80px,10vw,150px) 40px;overflow:hidden}
+.contact .eyebrow{color:color-mix(in srgb,var(--paper) 60%,transparent)}
+.contact h2{font-size:clamp(44px,8vw,130px);letter-spacing:-.045em;line-height:.95}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px);margin-top:56px}
+.loc{min-width:0}
+.mapbox{border-radius:24px;overflow:hidden;position:relative;aspect-ratio:4/3;max-width:100%;background:#1b1e29}
+.mapbox canvas{width:100%;height:100%;display:block}
+.maplinks{position:absolute;right:12px;bottom:12px;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.maplinks a{background:var(--paper);color:var(--ink);text-decoration:none;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600}
+.loc h3{margin-top:24px;font-size:26px;padding-bottom:14px;border-bottom:1px solid color-mix(in srgb,var(--paper) 20%,transparent)}
+.loc dl{display:grid;grid-template-columns:84px 1fr;margin:0}
+.loc dt,.loc dd{margin:0;padding-block:12px;border-bottom:1px solid color-mix(in srgb,var(--paper) 10%,transparent)}
+.loc dt{font-size:14px;color:color-mix(in srgb,var(--paper) 55%,transparent)}
+.loc dd{font-size:17px;font-variant-numeric:tabular-nums;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.copy{background:none;border:1px solid color-mix(in srgb,var(--paper) 30%,transparent);color:var(--paper);border-radius:999px;padding:4px 12px;font:inherit;font-size:12px;cursor:pointer}
+.copy:hover{background:var(--paper);color:var(--ink)}
+footer.site{margin-top:90px;display:flex;gap:32px;flex-wrap:wrap;font-size:13px;line-height:1.9;color:color-mix(in srgb,var(--paper) 55%,transparent);border-top:1px solid color-mix(in srgb,var(--paper) 16%,transparent);padding-top:28px}
+footer.site p{max-width:none}
+footer.site strong{color:var(--paper);font-family:var(--f-display);font-size:20px;letter-spacing:.02em}
+@media (max-width:860px){.loc-grid{grid-template-columns:1fr}}
+
+.cursor{position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--indigo);pointer-events:none;z-index:100;transition:width .3s,height .3s,opacity .3s;opacity:0}
+.cursor.big{width:64px;height:64px;opacity:.25!important}
+@media (hover:none){.cursor{display:none}}
+.progress{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:2px;background:var(--indigo);width:100%;transform-origin:left;transform:scaleX(0);z-index:70}
+@media (prefers-reduced-motion:reduce){.marquee-track,.scroll-hint i::after,.orb{animation:none}.reveal-text .w{opacity:1}*{transition:none!important}}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="cursor" id="cursor"></div>
+
+<header class="site" id="hdr">
+  <div class="wrap"><nav class="nav wrap-inner" aria-label="주 메뉴">
+    <a class="logo" href="#top" aria-label="경원상사 홈">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="var(--indigo)"/><path d="M10 11v18M10 20l8-9M13 17l7 12" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M20 12l3 16 3.5-11 3.5 11 3-16" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <b>KYUNG WON</b>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#company" data-sec="company">COMPANY</a></li>
+      <li><a href="#business" data-sec="business">BUSINESS</a></li>
+      <li><a href="#rnd" data-sec="rnd">R&amp;D</a></li>
+      <li><a href="#factory" data-sec="factory">FACTORY</a></li>
+      <li><a href="#press" data-sec="press">PRESS</a></li>
+      <li class="lang"><a href="#english">ENGLISH</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu">
+      <svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 1h18M0 11h18" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+  </nav></div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="hero-t">
+  <canvas id="knit" aria-hidden="true"></canvas>
+  <div class="wrap"><div class="wrap-inner">
+    <p class="eyebrow">Kyung Won Trading Corporation</p>
+    <h1 id="hero-t">
+      <span class="ln"><span>본질을 지키며</span></span>
+      <span class="ln"><span><em>혁신</em>을 추구하는 기업</span></span>
+    </h1>
+    <a class="cta" href="#overview">기업개요 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></a>
+    <div class="scroll-hint"><i></i>SCROLL</div>
+  </div></div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track">
+  <span>양말</span><span>레깅스</span><span>스타킹</span><span>언더웨어</span><span>기타</span>
+  <span>양말</span><span>레깅스</span><span>스타킹</span><span>언더웨어</span><span>기타</span>
+</div></div>
+
+<div id="company"></div>
+<nav class="subnav" aria-label="COMPANY 하위 메뉴"><div class="wrap"><ul class="wrap-inner" id="subnav">
+  <li><a href="#overview">기업개요</a></li>
+  <li><a href="#ceo">CEO 인사말</a></li>
+  <li><a href="#vision">비전</a></li>
+  <li><a href="#history">연혁</a></li>
+  <li><a href="#cert">인증 및 수상실적</a></li>
+  <li><a href="#location">찾아오시는 길</a></li>
+</ul></div></nav>
+
+<!-- 기업개요 -->
+<section class="intro" id="overview" aria-labelledby="ov-t">
+  <div class="wrap"><div class="wrap-inner intro-grid">
+    <div><p class="eyebrow">Introduction</p><h2 id="ov-t" style="font-size:clamp(28px,3vw,40px)">기업개요</h2></div>
+    <div>
+      <p class="reveal-text" id="reveal">경원상사는 1995년 창사 이래 양말을 시작으로 레깅스, 타이즈, 스타킹 등 다양한 카테고리의 섬유제품을 생산하고 있는 OEM, ODM 전문 기업입니다.</p>
+      <p class="lead">현재 세계 유수 기업들의 전략적인 파트너로서 세계 시장을 선두하는 제품들을 생산하고 있습니다. 하지만 저희는 여기에 안주하지 않고, 도전과 혁신을 통해 제품 카테고리를 넓혀가며 고객의 라이프 스타일 전반을 아우르는 기업이 되고자 노력하고 있습니다.</p>
+    </div>
+  </div></div>
+</section>
+
+<section class="prods" aria-labelledby="pd-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="pd-t">생산제품</h2>
+    <div class="prod-grid" id="prodgrid"></div>
+  </div></div>
+</section>
+
+<section class="org" aria-labelledby="org-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="org-t">주요 부서</h2>
+    <div class="org-wrap">
+      <div class="org-ring" id="orgring">
+        <svg viewBox="0 0 520 520" id="orgsvg" aria-hidden="true"></svg>
+        <div class="center"><div><b>주요 부서</b><span>ORGANIZATION</span></div></div>
+      </div>
+      <div class="org-list" id="orglist"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- CEO 인사말 -->
+<section class="ceo" id="ceo" aria-labelledby="ceo-t">
+  <div class="wrap"><div class="wrap-inner ceo-grid">
+    <div>
+      <p class="eyebrow">CEO Message</p>
+      <h2 id="ceo-t" style="font-size:clamp(28px,3vw,40px)">CEO 인사말</h2>
+      <blockquote>“안녕하십니까<br>본질을 지키며 <em>혁신</em>을 추구하는 기업, 경원상사 입니다.”</blockquote>
+      <div class="letter">
+        <span>안녕하십니까. 경원상사 대표 박중근 입니다.</span>
+        <span>우리 회사를 방문해 주신 고객님께 깊은 감사의 말씀을 드립니다.</span>
+        <span>우리 회사가 경쟁업체와 차별화를 가지는 것은 본질에 대한 고민입니다.</span>
+        <span>우리는 항상 본질을 고민합니다.</span>
+        <span>우리가 생산한 제품이 물리적 실체, 그 이상을 넘는 가치를 선사해주기를 바라며</span>
+        <span>고객님들께 우리들의 본질을 향한 고민과 진심이 전달되기를 바랍니다.</span>
+        <span>양말을 비롯한 섬유제품을 통해 세상과 만나고 소통하고 있는</span>
+        <span>우리들이 추구하는 근원적인 목표는</span>
+        <span>인류의 더 나은, 더 편한 라이프스타일의 창조입니다.</span>
+        <span>사람에 대한 통찰을 바탕으로 한 차별화된 서비스로 고객에게 제품,</span>
+        <span>그 이상의 가치를 전달해드릴 것을 약속드립니다.</span>
+        <span>우리가 보유한 기술력이 미래를 앞당긴다는 자부심을 가지고,</span>
+        <span>부단한 노력을 멈추지 않겠습니다. 감사합니다.</span>
+      </div>
+      <div class="sign"><strong>경원상사 대표이사 박중근</strong><img src="images/sign.jpg" alt="J.K Park 서명"></div>
+    </div>
+    <figure class="ceo-photo"><img id="ceoimg" src="images/ceo.jpg" alt="경원상사 대표이사 박중근"></figure>
+  </div></div>
+</section>
+
+<!-- 비전 -->
+<section class="vision" id="vision" aria-labelledby="vi-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="vi-t">비전</h2>
+    <p class="lead">경원상사는 변하지 않는 가치를 바탕으로 언제나 새로움을 추구합니다.<br>또한, 우리가 생산한 양말을 신는 고객을 행복하게 하고, 그들의 삶의 질을 향상시키기 위해 노력합니다.</p>
+    <div class="tri" id="tri">
+      <svg class="lines" aria-hidden="true"><path id="triPath"/></svg>
+      <div class="tri-grid">
+        <div class="vm"><div class="orb"><b>VISION</b></div><p>고객의 라이프스타일 전반을 아우르는<br>토탈 라이프 스타일 양성으로<br>고객의 삶에 새로운 가치를 창조하는 기업</p></div>
+        <div class="vm"><div class="orb"><b>STRATEGY</b></div><p>풍부한 무역 경험과<br>이를 통해 확보한 기술력을<br>체계적으로 분석한 KY mastering process</p></div>
+        <div class="vm"><div class="orb"><b>MISSION</b></div><p>우리의 제품을 사용하는<br>고객의 행복과 삶의 질 향상</p></div>
+      </div>
+    </div>
+    <div class="vision-band"><canvas id="sunset" aria-hidden="true"></canvas></div>
+  </div></div>
+</section>
+
+<!-- 연혁 -->
+<section class="history" id="history" aria-labelledby="hi-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="hi-t">연혁</h2>
+    <p class="lead" style="margin-top:20px">경원상사는 1995년 창사 이래로, 자체 공장을 바탕으로 한 높은 기술력과 변화를 두려워하지 않는 도전정신으로 전 세계를 아우르는 섬유 제품 기업으로 자리매김하였습니다.</p>
+  </div></div>
+  <div class="h-pin" id="hpin"><div class="h-track" id="htrack"></div></div>
+</section>
+
+<!-- 인증 및 수상실적 -->
+<section class="cert" id="cert" aria-labelledby="ce-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="ce-t">인증 및 수상실적</h2>
+    <p class="lead">경원상사는 우수한 품질의 제품과 서비스로 고객의 신뢰에 보답하기 위하여<br>검증된 기관에서 인증서를 취득하고 있습니다.</p>
+    <div class="wrap-feature">
+      <figure class="doc tilt"><img src="images/cert-wrap.jpg" alt="WRAP Gold Certificate of Compliance - Kyungwon Trading Corporation"></figure>
+      <div>
+        <h3>WRAP 인증</h3>
+        <p>WRAP (Worldwide Responsible Accredited Production)은 인증 및 교육을 통해<br>전 세계의 안전하고 합법적이며 인도적이고 윤리적인 제조를 장려하는 비영리 조직입니다.<br>경원상사는 해당 WRAP 인증을 취득하였습니다.</p>
+        <img class="wrap-logo" src="images/wrap-logo.jpg" alt="WRAP Certified Facility 로고">
+      </div>
+    </div>
+    <div class="docs">
+      <figure><div class="doc tilt"><img src="images/cert-rnd.jpg" alt="연구개발전담부서 인정서"></div><figcaption>연구개발전담부서 인정서</figcaption></figure>
+      <figure><div class="doc tilt"><img src="images/cert-innobiz.jpg" alt="기술혁신형 중소기업(INNO-BIZ) 확인서"></div><figcaption>기술혁신형 중소기업(INNO-BIZ) 확인서</figcaption></figure>
+      <figure><div class="doc tilt"><img src="images/cert-patent.jpg" alt="특허증"></div><figcaption>특허증</figcaption></figure>
+    </div>
+  </div></div>
+</section>
+
+<!-- 원본 캡처 대기 메뉴 -->
+<section class="more" aria-label="BUSINESS, R&D, FACTORY, PRESS">
+  <div class="wrap"><div class="wrap-inner">
+    <div class="more-grid">
+      <article class="more-card" id="business"><b>BUSINESS</b><span class="wait">원본 캡처 대기</span></article>
+      <article class="more-card" id="rnd"><b>R&amp;D</b><span class="wait">원본 캡처 대기</span></article>
+      <article class="more-card" id="factory"><b>FACTORY</b><span class="wait">원본 캡처 대기</span></article>
+      <article class="more-card" id="press"><b>PRESS</b><span class="wait">원본 캡처 대기</span></article>
+    </div>
+  </div></div>
+</section>
+
+<!-- 찾아오시는 길 -->
+<section class="contact" id="location" aria-labelledby="lo-t">
+  <div class="wrap"><div class="wrap-inner">
+    <h2 id="lo-t">찾아오시는 길</h2>
+    <div class="loc-grid">
+      <article class="loc">
+        <div class="mapbox"><canvas class="map" data-kind="seoul" aria-hidden="true"></canvas>
+          <div class="maplinks"><a href="https://map.kakao.com/?q=%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EC%84%9C%EC%B4%88%EA%B5%AC%20%EC%84%9C%EC%B4%88%EC%A4%91%EC%95%99%EB%A1%9C8%EA%B8%B8%20106" target="_blank" rel="noopener">카카오맵 ↗</a></div></div>
+        <h3>서울 사무실</h3>
+        <dl>
+          <dt>주소</dt><dd><span>서울시 서초구 서초중앙로8길 106 중산빌딩 5층</span><button class="copy" data-copy="서울시 서초구 서초중앙로8길 106 중산빌딩 5층">복사</button></dd>
+          <dt>대표번호</dt><dd><span>02-532-6311</span><button class="copy" data-copy="02-532-6311">복사</button></dd>
+          <dt>FAX</dt><dd><span>02-587-3055</span></dd>
+        </dl>
+      </article>
+      <article class="loc">
+        <div class="mapbox"><canvas class="map" data-kind="iksan" aria-hidden="true"></canvas>
+          <div class="maplinks"><a href="https://map.kakao.com/?q=%EC%A0%84%EB%9D%BC%EB%B6%81%EB%8F%84%20%EC%9D%B5%EC%82%B0%EC%8B%9C%20%EC%84%9D%EC%95%94%EB%A1%9C%2017%EA%B8%B8%20147" target="_blank" rel="noopener">카카오맵 ↗</a></div></div>
+        <h3>국내 공장</h3>
+        <dl>
+          <dt>주소</dt><dd><span>전라북도 익산시 석암로 17길 147</span><button class="copy" data-copy="전라북도 익산시 석암로 17길 147">복사</button></dd>
+          <dt>대표번호</dt><dd><span>063-835-3111</span><button class="copy" data-copy="063-835-3111">복사</button></dd>
+          <dt>FAX</dt><dd><span>063-835-4079</span></dd>
+        </dl>
+      </article>
+    </div>
+    <footer class="site">
+      <div><strong>KYUNG WON</strong><br><span style="font-size:11px;letter-spacing:.14em">Trading corporation</span></div>
+      <p>(주)경원상사 / 대표이사 박중근<br>
+      서울특별시 서초구 서초중앙로8길 106 중산빌딩 5층 / 대표전화 02-532-6311 / 팩스 02-587-3055<br>
+      전라북도 익산시 석암로 17길 147 / 대표전화 063-835-3111~2 / 팩스 063-835-4079</p>
+    </footer>
+  </div></div>
+</section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(()=>{
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const hasGsap=typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined';
+const $=s=>document.querySelector(s);
+
+/* 생산제품 (원본: 양말, 레깅스, 스타킹, 언더웨어, etc. 기타) */
+const prods=[
+ ['양말','<path class="ic" d="M22 16h16v30c0 4 2 6 5 8l8 6c5 4 4 12-3 13-4 1-8-1-11-3L22 58c-3-2-4-5-4-8V16z"/><path class="ic" d="M50 26h16v30c0 4 2 6 5 8l6 4c5 4 4 12-3 13-4 1-8-1-11-3L50 68c-3-2-4-5-4-8"/>'],
+ ['레깅스','<path class="ic" d="M30 14h40v8l-4 64H54l-4-50-4 50H34l-4-64z"/><path class="ic" d="M30 22h40"/>'],
+ ['스타킹','<path class="ic" d="M26 14l14-2 10 26 26 30c4 5 0 12-6 10L46 62 20 26z"/><path class="ic" d="M24 22l14-3"/>'],
+ ['언더웨어','<path class="ic" d="M32 12v16M68 12v16"/><path class="ic" d="M24 40c0-10 8-14 14-12 6 2 8 8 12 12 4-4 6-10 12-12 6-2 14 2 14 12-8 6-18 6-26 0-8 6-18 6-26 0z"/><path class="ic" d="M26 64h48l-6 8c-6 8-12 12-18 14-6-2-12-6-18-14z"/>'],
+ ['기타','<text x="50" y="60" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="28" fill="currentColor">etc.</text>'],
+];
+$('#prodgrid').innerHTML=prods.map(p=>`<article class="prod"><svg viewBox="0 0 100 100" aria-hidden="true">${p[1]}</svg><h3>${p[0]}</h3></article>`).join('');
+
+/* 주요 부서 (원본 문구 그대로) */
+const depts=[
+ {n:'R&D 센터',c:'#0e1433',i:'<path d="M9 18a6 6 0 1 1 6 0v3H9z"/><path d="M10 21h4M12 3v2M5 6l1.5 1.5M19 6l-1.5 1.5"/>',l:['국내외 시장조사','트렌드 분석 및 컨셉 제안','2D·3D CAD 디자인','기능성 원사 연구','새로운 조직 개발']},
+ {n:'영업본부',c:'#1b2a6b',i:'<rect x="3" y="4" width="18" height="12" rx="1"/><path d="M6 13l4-4 3 3 5-5M9 20h6M12 16v4"/>',l:['신규 바이어 창출','기존 바이어 관리','오더 수주 및 관리','수출입 및 통관 서류 업무','선적 일정 관리']},
+ {n:'생산본부',c:'#174ea6',i:'<path d="M4 20V9l5 3V9l5 3V5h6v15z"/><path d="M8 16h2M13 16h2"/>',l:['생산 일정 관리','원사 및 부자재 발주','샘플 편직 및 발송','협력 업체 관리','LAB TEST']},
+ {n:'품질관리',c:'#1f7fd1',i:'<rect x="5" y="3" width="14" height="18" rx="1"/><path d="M8 8l1.5 1.5L12 7M8 13l1.5 1.5L12 12M14 8h2M14 13h2M8 18h8"/>',l:['공장관리','품질관련 검사 실시','품질관리 시스템 안착','사전검사를 통한 불량 최소화','제품 특성에 맞춘 품질 관리']},
+];
+const orgList=$('#orglist');
+orgList.innerHTML=depts.map((d,i)=>`<div class="dept" data-i="${i}"><span class="ic" style="background:${d.c}"><svg viewBox="0 0 24 24">${d.i}</svg></span><div><h3>${d.n}</h3><ul>${d.l.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`).join('');
+const svg=$('#orgsvg');const C=260,R1=250,R0=150;
+function arc(a0,a1){const p=(r,a)=>[C+r*Math.cos(a),C+r*Math.sin(a)];const [x0,y0]=p(R1,a0),[x1,y1]=p(R1,a1),[x2,y2]=p(R0,a1),[x3,y3]=p(R0,a0);return`M${x0} ${y0}A${R1} ${R1} 0 0 1 ${x1} ${y1}L${x2} ${y2}A${R0} ${R0} 0 0 0 ${x3} ${y3}Z`}
+svg.innerHTML=depts.map((d,i)=>{const a0=Math.PI*(.75+i*.5)+.03,a1=Math.PI*(1.25+i*.5)-.03,am=(a0+a1)/2,tx=C+200*Math.cos(am),ty=C+200*Math.sin(am);
+ return`<g class="seg" data-i="${i}"><path d="${arc(a0,a1)}" fill="${d.c}"/><g transform="translate(${tx-14} ${ty-26}) scale(1.15)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${d.i}</g><text x="${tx}" y="${ty+22}" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" font-family="IBM Plex Sans KR, sans-serif">${d.n}</text></g>`}).join('');
+function focus(i){orgList.classList.toggle('focus',i!=null);document.querySelectorAll('.dept,.seg').forEach(el=>el.classList.toggle('on',+el.dataset.i===i))}
+document.querySelectorAll('.seg,.dept').forEach(el=>{el.addEventListener('pointerenter',()=>focus(+el.dataset.i));el.addEventListener('pointerleave',()=>focus(null))});
+
+/* 연혁 (원본 그대로) */
+const eras=[
+ {y:"1990`s",t:'설립 및 기반 구축',h:[205,40],e:[['1995.07','경원무역상사 설립'],['1999.08','익산 제2산업단지 확장 이전'],['1999.11','1백만불 수출의 탑 수상']]},
+ {y:"2000`s",t:'도전과 혁신',h:[215,60],e:[['2000.04','주식회사 경원상사로 법인 설립'],['2003.11','3백만불 수출의 탑 수상'],['2004.11','ISO 9001 품질경영시스템인증 취득'],['2005.01','ISO 14001 환경인증시스템인증 취득']]},
+ {y:"2010`s",t:'안정된 성장',h:[228,45],e:[['2010.03','클린사업장 인정'],['2010.09','연구개발 전담부서 인정'],['2010.12','INNO-BIZ 취득'],['2011.07','환경마크인증서 취득'],['2015.12','5백만불 수출의 탑 수상'],['2017.10','강소 중소기업 인증 획득']]},
+ {y:"2020`s",t:'새로운 발걸음',h:[30,55],e:[['2020.01','베트남 신규 공장 투자'],['2020.01','자체 브랜드 (K.LAVA) 런칭'],['2020.03','내수 사업 확대 및 신규 바이어 창출']]},
+];
+const track=$('#htrack');
+track.innerHTML=eras.map((r,i)=>`<article class="era"><div class="era-head"><canvas data-h="${r.h[0]}" data-s="${r.h[1]}" data-i="${i}" aria-hidden="true"></canvas><div class="yr">${r.y}</div><div class="tt">${r.t}</div></div><ol class="events">${r.e.map(e=>`<li><time>${e[0]}</time><span>${e[1]}</span></li>`).join('')}</ol></article>`).join('');
+function drawEra(cv){const r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);cv.width=r.width*d;cv.height=r.height*d;const x=cv.getContext('2d');x.scale(d,d);
+ const w=r.width,h=r.height,H=+cv.dataset.h,S=+cv.dataset.s,I=+cv.dataset.i,n=26+I*8;
+ const g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,`hsl(${H} ${S}% 22%)`);g.addColorStop(1,`hsl(${(H+30)%360} ${S}% 40%)`);x.fillStyle=g;x.fillRect(0,0,w,h);
+ x.lineWidth=1.2;for(let k=0;k<n;k++){x.strokeStyle=`hsla(${(H+k*3)%360} 80% 80% / ${.08+.012*k})`;x.beginPath();for(let t=0;t<=w;t+=8){const y=h*.15+k*(h*.7/n)+Math.sin(t*.02+k*.4+I)*10*(1+I*.3);t?x.lineTo(t,y):x.moveTo(t,y)}x.stroke()}
+ x.fillStyle='rgba(0,0,0,.25)';x.fillRect(0,h*.55,w,h*.45);}
+
+/* 헤더/메뉴/복사 */
+const hdr=$('#hdr'),menu=$('#menu'),burger=$('#burger');
+burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded',false)}));
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+ const t=b.dataset.copy,o=b.textContent,done=()=>{b.textContent='복사됨';setTimeout(()=>b.textContent=o,1400)};
+ const sel=()=>{const v=b.previousElementSibling;const r=document.createRange();r.selectNodeContents(v);const s=getSelection();s.removeAllRanges();s.addRange(r)};
+ if(navigator.clipboard)navigator.clipboard.writeText(t).then(done).catch(sel);else sel();
+}));
+
+/* 커서 */
+const cur=$('#cursor');let cx=0,cy=0,tx=0,ty=0;
+addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;cur.style.opacity=1});
+document.querySelectorAll('a,button,.prod,.seg,.doc').forEach(el=>{el.addEventListener('pointerenter',()=>cur.classList.add('big'));el.addEventListener('pointerleave',()=>cur.classList.remove('big'))});
+(function loop(){cx+=(tx-cx)*.18;cy+=(ty-cy)*.18;cur.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
+
+/* 인증서 3D 틸트 */
+document.querySelectorAll('.tilt').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();const px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${px*10}deg) rotateX(${-py*10}deg) scale(1.02)`});el.addEventListener('pointerleave',()=>el.style.transform='')});
+
+/* 캔버스 */
+function fit(c){const r=c.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);c.width=r.width*d;c.height=r.height*d;const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:r.height}}
+const knit=$('#knit');let K,mx=-999,my=-999;
+knit.parentElement.addEventListener('pointermove',e=>{const r=knit.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+knit.parentElement.addEventListener('pointerleave',()=>{mx=my=-999});
+function drawKnit(t){const{x,w,h}=K;x.clearRect(0,0,w,h);const s=w<700?18:24,ink=css('--ink'),ind=css('--indigo');
+ const cols=Math.ceil(w/s)+2,rows=Math.ceil(h/(s*.8))+2,off=(scrollY*.15)%(s*.8);
+ for(let r=0;r<rows;r++){const y=r*s*.8-off;for(let c=0;c<cols;c++){const X=c*s-(r%2?s/2:0);const base=Math.max(0,(X/w-.35))*1.25;const d=Math.hypot(X-mx,y-my),hov=Math.max(0,1-d/160);const wave=Math.sin(t*.0012+c*.35+r*.22)*.5+.5;const a=Math.min(.75,base*(.28+.25*wave)+hov*.7);if(a<.02)continue;const lift=hov*6;
+  x.strokeStyle=hov>.05?ind:ink;x.globalAlpha=a;x.lineWidth=1.4;x.lineCap='round';x.beginPath();x.moveTo(X-s*.32,y-s*.3-lift);x.quadraticCurveTo(X-s*.1,y+s*.15,X,y+s*.32-lift*.5);x.quadraticCurveTo(X+s*.1,y+s*.15,X+s*.32,y-s*.3-lift);x.stroke()}}x.globalAlpha=1}
+const sunset=$('#sunset');let SS;
+const parts=Array.from({length:90},()=>({x:Math.random(),y:Math.random()*.6,r:Math.random()*1.8+.4,s:Math.random()*.4+.1}));
+function drawSunset(t){const{x,w,h}=SS;const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,'#2e4a6b');g.addColorStop(.5,'#b9774a');g.addColorStop(.62,'#f2b36b');g.addColorStop(.63,'#1c2431');g.addColorStop(1,'#0c1017');x.fillStyle=g;x.fillRect(0,0,w,h);
+ const sx=w*.55,sy=h*.62;const rg=x.createRadialGradient(sx,sy,0,sx,sy,h*.5);rg.addColorStop(0,'rgba(255,236,190,.95)');rg.addColorStop(.15,'rgba(255,200,130,.5)');rg.addColorStop(1,'rgba(255,180,120,0)');x.fillStyle=rg;x.fillRect(0,0,w,h);
+ for(let i=0;i<18;i++){const y=sy+4+i*i*.9;x.strokeStyle=`rgba(255,210,150,${.35-i*.018})`;x.lineWidth=1;x.beginPath();const ww=(60+i*14)*(1+Math.sin(t*.002+i)*.1);x.moveTo(sx-ww,y);x.lineTo(sx+ww,y);x.stroke()}
+ parts.forEach(p=>{const yy=(p.y*h*.62-(t*.01*p.s)%(h*.62)+h*.62)%(h*.62);x.fillStyle=`rgba(255,240,210,${.25+p.r*.2})`;x.beginPath();x.arc(p.x*w+Math.sin(t*.001+p.y*10)*6,yy,p.r,0,7);x.fill()})}
+const maps=[...document.querySelectorAll('canvas.map')];let MP=[];
+function drawMap(m,t){const{x,w,h}=m.F;const seoul=m.c.dataset.kind==='seoul';x.fillStyle='#1b1e29';x.fillRect(0,0,w,h);
+ x.strokeStyle='rgba(243,244,246,.06)';x.lineWidth=1;const step=seoul?18:30;for(let i=0;i<w;i+=step){x.beginPath();x.moveTo(i,0);x.lineTo(i,h);x.stroke()}for(let j=0;j<h;j+=step){x.beginPath();x.moveTo(0,j);x.lineTo(w,j);x.stroke()}
+ x.lineCap='round';
+ if(seoul){x.strokeStyle='rgba(243,244,246,.22)';x.lineWidth=10;x.beginPath();x.moveTo(0,h*.72);x.lineTo(w,h*.38);x.stroke();x.strokeStyle='rgba(231,160,80,.45)';x.lineWidth=14;x.beginPath();x.moveTo(w*.78,0);x.lineTo(w*.95,h);x.stroke();x.strokeStyle='rgba(243,244,246,.14)';x.lineWidth=3;for(let k=0;k<6;k++){x.beginPath();x.moveTo(w*(.05+k*.12),0);x.lineTo(w*(.12+k*.1),h);x.stroke()}}
+ else{x.strokeStyle='rgba(243,244,246,.22)';x.lineWidth=12;x.beginPath();x.moveTo(0,h*.6);x.bezierCurveTo(w*.3,h*.35,w*.6,h*.2,w,h*.1);x.stroke();x.lineWidth=6;x.beginPath();x.moveTo(w*.5,h*.28);x.lineTo(w,h*.95);x.stroke();x.fillStyle='rgba(90,160,110,.18)';x.beginPath();x.ellipse(w*.28,h*.72,w*.18,h*.2,0,0,7);x.fill()}
+ const px=w*(seoul?.42:.55),py=h*(seoul?.52:.38),pulse=(t*.001)%1;
+ x.strokeStyle=`rgba(125,140,255,${1-pulse})`;x.lineWidth=2;x.beginPath();x.arc(px,py,8+pulse*44,0,7);x.stroke();
+ x.fillStyle='#7d8cff';x.beginPath();x.arc(px,py,8,0,7);x.fill();
+ x.fillStyle='#f3f4f6';x.font='600 15px "IBM Plex Sans KR",sans-serif';x.fillText(seoul?'서울 사무실':'국내 공장',px+16,py+5);}
+const eraCvs=[...document.querySelectorAll('.era-head canvas')];
+function drawTri(){const tri=$('#tri'),p=$('#triPath');const tr=tri.getBoundingClientRect();const o=[...tri.querySelectorAll('.orb')].map(o=>{const r=o.getBoundingClientRect();return[r.left-tr.left+r.width/2,r.top-tr.top+r.height/2]});p.setAttribute('d',`M${o[0]} L${o[1]} L${o[2]} Z`)}
+function sizeAll(){K=fit(knit);SS=fit(sunset);MP=maps.map(c=>({c,F:fit(c)}));eraCvs.forEach(drawEra);drawTri()}
+const vis=new Map(),io=new IntersectionObserver(es=>es.forEach(e=>vis.set(e.target,e.isIntersecting)));
+[knit,sunset,...maps].forEach(c=>{vis.set(c,true);io.observe(c)});
+function frame(t){if(vis.get(knit))drawKnit(t);if(vis.get(sunset))drawSunset(t);MP.forEach(m=>{if(vis.get(m.c))drawMap(m,t)});if(!reduce)requestAnimationFrame(frame)}
+sizeAll();requestAnimationFrame(frame);
+addEventListener('resize',()=>{sizeAll();if(reduce)frame(0)});
+if(document.fonts)document.fonts.ready.then(()=>{sizeAll();if(reduce)frame(0)});
+
+/* 단어 리빌 */
+const rv=$('#reveal');rv.innerHTML=rv.textContent.trim().split(/\s+/).map(w=>`<span class="w">${w}</span>`).join(' ');
+const words=[...rv.querySelectorAll('.w')];
+
+/* 스크롤 상태 */
+const prog=$('#progress'),subLinks=[...document.querySelectorAll('#subnav a')];
+const subIds=['overview','ceo','vision','history','cert','location'];
+function onScroll(){const y=scrollY;hdr.classList.toggle('scrolled',y>10);
+ prog.style.transform=`scaleX(${y/Math.max(1,document.documentElement.scrollHeight-innerHeight)})`;
+ if(!hasGsap||reduce){const r=rv.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(r.height+innerHeight*.3)));words.forEach((w,i)=>w.classList.toggle('lit',reduce||i/words.length<p))}
+ let on=null;subIds.forEach(id=>{if(document.getElementById(id).getBoundingClientRect().top<innerHeight*.4)on=id});
+ let onMain=on?'company':null;['business','rnd','factory','press'].forEach(id=>{const r=document.getElementById(id).getBoundingClientRect();if(r.top<innerHeight*.6&&r.bottom>innerHeight*.2)onMain=id});
+ subLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+on));
+ menu.querySelectorAll('a[data-sec]').forEach(a=>a.classList.toggle('on',a.dataset.sec===onMain));}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+let lenis=null;
+if(!reduce&&typeof Lenis!=='undefined'){lenis=new Lenis({lerp:.1,smoothWheel:true});
+ if(hasGsap){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}else{(function r(t){lenis.raf(t);requestAnimationFrame(r)})(0)}}
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id==='#english')return e.preventDefault();
+ const el=id==='#top'?document.body:document.querySelector(id==='#company'?'#overview':id);if(!el)return;e.preventDefault();
+ if(lenis)lenis.scrollTo(el,{offset:id==='#top'?0:-118,duration:1.4});else el.scrollIntoView({behavior:reduce?'auto':'smooth'});}));
+
+if(hasGsap&&!reduce){
+ gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.hero h1 .ln span',{yPercent:110,duration:1.2,ease:'expo.out',stagger:.12,delay:.1});
+ gsap.from('.hero .cta',{y:30,autoAlpha:0,duration:1,ease:'power3.out',delay:.5});
+ gsap.to('.hero h1',{yPercent:-18,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ ScrollTrigger.create({trigger:rv,start:'top 80%',end:'bottom 45%',scrub:true,onUpdate:s=>{const n=Math.round(s.progress*words.length);words.forEach((w,i)=>w.classList.toggle('lit',i<n))}});
+ gsap.from('.prod',{y:80,rotate:()=>gsap.utils.random(-6,6),autoAlpha:.2,duration:1.1,ease:'expo.out',stagger:.08,scrollTrigger:{trigger:'#prodgrid',start:'top 85%'}});
+ gsap.from('.seg',{scale:.6,autoAlpha:0,rotate:-30,transformOrigin:'260px 260px',duration:1.2,ease:'expo.out',stagger:.12,scrollTrigger:{trigger:'#orgring',start:'top 80%'}});
+ gsap.from('.dept',{x:40,autoAlpha:.2,duration:.9,ease:'power3.out',stagger:.08,scrollTrigger:{trigger:'#orglist',start:'top 80%'}});
+ gsap.fromTo('#ceoimg',{yPercent:-8},{yPercent:0,ease:'none',scrollTrigger:{trigger:'.ceo',start:'top bottom',end:'bottom top',scrub:true}});
+ gsap.from('.ceo .letter span',{y:24,autoAlpha:.1,duration:.8,ease:'power2.out',stagger:.06,scrollTrigger:{trigger:'.ceo .letter',start:'top 80%'}});
+ gsap.from('.ceo .sign img',{clipPath:'inset(0 100% 0 0)',duration:1.8,ease:'power2.inOut',scrollTrigger:{trigger:'.ceo .sign',start:'top 92%'}});
+ gsap.from('.vm',{y:60,autoAlpha:.2,duration:1,ease:'expo.out',stagger:.15,scrollTrigger:{trigger:'#tri',start:'top 80%'}});
+ gsap.fromTo('#triPath',{strokeDashoffset:1200},{strokeDashoffset:0,ease:'none',scrollTrigger:{trigger:'#tri',start:'top 80%',end:'bottom 50%',scrub:true}});
+ gsap.fromTo('.vision-band',{clipPath:'inset(12% 8% 12% 8% round 28px)'},{clipPath:'inset(0% 0% 0% 0% round 28px)',ease:'none',scrollTrigger:{trigger:'.vision-band',start:'top bottom',end:'center center',scrub:true}});
+ ScrollTrigger.matchMedia({'(min-width: 761px)':()=>{const dist=()=>track.scrollWidth-innerWidth;
+  gsap.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#hpin',start:'top 18%',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true}});}});
+ gsap.from('.wrap-feature .doc',{rotateY:-25,x:-60,autoAlpha:.2,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:'.wrap-feature',start:'top 80%'}});
+ gsap.from('.docs figure',{y:90,rotate:i=>[-5,2,6][i],autoAlpha:.2,duration:1.2,ease:'expo.out',stagger:.12,scrollTrigger:{trigger:'.docs',start:'top 85%'}});
+ gsap.utils.toArray('section h2').forEach(h=>gsap.from(h,{y:60,autoAlpha:.15,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:h,start:'top 88%'}}));
+ gsap.fromTo('#lo-t',{scale:.86,transformOrigin:'left bottom'},{scale:1,ease:'none',scrollTrigger:{trigger:'#location',start:'top bottom',end:'top 30%',scrub:true}});
+ if(document.fonts)document.fonts.ready.then(()=>ScrollTrigger.refresh());
+}
+})();
+</script>
+</body>
+</html>
