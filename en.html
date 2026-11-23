@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Kyungwon Corporation — OEM and ODM manufacturer of socks, leggings, tights and stockings since 1995">
 <title>Kyungwon Corporation KYUNG WON</title>
@@ -12,6 +13,7 @@
 <style>
 /* Layout: 쪽빛(인디고)과 실의 결을 모티프로, 큰 타이포 + 스크롤에 맞춰 짜여 나가는 니트 그래픽 */
 :root{
+  color-scheme:light;
   --paper:#f3f4f6; --paper-2:#e6e8ee; --ink:#12141b; --ink-soft:#4a4f5e;
   --indigo:#2b3a96; --indigo-deep:#141c4f; --sky:#1f7fd1;
   --line:rgba(18,20,27,.12); --on-indigo:#eef0ff;
@@ -20,9 +22,6 @@
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --gut:max(16px,env(safe-area-inset-left,0px)); --gut-r:max(16px,env(safe-area-inset-right,0px));
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#0d0f17;--paper-2:#161a26;--ink:#eceef4;--ink-soft:#a3a8b8;--indigo:#7d8cff;--indigo-deep:#1a2366;--sky:#5fb0f5;--line:rgba(236,238,244,.12);--on-indigo:#eef0ff;color-scheme:dark}}
-:root[data-theme="dark"]{--paper:#0d0f17;--paper-2:#161a26;--ink:#eceef4;--ink-soft:#a3a8b8;--indigo:#7d8cff;--indigo-deep:#1a2366;--sky:#5fb0f5;--line:rgba(236,238,244,.12);--on-indigo:#eef0ff;color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all}
@@ -148,7 +147,6 @@ header.site.scrolled{border-color:var(--line)}
 .ceo .sign{margin-top:36px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .ceo .sign strong{font-size:17px}
 .ceo .sign img{height:44px;width:auto}
-@media (prefers-color-scheme:dark){.ceo .sign img{filter:invert(1)}}
 .ceo-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:579/645;max-width:100%;background:#c9ced6;margin:0}
 .ceo-photo img{width:100%;height:115%;object-fit:cover;display:block}
 @media (max-width:860px){.ceo-grid{grid-template-columns:1fr;row-gap:0}.ceo-copy{display:contents}.ceo-copy>*{min-width:0}.ceo-copy>.eyebrow,.ceo-copy>h2{order:-2}.ceo-photo{order:-1;max-width:440px;margin:clamp(20px,5vw,32px) 0 0}}
@@ -395,7 +393,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
 
 <header class="site" id="hdr">
   <div class="wrap"><nav class="nav wrap-inner" aria-label="Main menu">
-    <a class="logo" href="#top" aria-label="Kyungwon home"><picture><source srcset="images/logo-white.png" media="(prefers-color-scheme: dark)"><img src="images/logo.png" alt="KYUNG WON" width="135" height="58"></picture></a>
+    <a class="logo" href="#top" aria-label="Kyungwon home"><img src="images/logo.png" alt="KYUNG WON" width="135" height="58"></a>
     <ul class="menu" id="menu">
       <li><a href="#company" data-sec="company">COMPANY</a></li>
       <li><a href="#business" data-sec="business">BUSINESS</a></li>
@@ -814,7 +812,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
       </article>
     </div>
     <footer class="site">
-      <div class="f-logo"><picture><source srcset="images/logo.png" media="(prefers-color-scheme: dark)"><img src="images/logo-white.png" alt="KYUNG WON" width="135" height="58"></picture></div>
+      <div class="f-logo"><img src="images/logo-white.png" alt="KYUNG WON" width="135" height="58"></div>
       <p>KYUNGWON Co., Ltd. / CEO J.K. Park<br>
       5F Jungsan Bldg., 106 Seochojungang-ro 8-gil, Seocho-gu, Seoul / Tel +82 2 532 6311 / Fax +82 2 587 3055<br>
       147 Seogam-ro 17-gil, Iksan-si, Jeollabuk-do / Tel +82 63 835 3111~2 / Fax +82 63 835 4079</p>
