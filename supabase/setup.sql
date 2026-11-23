@@ -90,6 +90,7 @@ create policy "news delete" on public.news for delete to authenticated using (pu
 grant usage on schema public to anon, authenticated;
 grant select on public.news to anon, authenticated;
 grant insert, update, delete on public.news to authenticated;
+grant select, insert, update, delete on public.news to service_role;
 grant execute on function public.admin_check(), public.is_admin(), public.is_admin_user(), public.ip_allowed(), public.request_ip() to anon, authenticated;
 
 -- 6) 대표이미지 저장소 (공개 읽기, 관리자만 올리기/지우기, 5MB 이하 이미지)
@@ -97,9 +98,12 @@ insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_typ
 values ('news', 'news', true, 5242880, array['image/jpeg', 'image/png', 'image/webp', 'image/gif'])
 on conflict (id) do nothing;
 
+drop policy if exists "news images read"   on storage.objects;
 drop policy if exists "news images insert" on storage.objects;
 drop policy if exists "news images update" on storage.objects;
 drop policy if exists "news images delete" on storage.objects;
+-- select 정책이 없으면 올리기(upsert)와 삭제(remove)의 결과 행을 돌려받지 못해 오류가 난다
+create policy "news images read"   on storage.objects for select to authenticated using (bucket_id = 'news' and public.is_admin_user());
 create policy "news images insert" on storage.objects for insert to authenticated with check (bucket_id = 'news' and public.is_admin_user());
 create policy "news images update" on storage.objects for update to authenticated using (bucket_id = 'news' and public.is_admin_user());
 create policy "news images delete" on storage.objects for delete to authenticated using (bucket_id = 'news' and public.is_admin_user());
