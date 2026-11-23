@@ -86,6 +86,12 @@ create policy "news insert" on public.news for insert to authenticated with chec
 create policy "news update" on public.news for update to authenticated using (public.is_admin()) with check (public.is_admin());
 create policy "news delete" on public.news for delete to authenticated using (public.is_admin());
 
+-- 5-1) API 권한 (새 Supabase 프로젝트는 표를 자동으로 API에 열어주지 않으므로 직접 부여)
+grant usage on schema public to anon, authenticated;
+grant select on public.news to anon, authenticated;
+grant insert, update, delete on public.news to authenticated;
+grant execute on function public.admin_check(), public.is_admin(), public.is_admin_user(), public.ip_allowed(), public.request_ip() to anon, authenticated;
+
 -- 6) 대표이미지 저장소 (공개 읽기, 관리자만 올리기/지우기, 5MB 이하 이미지)
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values ('news', 'news', true, 5242880, array['image/jpeg', 'image/png', 'image/webp', 'image/gif'])

@@ -238,7 +238,8 @@ $('#f-news').addEventListener('submit', async e => {
     msg('저장했습니다. 홈페이지에 바로 반영됩니다.');
   } catch (err) {
     const t = String(err.message || err);
-    msg(/row-level security|permission/i.test(t) ? '저장 권한이 없습니다. 허용된 IP에서 관리자 계정으로 접속했는지 확인해 주세요.' : '저장하지 못했습니다: ' + t, true);
+    let c = {}; try { c = await check(); } catch {}
+    msg((/row-level security|permission/i.test(t) ? '저장 권한이 없습니다. ' : '저장하지 못했습니다. ') + `(서버 응답: ${t} / 접속 IP ${c.ip || '?'}, IP 허용 ${c.ip_allowed ? '예' : '아니오'}, 관리자 ${c.is_admin ? '예' : '아니오'})`, true);
   } finally { $('#save').disabled = false; }
 });
 
