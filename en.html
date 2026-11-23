@@ -151,7 +151,7 @@ header.site.scrolled{border-color:var(--line)}
 @media (prefers-color-scheme:dark){.ceo .sign img{filter:invert(1)}}
 .ceo-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:579/645;max-width:100%;background:#c9ced6;margin:0}
 .ceo-photo img{width:100%;height:115%;object-fit:cover;display:block}
-@media (max-width:860px){.ceo-grid{grid-template-columns:1fr}.ceo-photo{order:-1;max-width:440px;margin-bottom:clamp(4px,1.5vw,12px)}}
+@media (max-width:860px){.ceo-grid{grid-template-columns:1fr;row-gap:0}.ceo-copy{display:contents}.ceo-copy>*{min-width:0}.ceo-copy>.eyebrow,.ceo-copy>h2{order:-2}.ceo-photo{order:-1;max-width:440px;margin:clamp(20px,5vw,32px) 0 0}}
 
 /* ---------- 비전 ---------- */
 .vision{padding-block:clamp(80px,10vw,150px)}
@@ -474,7 +474,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
 <!-- CEO -->
 <section class="ceo" id="ceo" aria-labelledby="ceo-t">
   <div class="wrap"><div class="wrap-inner ceo-grid">
-    <div>
+    <div class="ceo-copy">
       <p class="eyebrow">CEO Message</p>
       <h2 id="ceo-t" style="font-size:clamp(28px,3vw,40px)">CEO message</h2>
       <blockquote>“We always think of customers first,<br>and pursue <em>changes and innovation</em>.”</blockquote>
