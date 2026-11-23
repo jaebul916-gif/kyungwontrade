@@ -48,9 +48,8 @@ header.site::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;tr
 header.site.scrolled::before{opacity:1}
 header.site.scrolled{border-color:var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700}
-.logo svg{width:34px;height:34px}
-.logo b{font-family:var(--f-display);font-size:19px;font-weight:800;letter-spacing:.01em}
+.logo{display:flex;align-items:center;text-decoration:none;background:#fff;border-radius:12px;padding:4px 10px;box-shadow:0 0 0 1px var(--line)}
+.logo img{height:40px;width:auto;display:block}
 .menu{display:flex;gap:2px;list-style:none;margin:0;padding:0;align-items:center}
 .menu a{display:block;padding:8px 14px;border-radius:999px;text-decoration:none;font-family:var(--f-display);font-size:15px;font-weight:600;letter-spacing:.02em;transition:background .25s,color .25s}
 .menu a:hover,.menu a.on{background:var(--ink);color:var(--paper)}
@@ -270,7 +269,8 @@ header.site.scrolled{border-color:var(--line)}
 .copy:hover{background:var(--paper);color:var(--ink)}
 footer.site{margin-top:90px;display:flex;gap:32px;flex-wrap:wrap;font-size:13px;line-height:1.9;color:color-mix(in srgb,var(--paper) 55%,transparent);border-top:1px solid color-mix(in srgb,var(--paper) 16%,transparent);padding-top:28px}
 footer.site p{max-width:none}
-footer.site strong{color:var(--paper);font-family:var(--f-display);font-size:20px;letter-spacing:.02em}
+.f-logo{background:#fff;border-radius:12px;padding:6px 12px;align-self:flex-start}
+.f-logo img{height:44px;width:auto;display:block}
 @media (max-width:860px){.loc-grid{grid-template-columns:1fr}}
 
 .cursor{position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--indigo);pointer-events:none;z-index:100;transition:width .3s,height .3s,opacity .3s;opacity:0}
@@ -369,10 +369,7 @@ a.row:hover{background:var(--paper-2);padding-left:12px}
 
 <header class="site" id="hdr">
   <div class="wrap"><nav class="nav wrap-inner" aria-label="Main menu">
-    <a class="logo" href="#top" aria-label="Kyungwon home">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="var(--indigo)"/><path d="M10 11v18M10 20l8-9M13 17l7 12" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M20 12l3 16 3.5-11 3.5 11 3-16" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      <b>KYUNG WON</b>
-    </a>
+    <a class="logo" href="#top" aria-label="Kyungwon home"><img src="images/logo.png" alt="KYUNG WON" width="135" height="58"></a>
     <ul class="menu" id="menu">
       <li><a href="#company" data-sec="company">COMPANY</a></li>
       <li><a href="#business" data-sec="business">BUSINESS</a></li>
@@ -791,7 +788,7 @@ a.row:hover{background:var(--paper-2);padding-left:12px}
       </article>
     </div>
     <footer class="site">
-      <div><strong>KYUNG WON</strong><br><span style="font-size:11px;letter-spacing:.14em">Trading corporation</span></div>
+      <div class="f-logo"><img src="images/logo.png" alt="KYUNG WON" width="135" height="58"></div>
       <p>KYUNGWON Co., Ltd. / CEO J.K. Park<br>
       5F Jungsan Bldg., 106 Seochojungang-ro 8-gil, Seocho-gu, Seoul / Tel +82 2 532 6311 / Fax +82 2 587 3055<br>
       147 Seogam-ro 17-gil, Iksan-si, Jeollabuk-do / Tel +82 63 835 3111~2 / Fax +82 63 835 4079</p>
@@ -863,6 +860,12 @@ document.querySelectorAll('.gallery').forEach(g=>{
  prev.addEventListener('click',()=>go(gi-1));next.addEventListener('click',()=>go(gi+1));
  track.addEventListener('scroll',()=>{const i=Math.round(track.scrollLeft/track.clientWidth);if(i!==gi){gi=i;upd()}},{passive:true});
  upd();
+ // 자동 넘김: 4초마다 다음 사진, 마지막 다음은 처음으로. 마우스를 올리거나 화면 밖이면 멈춤
+ if(slides.length>1&&!reduce){let hover=false,seen=false;
+  g.addEventListener('pointerenter',()=>hover=true);g.addEventListener('pointerleave',()=>hover=false);
+  g.addEventListener('focusin',()=>hover=true);g.addEventListener('focusout',()=>hover=false);
+  new IntersectionObserver(es=>es.forEach(e=>seen=e.isIntersecting)).observe(g);
+  setInterval(()=>{if(!hover&&seen&&!document.hidden)go(gi===slides.length-1?0:gi+1)},4000);}
 });
 const capRows=[['200N S/C',246,1500000],['132N S/C, TERRY M/C',120,750000],['168N S/C',110,700000],['120N S/C',40,250000],['144N S/C',40,250000],['200N D/C',70,450000],['168N D/C',114,700000],['84N D/C (72N D/C, 96N D/C)',64,400000]];
 $('#captable tbody').innerHTML=capRows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2].toLocaleString('en-US')} PRS<span class="bar" style="--w:${(r[2]/1500000*100).toFixed(1)}%"></span></td></tr>`).join('');
