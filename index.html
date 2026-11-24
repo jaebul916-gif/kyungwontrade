@@ -332,8 +332,8 @@ footer.site .admin-link{margin-left:auto;align-self:flex-start;padding:4px 12px}
 .acts{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:9px}
 .acts li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:15px;color:var(--ink-soft);line-height:1.6}
 .acts li::before{content:"—";color:var(--indigo)}
-.buyers{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0;padding:0;list-style:none}
-.buyer{background:#fff;border:1px solid var(--line);border-radius:16px;aspect-ratio:5/3;display:grid;place-items:center;padding:16px;margin:0}
+.buyers{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:0;padding:0;list-style:none}
+.buyer{flex:0 0 calc((100% - 48px)/5);max-width:calc((100% - 48px)/5);background:#fff;border:1px solid var(--line);border-radius:16px;aspect-ratio:5/3;display:grid;place-items:center;padding:16px;margin:0}
 .buyer img{max-width:100%;max-height:72px;width:auto;height:auto;object-fit:contain;filter:grayscale(1);opacity:.82;transition:filter .3s,opacity .3s,transform .3s}
 .buyer:hover img{filter:none;opacity:1;transform:scale(1.05)}
 .photo-pair{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-top:32px}
@@ -382,8 +382,8 @@ a.row:hover .thumb img{transform:scale(1.05)}
 .nd-txt h3{margin-top:8px;font-size:clamp(22px,3vw,30px);line-height:1.3}
 .nd-body{margin-top:18px;font-size:16px;line-height:1.85;color:var(--ink-soft);white-space:pre-wrap;word-break:keep-all}
 .nd-link{display:inline-block;margin-top:22px;padding:10px 18px;border-radius:999px;background:var(--ink);color:var(--paper);text-decoration:none;font-size:14px;font-weight:600}
-@media (max-width:980px){.cards-3,.cards-4,.resp,.people{grid-template-columns:1fr 1fr}.qc,.steps{grid-template-columns:1fr 1fr}.buyers{grid-template-columns:repeat(3,1fr)}.photo-pair,.patent{grid-template-columns:1fr}.news .row{grid-template-columns:132px 1fr 18px;gap:18px;padding:20px 0}.news b{font-size:16px}.news p{font-size:14px}.contact-card{grid-template-columns:1fr}.duo{grid-template-columns:1fr}}
-@media (max-width:560px){.steps,.qc,.cards-3,.cards-4,.resp,.people{grid-template-columns:1fr}.buyers{grid-template-columns:1fr 1fr}.photo-row{grid-template-columns:1fr}.news .row{grid-template-columns:96px 1fr 14px;gap:14px}.news b{font-size:15.5px}.news p{font-size:13.5px}}
+@media (max-width:980px){.cards-3,.cards-4,.resp,.people{grid-template-columns:1fr 1fr}.qc,.steps{grid-template-columns:1fr 1fr}.buyer{flex-basis:calc((100% - 24px)/3);max-width:calc((100% - 24px)/3)}.photo-pair,.patent{grid-template-columns:1fr}.news .row{grid-template-columns:132px 1fr 18px;gap:18px;padding:20px 0}.news b{font-size:16px}.news p{font-size:14px}.contact-card{grid-template-columns:1fr}.duo{grid-template-columns:1fr}}
+@media (max-width:560px){.steps,.qc,.cards-3,.cards-4,.resp,.people{grid-template-columns:1fr}.buyer{flex-basis:calc((100% - 12px)/2);max-width:calc((100% - 12px)/2)}.photo-row{grid-template-columns:1fr}.news .row{grid-template-columns:96px 1fr 14px;gap:14px}.news b{font-size:15.5px}.news p{font-size:13.5px}}
 </style>
 </head>
 <body>
@@ -674,6 +674,19 @@ a.row:hover .thumb img{transform:scale(1.05)}
         <li class="buyer"><img src="images/buyer-13-radley.png?v=2" alt="Radley London"></li>
         <li class="buyer"><img src="images/buyer-14-66girls.png?v=2" alt="66girls"></li>
         <li class="buyer"><img src="images/buyer-15-lacoste.png?v=2" alt="Lacoste"></li>
+        <li class="buyer"><img src="images/buyer-16-lanebryant.png" alt="LANE BRYANT"></li>
+        <li class="buyer"><img src="images/buyer-17-americaneagle.png" alt="AMERICAN EAGLE"></li>
+        <li class="buyer"><img src="images/buyer-18-anntaylor.png" alt="ANN TAYLOR"></li>
+        <li class="buyer"><img src="images/buyer-19-loft.png" alt="LOFT"></li>
+        <li class="buyer"><img src="images/buyer-20-aerie.png" alt="aerie"></li>
+        <li class="buyer"><img src="images/buyer-21-alldaysocks.png" alt="ALLDAYSÖCKS"></li>
+        <li class="buyer"><img src="images/buyer-22-crocodile.png" alt="Crocodile"></li>
+        <li class="buyer"><img src="images/buyer-23-nepa.png" alt="NEPA"></li>
+        <li class="buyer"><img src="images/buyer-24-mizuno.png" alt="Mizuno"></li>
+        <li class="buyer"><img src="images/buyer-25-descentegolf.png" alt="DESCENTE GOLF"></li>
+        <li class="buyer"><img src="images/buyer-26-caf.png" alt="CAF"></li>
+        <li class="buyer"><img src="images/buyer-27-wackywilly.png" alt="Wacky WiLLY"></li>
+        <li class="buyer"><img src="images/buyer-28-fila.png" alt="FILA"></li>
       </ul>
     </article>
   </div></div>
