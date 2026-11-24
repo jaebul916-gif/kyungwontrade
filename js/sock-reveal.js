@@ -43,10 +43,10 @@
   }
 
   function add(x, y) {
-    var base = W < 700 ? 90 : 150;
+    var base = W < 700 ? 42 : 85;
     if (last) {
       var dx = x - last.x, dy = y - last.y, d = Math.hypot(dx, dy);
-      var rad = base + Math.min(90, d * 0.6);           // 빠르게 움직일수록 더 넓게
+      var rad = base + Math.min(W < 700 ? 18 : 35, d * 0.3);           // 빠르게 움직일수록 더 넓게
       var n = Math.max(1, Math.ceil(d / (rad * 0.25)));  // 끊기지 않게 사이를 채움
       for (var i = 1; i <= n; i++) pts.push([last.x + dx * i / n, last.y + dy * i / n, rad]);
     } else pts.push([x, y, base]);
