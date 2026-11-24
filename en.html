@@ -336,6 +336,10 @@ footer.site .admin-link{margin-left:auto;align-self:flex-start;padding:4px 12px}
 .buyer{flex:0 0 calc((100% - 48px)/5);max-width:calc((100% - 48px)/5);background:#fff;border:1px solid var(--line);border-radius:16px;aspect-ratio:5/3;display:grid;place-items:center;padding:16px;margin:0}
 .buyer img{max-width:100%;max-height:72px;width:auto;height:auto;object-fit:contain;filter:grayscale(1);opacity:.82;transition:filter .3s,opacity .3s,transform .3s}
 .buyer:hover img{filter:none;opacity:1;transform:scale(1.05)}
+/* 넓은 워드마크 로고는 타일을 2칸으로 넓혀 다른 로고와 비슷한 크기로 보이게 한다 */
+.buyer.wide{flex-basis:calc((100% - 48px)/5*2 + 12px);max-width:calc((100% - 48px)/5*2 + 12px)}
+@media (max-width:980px){.buyer.wide{flex-basis:calc((100% - 24px)/3*2 + 12px);max-width:calc((100% - 24px)/3*2 + 12px)}}
+@media (max-width:560px){.buyer.wide{flex-basis:100%;max-width:100%}}
 .photo-pair{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-top:32px}
 .photo-pair figure{margin:0;border-radius:22px;overflow:hidden;background:var(--paper-2);aspect-ratio:16/9}
 .photo-pair img{width:100%;height:100%;object-fit:cover;display:block}
@@ -677,12 +681,12 @@ a.row:hover .thumb img{transform:scale(1.05)}
         <li class="buyer"><img src="images/buyer-13-radley.png?v=2" alt="Radley London"></li>
         <li class="buyer"><img src="images/buyer-14-66girls.png?v=2" alt="66girls"></li>
         <li class="buyer"><img src="images/buyer-15-lacoste.png?v=2" alt="Lacoste"></li>
-        <li class="buyer"><img src="images/buyer-16-lanebryant.png" alt="LANE BRYANT"></li>
-        <li class="buyer"><img src="images/buyer-17-americaneagle.png" alt="AMERICAN EAGLE"></li>
-        <li class="buyer"><img src="images/buyer-18-anntaylor.png" alt="ANN TAYLOR"></li>
+        <li class="buyer wide"><img src="images/buyer-16-lanebryant.png" alt="LANE BRYANT"></li>
+        <li class="buyer wide"><img src="images/buyer-17-americaneagle.png" alt="AMERICAN EAGLE"></li>
+        <li class="buyer wide"><img src="images/buyer-18-anntaylor.png" alt="ANN TAYLOR"></li>
         <li class="buyer"><img src="images/buyer-19-loft.png" alt="LOFT"></li>
         <li class="buyer"><img src="images/buyer-20-aerie.png" alt="aerie"></li>
-        <li class="buyer"><img src="images/buyer-21-alldaysocks.png" alt="ALLDAYSÖCKS"></li>
+        <li class="buyer wide"><img src="images/buyer-21-alldaysocks.png" alt="ALLDAYSÖCKS"></li>
         <li class="buyer"><img src="images/buyer-22-crocodile.png" alt="Crocodile"></li>
         <li class="buyer"><img src="images/buyer-23-nepa.png" alt="NEPA"></li>
         <li class="buyer"><img src="images/buyer-24-mizuno.png" alt="Mizuno"></li>
