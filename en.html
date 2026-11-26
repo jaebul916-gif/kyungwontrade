@@ -142,7 +142,8 @@ header.site.scrolled{border-color:var(--line)}
 .ceo blockquote{margin:28px 0 0;font-family:var(--f-display);font-size:clamp(28px,3.6vw,54px);line-height:1.2;font-weight:700;letter-spacing:-.03em}
 .ceo blockquote em{font-style:normal;color:var(--indigo)}
 .ceo .letter{margin-top:36px;font-size:16px;color:var(--ink-soft);line-height:2}
-.ceo .letter span{display:block}
+.ceo .letter span,.ceo .letter p{display:block;margin:0}
+.ceo .letter p+p{margin-top:.9em}
 .ceo .sign{margin-top:36px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .ceo .sign strong{font-size:17px}
 .ceo .sign img{height:44px;width:auto}
@@ -479,19 +480,14 @@ a.row:hover .thumb img{transform:scale(1.05)}
       <h2 id="ceo-t" style="font-size:clamp(28px,3vw,40px)">CEO message</h2>
       <blockquote>“We always think of customers first,<br>and pursue <em>changes and innovation</em>.”</blockquote>
       <div class="letter">
-        <span>Hello, I am J.K. Park, CEO of Kyungwon Corporation.</span>
-        <span>Thank you for visiting our company.</span>
-        <span>What sets us apart from our competitors is the question we keep asking about essence.</span>
-        <span>We always think about essence.</span>
-        <span>We hope the products we make deliver value beyond their physical form,</span>
-        <span>and that our care for essence reaches our customers.</span>
-        <span>Meeting and communicating with the world through socks and other textile products,</span>
-        <span>the fundamental goal we pursue</span>
-        <span>is the creation of a better, more comfortable lifestyle for people.</span>
-        <span>With differentiated service built on insight into people, we promise to deliver products —</span>
-        <span>and value beyond them — to our customers.</span>
-        <span>With the pride that our technology brings the future closer,</span>
-        <span>we will not stop making ceaseless efforts. Thank you.</span>
+        <p>Hello, I am J.K. Park, CEO of Kyungwon Corporation.</p>
+        <p>Thank you for visiting our company.</p>
+        <p>The strength that sets our company apart from its competitors is our devotion to essence.</p>
+        <p>We always think about essence.</p>
+        <p>We hope the products we make deliver value beyond product performance itself, and that our sincerity reaches our customers. Kyungwon Corporation is strengthening that essence further through ceaseless technological innovation.</p>
+        <p>SUNTECHLON, our own yarn developed in-house by combining sunlight (SUN) with nano technology (NANO TECHNOLOGY) and eco-friendly functional inorganic minerals, is the result of adding groundbreaking functionality to comfort as close as cotton. Innovative functional materials and products that cover antibacterial and antiviral properties, deodorizing, moisture-wicking and quick-dry, anti-static and UV protection — delivering comfort and trust to everyday life: this is Kyungwon Corporation’s goal in creating a better, more comfortable lifestyle for people.</p>
+        <p>With differentiated service and advanced material technology, we promise to deliver value beyond the product to our customers. With the pride that our technology brings the future closer, we will not stop making ceaseless efforts.</p>
+        <p>Thank you.</p>
       </div>
       <div class="sign"><strong>J.K. Park, CEO</strong><img src="images/sign.png" alt="J.K Park signature"></div>
     </div>
@@ -1007,7 +1003,7 @@ if(hasGsap&&!reduce){
  gsap.from('.seg',{scale:.94,rotate:-6,transformOrigin:'260px 260px',duration:1.2,ease:'expo.out',stagger:.12,immediateRender:false,scrollTrigger:{trigger:'#orgring',start:'top 80%'}});
  gsap.from('.dept',{x:32,duration:.9,ease:'power3.out',stagger:.08,immediateRender:false,scrollTrigger:{trigger:'#orglist',start:'top 80%'}});
  gsap.fromTo('#ceoimg',{yPercent:-8},{yPercent:0,ease:'none',scrollTrigger:{trigger:'.ceo',start:'top bottom',end:'bottom top',scrub:true}});
- gsap.from('.ceo .letter span',{y:24,duration:.8,ease:'power2.out',stagger:.06,immediateRender:false,scrollTrigger:{trigger:'.ceo .letter',start:'top 80%'}});
+ gsap.from('.ceo .letter > *',{y:24,duration:.8,ease:'power2.out',stagger:.06,immediateRender:false,scrollTrigger:{trigger:'.ceo .letter',start:'top 80%'}});
  gsap.from('.ceo .sign img',{clipPath:'inset(0 100% 0 0)',duration:1.8,ease:'power2.inOut',scrollTrigger:{trigger:'.ceo .sign',start:'top 92%'}});
  gsap.from('.vm',{y:60,duration:1,ease:'expo.out',stagger:.15,immediateRender:false,scrollTrigger:{trigger:'#tri',start:'top 80%'}});
  gsap.fromTo('#triPath',{strokeDashoffset:1200},{strokeDashoffset:0,ease:'none',scrollTrigger:{trigger:'#tri',start:'top 80%',end:'bottom 50%',scrub:true}});
