@@ -19,7 +19,7 @@
 
   var img = new Image(), ready = false;
   img.onload = function () { ready = true; };
-  img.src = 'images/socks.jpg';
+  img.src = 'images/socks.jpg?v=20261126';
 
   function size() {
     var r = hero.getBoundingClientRect();
