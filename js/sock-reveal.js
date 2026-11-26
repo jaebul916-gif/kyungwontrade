@@ -101,9 +101,10 @@
   function user() { auto = 0; clearTimeout(idle); idle = setTimeout(startAuto, 5000); }
   function startAuto() {
     if (!inView || document.hidden) { idle = setTimeout(startAuto, 3000); return; }
-    var t0 = performance.now(), dur = 3200, dir = Math.random() < 0.5 ? 1 : -1, id = ++auto;
+    // 방향은 항상 왼쪽 → 오른쪽(dir = 1)으로 고정합니다.
+    var t0 = performance.now(), dur = 3200, dir = 1, id = ++auto;
     // 캔버스 y는 아래로 갈수록 커지므로, 화면 아래쪽에서 출발해 위쪽에서 끝나는 상승 곡선으로 그립니다.
-    // 가운데가 살짝 처지는 완만한 활 모양이라 끝까지 기울기가 위를 향하고, 좌우 어느 방향이어도 같습니다.
+    // 가운데가 살짝 처지는 완만한 활 모양이라 끝까지 기울기가 위를 향합니다.
     var yStart = 0.68 + Math.random() * 0.10;
     var yEnd = 0.24 + Math.random() * 0.10;
     var bow = 0.08 + Math.random() * 0.04;
