@@ -882,8 +882,8 @@ addEventListener('pointerdown',e=>{if(orgList.classList.contains('focus')&&!e.ta
 const eras=[
  {y:"1990`s",t:'Founding and foundation',h:[205,40],e:[['1995.07','Kyungwon Trading Company founded'],['1999.08','Moved to Iksan 2nd Industrial Complex'],['1999.11','$1 million export tower']]},
  {y:"2000`s",t:'Challenge and innovation',h:[215,60],e:[['2000.04','Incorporated as Kyungwon Corporation'],['2003.11','$3 million export tower'],['2004.11','ISO 9001 quality management system'],['2005.01','ISO 14001 environmental management system']]},
- {y:"2010`s",t:'Steady growth',h:[228,45],e:[['2010.03','Clean workplace certification'],['2010.09','R&D department certification'],['2010.12','INNO-BIZ certification'],['2011.07','Environmental mark certification'],['2015.12','$5 million export tower'],['2017.10','Selected as a strong small business']]},
- {y:"2020`s",t:'A new step',h:[30,55],e:[['2020.01','New factory investment in Vietnam'],['2020.01','Own brand (K.LAVA) launched'],['2020.03','Domestic expansion and new buyers']]},
+ {y:"2010`s",t:'Steady growth',h:[228,45],e:[['2010.03','Clean workplace certification'],['2010.09','R&D department certification'],['2010.12','INNO-BIZ certification'],['2011.07','Environmental mark certification'],['2015.12','$5 million export tower'],['2017.06','Registered patent for Hanji sock manufacturing'],['2017.10','Selected as a strong small business']]},
+ {y:"2020`s",t:'A new step',h:[30,55],e:[['2020.01','New factory investment in Vietnam'],['2020.01','Own brand (K.LAVA) launched'],['2020.03','Domestic expansion and new buyers'],['2024.07','Registered patent for eco-friendly textile yarn composition'],['2025.12','Obtained INNO-BIZ certification'],['2026.04','Registered patent for non-toxic flame-retardant recycled polyester yarn']]},
 ];
 const track=$('#htrack');
 track.innerHTML=eras.map((r,i)=>`<article class="era"><div class="era-head"><canvas data-h="${r.h[0]}" data-s="${r.h[1]}" data-i="${i}" aria-hidden="true"></canvas><div class="yr">${r.y}</div><div class="tt">${r.t}</div></div><ol class="events">${r.e.map(e=>`<li><time>${e[0]}</time><span>${e[1]}</span></li>`).join('')}</ol></article>`).join('');
