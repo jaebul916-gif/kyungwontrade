@@ -97,12 +97,14 @@
   hero.addEventListener('touchmove', function (e) { var t = e.touches[0]; at(t.clientX, t.clientY); }, { passive: true });
 
   // 입력이 없을 때 가끔 화면을 가로지르며 자동으로 보여 줌
-  var idle = 0, auto = 0, inView = true;
+  var idle = 0, auto = 0, inView = true, nextDir = 1;
   function user() { auto = 0; clearTimeout(idle); idle = setTimeout(startAuto, 5000); }
   function startAuto() {
     if (!inView || document.hidden) { idle = setTimeout(startAuto, 3000); return; }
-    // 방향은 항상 왼쪽 → 오른쪽(dir = 1)으로 고정합니다.
-    var t0 = performance.now(), dur = 3200, dir = 1, id = ++auto;
+    // 자동 스윕은 한 번씩 방향을 바꿉니다. 첫 번째는 왼쪽 → 오른쪽(1),
+    // 두 번째는 오른쪽 → 왼쪽(-1), 그다음 다시 왼쪽 → 오른쪽 … 식으로 번갈아 흐릅니다.
+    var dir = nextDir; nextDir = -nextDir;
+    var t0 = performance.now(), dur = 3200, id = ++auto;
     // 캔버스 y는 아래로 갈수록 커지므로, 화면 아래쪽에서 출발해 위쪽에서 끝나는 상승 곡선으로 그립니다.
     // 가운데가 살짝 처지는 완만한 활 모양이라 끝까지 기울기가 위를 향합니다.
     var yStart = 0.68 + Math.random() * 0.10;
