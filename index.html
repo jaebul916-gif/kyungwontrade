@@ -137,8 +137,10 @@ header.site.scrolled{border-color:var(--line)}
 
 /* ---------- CEO ---------- */
 .ceo{background:var(--paper-2);padding-block:clamp(80px,10vw,150px);overflow:hidden}
-.ceo-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,80px);align-items:end}
+.ceo-grid{display:grid;grid-template-columns:1.15fr .85fr;column-gap:clamp(32px,5vw,80px);align-items:start}
 .ceo-grid > *{min-width:0}
+.ceo-body{grid-column:1/-1;display:grid;grid-template-columns:1.15fr .85fr;column-gap:clamp(32px,5vw,80px);margin-top:36px}
+.ceo-body > *{min-width:0}
 .ceo blockquote{margin:28px 0 0;font-family:var(--f-display);font-size:clamp(28px,3.6vw,54px);line-height:1.2;font-weight:700;letter-spacing:-.03em}
 .ceo blockquote em{font-style:normal;color:var(--indigo)}
 .ceo .letter{margin-top:36px;font-size:16px;color:var(--ink-soft);line-height:2}
@@ -147,9 +149,11 @@ header.site.scrolled{border-color:var(--line)}
 .ceo .sign{margin-top:36px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .ceo .sign strong{font-size:17px}
 .ceo .sign img{height:44px;width:auto}
-.ceo-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:2048/1366;max-width:100%;background:#c9ced6;margin:0}
-.ceo-photo img{width:100%;height:108%;object-fit:cover;object-position:50% 42%;display:block}
-@media (max-width:860px){.ceo-grid{grid-template-columns:1fr;row-gap:0}.ceo-copy{display:contents}.ceo-copy>*{min-width:0}.ceo-copy>.eyebrow,.ceo-copy>h2{order:-2}.ceo-photo{order:-1;max-width:440px;margin:clamp(20px,5vw,32px) 0 0}}
+.ceo-body .letter{margin-top:0}
+.ceo-photo{position:relative;border-radius:28px;overflow:hidden;max-width:100%;background:#c9ced6;margin:0;grid-column:2;grid-row:1/span 2;height:100%}
+.ceo-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block}
+@media (max-width:1149px){.ceo-photo{height:auto;aspect-ratio:4/5;align-self:end}}
+@media (max-width:860px){.ceo-grid{display:flex;flex-direction:column;row-gap:0}.ceo-head,.ceo-body{display:contents}.ceo-head>*{min-width:0}.ceo .eyebrow{order:-3}.ceo h2{order:-2}.ceo .letter{margin-top:36px}.ceo-photo{order:-1;height:auto;aspect-ratio:2048/1366;align-self:auto;max-width:440px;margin:clamp(20px,5vw,32px) 0 0}}
 
 /* ---------- 비전 ---------- */
 .vision{padding-block:clamp(80px,10vw,150px)}
@@ -168,7 +172,8 @@ header.site.scrolled{border-color:var(--line)}
 @keyframes spin{to{--a:360deg}}
 .vm p{font-size:17px;line-height:1.7}
 .vision-band{margin-top:clamp(60px,8vw,100px);border-radius:28px;overflow:hidden;position:relative;aspect-ratio:21/8;max-width:100%;background:#1c2431}
-.vision-band canvas{position:absolute;inset:0;width:100%;height:100%}
+.vision-band video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vision-caption{margin-top:clamp(18px,2.4vw,28px);text-align:center;font-family:var(--f-display);font-size:clamp(18px,2.1vw,28px);font-weight:700;letter-spacing:-.02em;color:var(--ink)}
 @media (max-width:760px){.tri-grid{grid-template-columns:1fr}.vm:nth-child(n){margin-top:0}.tri svg.lines{display:none}.vm{flex-direction:row;align-items:center}.orb{width:110px}.vision-band{aspect-ratio:4/3}}
 
 /* ---------- 연혁 ---------- */
@@ -478,10 +483,12 @@ a.row:hover .thumb img{transform:scale(1.05)}
 <!-- CEO 인사말 -->
 <section class="ceo" id="ceo" aria-labelledby="ceo-t">
   <div class="wrap"><div class="wrap-inner ceo-grid">
-    <div class="ceo-copy">
+    <div class="ceo-head">
       <p class="eyebrow">CEO Message</p>
       <h2 id="ceo-t" style="font-size:clamp(28px,3vw,40px)">CEO 인사말</h2>
       <blockquote>“안녕하십니까<br>본질을 지키며 <em>혁신</em>을 추구하는 기업, 경원상사 입니다.”</blockquote>
+    </div>
+    <div class="ceo-body">
       <div class="letter">
         <p>안녕하십니까. 경원상사 대표 박중근입니다.</p>
         <p>우리 회사를 방문해 주신 고객님께 깊은 감사의 말씀을 드립니다.</p>
@@ -493,8 +500,8 @@ a.row:hover .thumb img{transform:scale(1.05)}
         <p>감사합니다.</p>
       </div>
       <div class="sign"><strong>경원상사 대표이사 박중근</strong><img src="images/sign.png" alt="J.K Park 서명"></div>
+      <figure class="ceo-photo"><img id="ceoimg" src="images/ceo-2026.jpg?v=2" alt="경원상사 대표이사 박중근"></figure>
     </div>
-    <figure class="ceo-photo"><img id="ceoimg" src="images/ceo-2026.jpg?v=2" alt="경원상사 대표이사 박중근"></figure>
   </div></div>
 </section>
 
@@ -511,7 +518,8 @@ a.row:hover .thumb img{transform:scale(1.05)}
         <div class="vm"><div class="orb"><b>MISSION</b></div><p>우리의 제품을 사용하는<br>고객의 행복과 삶의 질 향상</p></div>
       </div>
     </div>
-    <div class="vision-band"><canvas id="sunset" aria-hidden="true"></canvas></div>
+    <div class="vision-band"><video id="shipvid" autoplay muted loop playsinline preload="auto" poster="images/container-ship-poster.jpg" aria-label="컨테이너선이 바다를 항해하는 모습"><source src="images/container-ship.mp4" type="video/mp4"></video></div>
+    <p class="vision-caption">경원상사의 제품은 세계를 향해 나아갑니다.</p>
   </div></div>
 </section>
 
@@ -539,7 +547,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
     </div>
     <div class="docs">
       <figure><div class="doc tilt"><img src="images/cert-rnd.jpg" alt="연구개발전담부서 인정서"></div><figcaption>연구개발전담부서 인정서</figcaption></figure>
-      <figure><div class="doc tilt"><img src="images/cert-innobiz-2025.jpg" alt="기술혁신형 중소기업(INNO-BIZ) 확인서 — 제 R101001-01975호"></div><figcaption>기술혁신형 중소기업(INNO-BIZ) 확인서<span class="cap-meta">제 R101001-01975호 · 유효기간 2025.12.10 – 2028.12.09</span></figcaption></figure>
+      <figure><div class="doc tilt"><img src="images/cert-innobiz-2025.jpg" alt="기술혁신형 중소기업(INNO-BIZ) 확인서 — 제 R101001-01975호"></div><figcaption>기술혁신형 중소기업(INNO-BIZ) 확인서</figcaption></figure>
     </div>
   </div></div>
 </section>
@@ -838,7 +846,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
       <article class="loc">
         <div class="mapbox"><canvas class="map" data-kind="iksan" aria-hidden="true"></canvas>
           <div class="maplinks"><a href="https://map.kakao.com/?q=%EC%A0%84%EB%9D%BC%EB%B6%81%EB%8F%84%20%EC%9D%B5%EC%82%B0%EC%8B%9C%20%EC%84%9D%EC%95%94%EB%A1%9C%2017%EA%B8%B8%20147" target="_blank" rel="noopener">카카오맵 ↗</a></div></div>
-        <h3>국내 공장</h3>
+        <h3>익산 본사, 국내 공장</h3>
         <dl>
           <dt>주소</dt><dd><span>전라북도 익산시 석암로 17길 147</span><button class="copy" data-copy="전라북도 익산시 석암로 17길 147">복사</button></dd>
           <dt>대표번호</dt><dd><span>063-835-3111</span><button class="copy" data-copy="063-835-3111">복사</button></dd>
@@ -904,7 +912,7 @@ const eras=[
  {y:"1990`s",t:'설립 및 기반 구축',h:[205,40],e:[['1995.07','경원무역상사 설립'],['1999.08','익산 제2산업단지 확장 이전'],['1999.11','1백만불 수출의 탑 수상']]},
  {y:"2000`s",t:'도전과 혁신',h:[215,60],e:[['2000.04','주식회사 경원상사로 법인 설립'],['2003.11','3백만불 수출의 탑 수상'],['2004.11','ISO 9001 품질경영시스템인증 취득'],['2005.01','ISO 14001 환경인증시스템인증 취득']]},
  {y:"2010`s",t:'안정된 성장',h:[228,45],e:[['2010.03','클린사업장 인정'],['2010.09','연구개발 전담부서 인정'],['2010.12','INNO-BIZ 취득'],['2011.07','환경마크인증서 취득'],['2015.12','5백만불 수출의 탑 수상'],['2017.06','한지양말 제조 관련 특허 등록'],['2017.10','강소 중소기업 인증 획득']]},
- {y:"2020`s",t:'새로운 발걸음',h:[30,55],e:[['2020.01','베트남 신규 공장 투자'],['2020.01','자체 브랜드 (K.LAVA) 런칭'],['2020.03','내수 사업 확대 및 신규 바이어 창출'],['2024.07','친환경 섬유 원사 제조용 조성물 관련 특허 등록'],['2025.12','INNO-BIZ 취득'],['2026.04','인체 무독성 난연성 리사이클 폴리에스터 원사 관련 특허 등록']]},
+ {y:"2020`s",t:'새로운 발걸음',h:[30,55],e:[['2020.01','자체 브랜드 (K.LAVA) 런칭'],['2020.03','내수 사업 확대 및 신규 바이어 창출'],['2021.05','베트남 생산법인 경원비나(KYUNGWON VINA) 설립'],['2023.02','자체 브랜드 Alldaysocks 런칭'],['2024.07','친환경 섬유 원사 제조용 조성물 관련 특허 등록'],['2025.12','INNO-BIZ 취득'],['2026.04','인체 무독성 난연성 리사이클 폴리에스터 원사 관련 특허 등록']]},
 ];
 const track=$('#htrack');
 track.innerHTML=eras.map((r,i)=>`<article class="era"><div class="era-head"><canvas data-h="${r.h[0]}" data-s="${r.h[1]}" data-i="${i}" aria-hidden="true"></canvas><div class="yr">${r.y}</div><div class="tt">${r.t}</div></div><ol class="events">${r.e.map(e=>`<li><time>${e[0]}</time><span>${e[1]}</span></li>`).join('')}</ol></article>`).join('');
@@ -980,13 +988,14 @@ function drawMap(m,t){const{x,w,h}=m.F;const seoul=m.c.dataset.kind==='seoul';x.
  const px=w*(seoul?.42:.55),py=h*(seoul?.52:.38),pulse=(t*.001)%1;
  x.strokeStyle=`rgba(125,140,255,${1-pulse})`;x.lineWidth=2;x.beginPath();x.arc(px,py,8+pulse*44,0,7);x.stroke();
  x.fillStyle='#7d8cff';x.beginPath();x.arc(px,py,8,0,7);x.fill();
- x.fillStyle='#f3f4f6';x.font='600 15px "IBM Plex Sans KR",sans-serif';x.fillText(seoul?'서울 사무실':'국내 공장',px+16,py+5);}
+ x.fillStyle='#f3f4f6';x.font='600 15px "IBM Plex Sans KR",sans-serif';const lb=seoul?'서울 사무실':'익산 본사, 국내 공장';const lw=x.measureText(lb).width;const rt=px+16+lw<w-6;x.textAlign=rt?'left':'right';x.fillText(lb,rt?px+16:px-16,py+5);x.textAlign='left';}
 const eraCvs=[...document.querySelectorAll('.era-head canvas')];
 function drawTri(){const tri=$('#tri'),p=$('#triPath');const tr=tri.getBoundingClientRect();const o=[...tri.querySelectorAll('.orb')].map(o=>{const r=o.getBoundingClientRect();return[r.left-tr.left+r.width/2,r.top-tr.top+r.height/2]});p.setAttribute('d',`M${o[0]} L${o[1]} L${o[2]} Z`)}
-function sizeAll(){K=fit(knit);SS=fit(sunset);MP=maps.map(c=>({c,F:fit(c)}));eraCvs.forEach(drawEra);drawTri()}
+function sizeAll(){K=fit(knit);SS=sunset?fit(sunset):null;MP=maps.map(c=>({c,F:fit(c)}));eraCvs.forEach(drawEra);drawTri()}
 const vis=new Map(),io=new IntersectionObserver(es=>es.forEach(e=>vis.set(e.target,e.isIntersecting)));
-[knit,sunset,...maps].forEach(c=>{vis.set(c,true);io.observe(c)});
-function frame(t){if(vis.get(knit))drawKnit(t);if(vis.get(sunset))drawSunset(t);MP.forEach(m=>{if(vis.get(m.c))drawMap(m,t)});if(!reduce)requestAnimationFrame(frame)}
+[knit,...(sunset?[sunset]:[]),...maps].forEach(c=>{vis.set(c,true);io.observe(c)});
+const vband=$('#shipvid');if(vband){const vio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const p=vband.play();if(p&&p.catch)p.catch(()=>{})}else vband.pause()}),{threshold:.05});vio.observe(vband)}
+function frame(t){if(vis.get(knit))drawKnit(t);if(sunset&&vis.get(sunset))drawSunset(t);MP.forEach(m=>{if(vis.get(m.c))drawMap(m,t)});if(!reduce)requestAnimationFrame(frame)}
 sizeAll();requestAnimationFrame(frame);
 addEventListener('resize',()=>{sizeAll();if(reduce)frame(0)});
 if(document.fonts)document.fonts.ready.then(()=>{sizeAll();if(reduce)frame(0)});
@@ -1025,7 +1034,6 @@ if(hasGsap&&!reduce){
  gsap.from('.prod',{y:80,rotate:()=>gsap.utils.random(-6,6),duration:1.1,ease:'expo.out',stagger:.08,immediateRender:false,scrollTrigger:{trigger:'#prodgrid',start:'top 85%'}});
  gsap.from('.seg',{scale:.94,rotate:-6,transformOrigin:'260px 260px',duration:1.2,ease:'expo.out',stagger:.12,immediateRender:false,scrollTrigger:{trigger:'#orgring',start:'top 80%'}});
  gsap.from('.dept',{x:32,duration:.9,ease:'power3.out',stagger:.08,immediateRender:false,scrollTrigger:{trigger:'#orglist',start:'top 80%'}});
- gsap.fromTo('#ceoimg',{yPercent:-8},{yPercent:0,ease:'none',scrollTrigger:{trigger:'.ceo',start:'top bottom',end:'bottom top',scrub:true}});
  gsap.from('.ceo .letter > *',{y:24,duration:.8,ease:'power2.out',stagger:.06,immediateRender:false,scrollTrigger:{trigger:'.ceo .letter',start:'top 80%'}});
  gsap.from('.ceo .sign img',{clipPath:'inset(0 100% 0 0)',duration:1.8,ease:'power2.inOut',scrollTrigger:{trigger:'.ceo .sign',start:'top 92%'}});
  gsap.from('.vm',{y:60,duration:1,ease:'expo.out',stagger:.15,immediateRender:false,scrollTrigger:{trigger:'#tri',start:'top 80%'}});
