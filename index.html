@@ -198,9 +198,11 @@ header.site.scrolled{border-color:var(--line)}
 .wrap-feature h3{font-size:clamp(24px,2.4vw,32px)}
 .wrap-feature p{margin-top:14px;color:var(--ink-soft);font-size:17px}
 .wrap-logo{margin-top:28px;width:170px;border-radius:12px;background:#fff;padding:6px}
-.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,40px);margin-top:56px;padding-block:40px;border-block:1px solid var(--line)}
-.docs .doc{perspective:800px}
+.docs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,3vw,40px);max-width:920px;margin:56px auto 0;padding-block:40px;border-block:1px solid var(--line)}
+.docs .doc{perspective:800px;aspect-ratio:1/1.41}
+.docs .doc img{height:100%;object-fit:contain;background:#fff}
 .docs figcaption{padding:12px 4px 0;font-size:14px;color:var(--ink-soft);background:var(--paper)}
+.docs figcaption .cap-meta{display:block;margin-top:4px;font-family:var(--f-mono);font-size:12px;letter-spacing:.02em;opacity:.8}
 .docs figure{margin:0;min-width:0}
 @media (max-width:860px){.wrap-feature{grid-template-columns:1fr}.docs{grid-template-columns:1fr 1fr}}
 @media (max-width:480px){.docs{grid-template-columns:1fr}}
@@ -536,8 +538,7 @@ a.row:hover .thumb img{transform:scale(1.05)}
     </div>
     <div class="docs">
       <figure><div class="doc tilt"><img src="images/cert-rnd.jpg" alt="연구개발전담부서 인정서"></div><figcaption>연구개발전담부서 인정서</figcaption></figure>
-      <figure><div class="doc tilt"><img src="images/cert-innobiz.jpg" alt="기술혁신형 중소기업(INNO-BIZ) 확인서"></div><figcaption>기술혁신형 중소기업(INNO-BIZ) 확인서</figcaption></figure>
-      <figure><div class="doc tilt"><img src="images/cert-patent.jpg" alt="특허증"></div><figcaption>특허증</figcaption></figure>
+      <figure><div class="doc tilt"><img src="images/cert-innobiz-2025.jpg" alt="기술혁신형 중소기업(INNO-BIZ) 확인서 — 제 R101001-01975호"></div><figcaption>기술혁신형 중소기업(INNO-BIZ) 확인서<span class="cap-meta">제 R101001-01975호 · 유효기간 2025.12.10 – 2028.12.09</span></figcaption></figure>
     </div>
   </div></div>
 </section>
